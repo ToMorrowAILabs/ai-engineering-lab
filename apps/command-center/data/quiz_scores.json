@@ -1,0 +1,7 @@
+{
+  "scores": [
+    { "lessonId": "week-02-python-git-foundations", "score": 90, "date": "2026-05-20" },
+    { "lessonId": "week-03-apis-json-foundations", "score": 85, "date": "2026-05-22" },
+    { "lessonId": "week-04-linear-algebra-foundations", "score": 72, "date": "2026-05-25" }
+  ]
+}

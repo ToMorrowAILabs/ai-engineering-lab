@@ -1,0 +1,25 @@
+{
+  "resource_id": "esl-book",
+  "title": "The Elements of Statistical Learning",
+  "url": "https://hastie.su.domains/ElemStatLearn/",
+  "lesson": [
+    "statistics",
+    "optimization"
+  ],
+  "difficulty": "advanced",
+  "reinforcement_priority": "low",
+  "commute_friendly": false,
+  "weakness_tags": [
+    "regularization",
+    "bias_variance"
+  ],
+  "review_questions": [
+    "What is the main goal of studying The Elements of Statistical Learning?",
+    "Name one AI engineering application for topics in statistics.",
+    "What notation or concept was hardest? How would you test whether you understand it?",
+    "How does this resource connect to weakness tags: regularization, bias_variance?"
+  ],
+  "exercise_suggestion": "Compare ridge vs lasso penalties on a synthetic regression dataset.",
+  "manual_only": true,
+  "instructions": "Review manually during commute. Do not automate YouTube or external logins."
+}

@@ -1,0 +1,20 @@
+{
+  "queue": [
+    { "resourceId": "khan-linear-algebra", "title": "Linear Algebra (Khan)", "commuteFriendly": true, "priority": "high", "reviewQuestions": 4, "weaknessTags": ["dot_product", "matrix_multiply"], "completed": true },
+    { "resourceId": "imperial-linear-algebra", "title": "Imperial Linear Algebra", "commuteFriendly": true, "priority": "high", "reviewQuestions": 4, "weaknessTags": ["vectors", "eigenvalues"], "completed": false },
+    { "resourceId": "khan-stats-probability", "title": "Statistics and Probability", "commuteFriendly": true, "priority": "high", "reviewQuestions": 4, "weaknessTags": ["mean_variance", "distributions"], "completed": false },
+    { "resourceId": "bayes-rules", "title": "Bayes Rules!", "commuteFriendly": false, "priority": "medium", "reviewQuestions": 4, "weaknessTags": ["conditional_probability", "bayes_theorem"], "completed": false }
+  ],
+  "playlist": [
+    { "id": "p1", "name": "Week 4 LA Reinforcement", "resourceIds": ["khan-linear-algebra", "imperial-linear-algebra", "mml-book"], "estimatedMinutes": 45 }
+  ],
+  "sessions": [
+    { "id": "cs1", "date": "2026-05-26", "resourceId": "khan-linear-algebra", "durationMinutes": 18, "completed": true },
+    { "id": "cs2", "date": "2026-05-24", "resourceId": "imperial-linear-algebra", "durationMinutes": 22, "completed": false }
+  ],
+  "metrics": {
+    "passiveReinforcementScore": 62,
+    "reviewCadenceDays": 2.5,
+    "retentionReinforcementLevel": "moderate"
+  }
+}

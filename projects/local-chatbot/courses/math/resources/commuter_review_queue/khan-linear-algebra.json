@@ -1,0 +1,25 @@
+{
+  "resource_id": "khan-linear-algebra",
+  "title": "Linear Algebra (Khan Academy)",
+  "url": "https://www.khanacademy.org/math/linear-algebra",
+  "lesson": [
+    "linear_algebra",
+    "embeddings"
+  ],
+  "difficulty": "beginner",
+  "reinforcement_priority": "high",
+  "commute_friendly": true,
+  "weakness_tags": [
+    "dot_product",
+    "matrix_multiply"
+  ],
+  "review_questions": [
+    "What is the main goal of studying Linear Algebra (Khan Academy)?",
+    "Name one AI engineering application for topics in linear_algebra.",
+    "What notation or concept was hardest? How would you test whether you understand it?",
+    "How does this resource connect to weakness tags: dot_product, matrix_multiply?"
+  ],
+  "exercise_suggestion": "Complete dot product exercises; relate to cosine similarity lesson.",
+  "manual_only": true,
+  "instructions": "Review manually during commute. Do not automate YouTube or external logins."
+}

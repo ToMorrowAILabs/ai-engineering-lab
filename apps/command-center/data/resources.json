@@ -1,0 +1,29 @@
+{
+  "resources": [
+    { "id": "mml-book", "title": "Mathematics for Machine Learning", "url": "https://mml-book.github.io", "lessons": ["linear_algebra", "calculus", "probability", "statistics", "optimization"], "difficulty": "intermediate", "reinforcement_priority": "high", "commute_friendly": false, "source_type": "web_book", "copyright_status": "open_access", "curriculum_tier": "foundations", "pdfAvailable": false, "estimated_read_time_minutes": 600, "learning_stage": "core", "resource_quality_score": 95, "reinforcement_score": 90 },
+    { "id": "khan-linear-algebra", "title": "Linear Algebra (Khan Academy)", "url": "https://www.khanacademy.org/math/linear-algebra", "lessons": ["linear_algebra", "embeddings"], "difficulty": "beginner", "reinforcement_priority": "high", "commute_friendly": true, "source_type": "course", "copyright_status": "reference", "curriculum_tier": "foundations", "pdfAvailable": false, "estimated_read_time_minutes": 480, "learning_stage": "intro", "resource_quality_score": 88, "reinforcement_score": 85 },
+    { "id": "imperial-linear-algebra", "title": "Mathematics for ML — Linear Algebra", "url": "https://www.youtube.com/playlist?list=PLiiljHvN6z1_o1ztXTKWPrShrMrBLo5P3", "lessons": ["linear_algebra", "embeddings"], "difficulty": "beginner", "reinforcement_priority": "high", "commute_friendly": true, "source_type": "video_playlist", "copyright_status": "reference", "curriculum_tier": "foundations", "pdfAvailable": false, "estimated_read_time_minutes": 300, "learning_stage": "core", "resource_quality_score": 92, "reinforcement_score": 88 },
+    { "id": "arxiv-matrix-calculus", "title": "Matrix Calculus You Need For Deep Learning", "url": "https://arxiv.org/abs/1802.01528", "lessons": ["calculus", "optimization", "linear_algebra"], "difficulty": "intermediate", "reinforcement_priority": "high", "commute_friendly": false, "source_type": "paper", "copyright_status": "open_access", "curriculum_tier": "foundations", "pdfAvailable": true, "estimated_read_time_minutes": 90, "learning_stage": "core", "resource_quality_score": 94, "reinforcement_score": 86 },
+    { "id": "arxiv-math-of-ai", "title": "The Mathematics of AI", "url": "https://arxiv.org/pdf/2203.08890.pdf", "lessons": ["transformers", "embeddings"], "difficulty": "advanced", "reinforcement_priority": "low", "commute_friendly": false, "source_type": "paper", "copyright_status": "open_access", "curriculum_tier": "frontier_scan", "pdfAvailable": true, "estimated_read_time_minutes": 45, "learning_stage": "scan", "resource_quality_score": 80, "reinforcement_score": 40 },
+    { "id": "isl-book", "title": "An Introduction to Statistical Learning", "url": "https://www.statlearning.com/", "lessons": ["statistics", "probability"], "difficulty": "beginner", "reinforcement_priority": "high", "commute_friendly": false, "source_type": "web_book", "copyright_status": "web_free", "curriculum_tier": "foundations", "pdfAvailable": false, "estimated_read_time_minutes": 720, "learning_stage": "core", "resource_quality_score": 96, "reinforcement_score": 88 },
+    { "id": "khan-stats-probability", "title": "Statistics and Probability", "url": "https://www.khanacademy.org/math/statistics-probability", "lessons": ["statistics", "probability"], "difficulty": "beginner", "reinforcement_priority": "high", "commute_friendly": true, "source_type": "course", "copyright_status": "reference", "curriculum_tier": "foundations", "pdfAvailable": false, "estimated_read_time_minutes": 540, "learning_stage": "intro", "resource_quality_score": 87, "reinforcement_score": 84 }
+  ],
+  "librarySummary": {
+    "pdfCount": 4,
+    "syncValid": true,
+    "lastSync": "2026-05-26T20:00:30Z",
+    "storageLabel": "external-library",
+    "calibreStaged": 4
+  },
+  "sourceRegistry": [
+    { "id": "dair-ai-mml", "name": "dair-ai/Mathematics-for-ML", "url": "https://github.com/dair-ai/Mathematics-for-ML", "type": "curated_index" },
+    { "id": "hf-course", "name": "Hugging Face Course", "url": "https://huggingface.co/learn", "type": "course" },
+    { "id": "fsdl", "name": "Full Stack Deep Learning", "url": "https://fullstackdeeplearning.com/", "type": "course" },
+    { "id": "made-with-ml", "name": "Made With ML", "url": "https://madewithml.com/", "type": "course" },
+    { "id": "cs229", "name": "Stanford CS229", "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rNH7qL6-efu_q2_bPuy0adh", "type": "course" },
+    { "id": "fastai", "name": "FastAI", "url": "https://www.fast.ai/", "type": "course" },
+    { "id": "deeplearning-ai", "name": "DeepLearning.AI", "url": "https://www.deeplearning.ai/", "type": "course" },
+    { "id": "openai-cookbook", "name": "OpenAI Cookbook", "url": "https://github.com/openai/openai-cookbook", "type": "repo" },
+    { "id": "anthropic-prompts", "name": "Anthropic Prompt Engineering", "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview", "type": "docs" }
+  ]
+}

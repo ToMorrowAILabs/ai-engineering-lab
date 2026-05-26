@@ -1,0 +1,25 @@
+{
+  "resource_id": "isl-book",
+  "title": "An Introduction to Statistical Learning",
+  "url": "https://www.statlearning.com/",
+  "lesson": [
+    "statistics",
+    "probability"
+  ],
+  "difficulty": "beginner",
+  "reinforcement_priority": "high",
+  "commute_friendly": false,
+  "weakness_tags": [
+    "regression_basics",
+    "classification_metrics"
+  ],
+  "review_questions": [
+    "What is the main goal of studying An Introduction to Statistical Learning?",
+    "Name one AI engineering application for topics in statistics.",
+    "What notation or concept was hardest? How would you test whether you understand it?",
+    "How does this resource connect to weakness tags: regression_basics, classification_metrics?"
+  ],
+  "exercise_suggestion": "Fit logistic regression on ISL-style toy data; interpret coefficients.",
+  "manual_only": true,
+  "instructions": "Review manually during commute. Do not automate YouTube or external logins."
+}

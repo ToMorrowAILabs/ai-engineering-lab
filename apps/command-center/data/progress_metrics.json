@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "currentWeek": 4,
+    "currentMonth": 1,
+    "lessonsCompleted": 3,
+    "lessonsTotal": 6,
+    "lessonsRemaining": 3,
+    "percentComplete": 50,
+    "estimatedCompletionDate": "2026-07-14",
+    "averageLessonDurationMinutes": 85,
+    "learningVelocityLessonsPerWeek": 0.75,
+    "streakDays": 5,
+    "averageQuizScore": 82,
+    "exerciseCompletionRate": 100,
+    "reinforcementCompletionPct": 45,
+    "commuterReviewCompletionPct": 38,
+    "monthlyConsistencyScore": 72,
+    "activeRemediationQueueSize": 2,
+    "nextRecommendedLesson": "week-05-statistics",
+    "weakTopics": ["conditional_probability", "distributions"],
+    "strongTopics": ["dot_product", "json_parsing", "git_workflow"]
+  },
+  "balance702010": {
+    "target": { "foundations": 70, "applied": 20, "frontier": 10 },
+    "actual": { "foundations": 68, "applied": 22, "frontier": 10 },
+    "onTrack": true,
+    "violations": [],
+    "recommendations": [
+      "Complete Week 5 statistics before increasing frontier scan time.",
+      "Add one applied extension for linear algebra (embedding batch exercise)."
+    ]
+  }
+}

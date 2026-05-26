@@ -1,0 +1,6 @@
+{
+  "queue": [
+    { "id": "r1", "weaknessTag": "conditional_probability", "resourceId": "bayes-rules", "lesson": "probability", "priority": "high", "status": "assigned", "assignedAt": "2026-05-25" },
+    { "id": "r2", "weaknessTag": "distributions", "resourceId": "khan-stats-probability", "lesson": "statistics", "priority": "high", "status": "assigned", "assignedAt": "2026-05-25" }
+  ]
+}

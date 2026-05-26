@@ -1,0 +1,26 @@
+{
+  "resource_id": "imperial-linear-algebra",
+  "title": "Mathematics for ML \u2014 Linear Algebra (Imperial)",
+  "url": "https://www.youtube.com/playlist?list=PLiiljHvN6z1_o1ztXTKWPrShrMrBLo5P3",
+  "lesson": [
+    "linear_algebra",
+    "embeddings"
+  ],
+  "difficulty": "beginner",
+  "reinforcement_priority": "high",
+  "commute_friendly": true,
+  "weakness_tags": [
+    "vectors",
+    "eigenvalues",
+    "pca_intuition"
+  ],
+  "review_questions": [
+    "What is the main goal of studying Mathematics for ML \u2014 Linear Algebra (Imperial)?",
+    "Name one AI engineering application for topics in linear_algebra.",
+    "What notation or concept was hardest? How would you test whether you understand it?",
+    "How does this resource connect to weakness tags: vectors, eigenvalues, pca_intuition?"
+  ],
+  "exercise_suggestion": "Watch eigenvector lecture; implement power iteration on a 2\u00d72 matrix.",
+  "manual_only": true,
+  "instructions": "Review manually during commute. Do not automate YouTube or external logins."
+}

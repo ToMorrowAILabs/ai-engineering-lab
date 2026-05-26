@@ -1,0 +1,27 @@
+{
+  "resource_id": "gallier-math-deep",
+  "title": "Algebra, Topology, Differential Calculus, and Optimization Theory",
+  "url": "https://www.cis.upenn.edu/~jean/math-deep.pdf",
+  "lesson": [
+    "calculus",
+    "optimization",
+    "linear_algebra"
+  ],
+  "difficulty": "advanced",
+  "reinforcement_priority": "medium",
+  "commute_friendly": false,
+  "weakness_tags": [
+    "gradients",
+    "optimization",
+    "matrix_calculus"
+  ],
+  "review_questions": [
+    "What is the main goal of studying Algebra, Topology, Differential Calculus, and Optimization Theory?",
+    "Name one AI engineering application for topics in calculus.",
+    "What notation or concept was hardest? How would you test whether you understand it?",
+    "How does this resource connect to weakness tags: gradients, optimization, matrix_calculus?"
+  ],
+  "exercise_suggestion": "Pick one optimization section; implement gradient descent on a quadratic function in pure Python.",
+  "manual_only": true,
+  "instructions": "Review manually during commute. Do not automate YouTube or external logins."
+}

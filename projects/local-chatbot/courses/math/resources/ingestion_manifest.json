@@ -1,0 +1,556 @@
+{
+  "schema_version": "1.0.0",
+  "updated_at": "2026-05-26T20:00:30.967914+00:00",
+  "operating_rule": {
+    "foundations_pct": 70,
+    "applied_projects_pct": 20,
+    "frontier_scanning_pct": 10
+  },
+  "curated_source_index": "https://github.com/dair-ai/Mathematics-for-ML",
+  "library_root": "/Volumes/AI_MODELS/AI_LIBRARY",
+  "paths": {
+    "pdf_download_dir": "/Volumes/AI_MODELS/AI_LIBRARY/math/pdfs",
+    "calibre_staging_dir": "/Volumes/AI_MODELS/AI_LIBRARY/inbox",
+    "notebooklm_output_dir": "/Volumes/AI_MODELS/AI_LIBRARY/notebooklm_packs",
+    "calibre_import_queue": "courses/math/resources/calibre_import_queue",
+    "notebooklm_pack_queue": "courses/math/resources/notebooklm_pack_queue",
+    "commuter_review_queue": "courses/math/resources/commuter_review_queue"
+  },
+  "download_policy": "courses/math/resources/download_policy.md",
+  "resources": [
+    {
+      "id": "gallier-math-deep",
+      "title": "Algebra, Topology, Differential Calculus, and Optimization Theory",
+      "authors": [
+        "Jean Gallier",
+        "Jocelyn Quaintance"
+      ],
+      "url": "https://www.cis.upenn.edu/~jean/math-deep.pdf",
+      "source_type": "open_pdf",
+      "copyright_status": "open_access",
+      "download_allowed": true,
+      "lessons": [
+        "calculus",
+        "optimization",
+        "linear_algebra"
+      ],
+      "difficulty": "advanced",
+      "reinforcement_priority": "medium",
+      "commute_friendly": false,
+      "curriculum_tier": "foundations",
+      "weakness_tags": [
+        "gradients",
+        "optimization",
+        "matrix_calculus"
+      ],
+      "local_path": "/Volumes/AI_MODELS/AI_LIBRARY/math/pdfs/gallier-math-deep.pdf",
+      "exercise_suggestion": "Pick one optimization section; implement gradient descent on a quadratic function in pure Python."
+    },
+    {
+      "id": "dlbook-part-basics",
+      "title": "Applied Math and Machine Learning Basics (Deep Learning Ch. 2\u20134)",
+      "authors": [
+        "Ian Goodfellow",
+        "Yoshua Bengio",
+        "Aaron Courville"
+      ],
+      "url": "https://www.deeplearningbook.org/contents/part_basics.html",
+      "source_type": "web_book",
+      "copyright_status": "web_free",
+      "download_allowed": false,
+      "lessons": [
+        "linear_algebra",
+        "probability",
+        "calculus"
+      ],
+      "difficulty": "intermediate",
+      "reinforcement_priority": "high",
+      "commute_friendly": false,
+      "curriculum_tier": "foundations",
+      "weakness_tags": [
+        "linear_algebra",
+        "probability_basics"
+      ],
+      "local_path": null,
+      "exercise_suggestion": "Implement softmax and log-sum-exp in NumPy; compare to dlbook notation."
+    },
+    {
+      "id": "mml-book",
+      "title": "Mathematics for Machine Learning",
+      "authors": [
+        "Marc Peter Deisenroth",
+        "A. Aldo Faisal",
+        "Cheng Soon Ong"
+      ],
+      "url": "https://mml-book.github.io",
+      "source_type": "web_book",
+      "copyright_status": "open_access",
+      "download_allowed": false,
+      "lessons": [
+        "linear_algebra",
+        "calculus",
+        "probability",
+        "statistics",
+        "optimization"
+      ],
+      "difficulty": "intermediate",
+      "reinforcement_priority": "high",
+      "commute_friendly": false,
+      "curriculum_tier": "foundations",
+      "weakness_tags": [
+        "notation",
+        "eigenvalues",
+        "pca_intuition"
+      ],
+      "local_path": null,
+      "exercise_suggestion": "Work MML Exercises 3.1\u20133.3 (dot products / cosine) alongside week-04 lesson."
+    },
+    {
+      "id": "pml-book-1",
+      "title": "Probabilistic Machine Learning: An Introduction",
+      "authors": [
+        "Kevin Patrick Murphy"
+      ],
+      "url": "https://probml.github.io/pml-book/book1.html",
+      "source_type": "web_book",
+      "copyright_status": "web_free",
+      "download_allowed": false,
+      "lessons": [
+        "probability",
+        "statistics",
+        "optimization"
+      ],
+      "difficulty": "intermediate",
+      "reinforcement_priority": "medium",
+      "commute_friendly": false,
+      "curriculum_tier": "foundations",
+      "weakness_tags": [
+        "bayesian_inference",
+        "generative_models"
+      ],
+      "local_path": null,
+      "exercise_suggestion": "Sketch a Gaussian PDF; sample with NumPy and plot histogram vs density."
+    },
+    {
+      "id": "d2l-math-appendix",
+      "title": "Mathematics for Deep Learning (D2L Appendix)",
+      "authors": [
+        "Brent Werness",
+        "Rachel Hu et al."
+      ],
+      "url": "https://d2l.ai/chapter_appendix-mathematics-for-deep-learning/index.html",
+      "source_type": "web_book",
+      "copyright_status": "open_access",
+      "download_allowed": false,
+      "lessons": [
+        "linear_algebra",
+        "calculus",
+        "probability",
+        "statistics"
+      ],
+      "difficulty": "intermediate",
+      "reinforcement_priority": "high",
+      "commute_friendly": false,
+      "curriculum_tier": "foundations",
+      "weakness_tags": [
+        "derivatives",
+        "expectation"
+      ],
+      "local_path": null,
+      "exercise_suggestion": "Implement 2\u00d72 matrix multiply by hand; verify with NumPy."
+    },
+    {
+      "id": "deeplearningmath",
+      "title": "The Mathematical Engineering of Deep Learning",
+      "authors": [
+        "Benoit Liquet",
+        "Sarat Moka",
+        "Yoni Nazarathy"
+      ],
+      "url": "https://deeplearningmath.org",
+      "source_type": "web_book",
+      "copyright_status": "web_free",
+      "download_allowed": false,
+      "lessons": [
+        "transformers",
+        "optimization",
+        "calculus"
+      ],
+      "difficulty": "advanced",
+      "reinforcement_priority": "low",
+      "commute_friendly": false,
+      "curriculum_tier": "frontier_scan",
+      "weakness_tags": [
+        "transformer_math",
+        "attention_derivation"
+      ],
+      "local_path": null,
+      "exercise_suggestion": "Read transformer math chapter; write attention score formula in LaTeX from memory."
+    },
+    {
+      "id": "bayes-rules",
+      "title": "Bayes Rules! An Introduction to Applied Bayesian Modeling",
+      "authors": [
+        "Alicia A. Johnson",
+        "Miles Q. Ott",
+        "Mine Dogucu"
+      ],
+      "url": "https://www.bayesrulesbook.com/index.html",
+      "source_type": "web_book",
+      "copyright_status": "open_access",
+      "download_allowed": false,
+      "lessons": [
+        "probability",
+        "statistics"
+      ],
+      "difficulty": "beginner",
+      "reinforcement_priority": "medium",
+      "commute_friendly": false,
+      "curriculum_tier": "foundations",
+      "weakness_tags": [
+        "bayes_theorem",
+        "conditional_probability"
+      ],
+      "local_path": null,
+      "exercise_suggestion": "Compute posterior for a Beta-Binomial toy example with Python."
+    },
+    {
+      "id": "esl-book",
+      "title": "The Elements of Statistical Learning",
+      "authors": [
+        "Jerome H. Friedman",
+        "Robert Tibshirani",
+        "Trevor Hastie"
+      ],
+      "url": "https://hastie.su.domains/ElemStatLearn/",
+      "source_type": "web_book",
+      "copyright_status": "web_free",
+      "download_allowed": false,
+      "lessons": [
+        "statistics",
+        "optimization"
+      ],
+      "difficulty": "advanced",
+      "reinforcement_priority": "low",
+      "commute_friendly": false,
+      "curriculum_tier": "frontier_scan",
+      "weakness_tags": [
+        "regularization",
+        "bias_variance"
+      ],
+      "local_path": null,
+      "exercise_suggestion": "Compare ridge vs lasso penalties on a synthetic regression dataset."
+    },
+    {
+      "id": "isl-book",
+      "title": "An Introduction to Statistical Learning",
+      "authors": [
+        "James, Witten, Hastie, Tibshirani"
+      ],
+      "url": "https://www.statlearning.com/",
+      "source_type": "web_book",
+      "copyright_status": "web_free",
+      "download_allowed": false,
+      "lessons": [
+        "statistics",
+        "probability"
+      ],
+      "difficulty": "beginner",
+      "reinforcement_priority": "high",
+      "commute_friendly": false,
+      "curriculum_tier": "foundations",
+      "weakness_tags": [
+        "regression_basics",
+        "classification_metrics"
+      ],
+      "local_path": null,
+      "exercise_suggestion": "Fit logistic regression on ISL-style toy data; interpret coefficients."
+    },
+    {
+      "id": "jaynes-probability",
+      "title": "Probability Theory: The Logic of Science",
+      "authors": [
+        "E. T. Jaynes"
+      ],
+      "url": "https://bayes.wustl.edu/etj/prob/book.pdf",
+      "source_type": "open_pdf",
+      "copyright_status": "open_access",
+      "download_allowed": true,
+      "lessons": [
+        "probability",
+        "statistics"
+      ],
+      "difficulty": "advanced",
+      "reinforcement_priority": "low",
+      "commute_friendly": false,
+      "curriculum_tier": "frontier_scan",
+      "weakness_tags": [
+        "bayesian_philosophy",
+        "max_entropy"
+      ],
+      "local_path": "/Volumes/AI_MODELS/AI_LIBRARY/math/pdfs/jaynes-probability.pdf",
+      "exercise_suggestion": "Summarize Jaynes' view of probability vs frequency interpretation in 200 words."
+    },
+    {
+      "id": "mackay-itila",
+      "title": "Information Theory, Inference and Learning Algorithms",
+      "authors": [
+        "David J. C. MacKay"
+      ],
+      "url": "https://www.inference.org.uk/itprnn/book.html",
+      "source_type": "web_book",
+      "copyright_status": "open_access",
+      "download_allowed": false,
+      "lessons": [
+        "probability",
+        "statistics",
+        "embeddings"
+      ],
+      "difficulty": "advanced",
+      "reinforcement_priority": "medium",
+      "commute_friendly": false,
+      "curriculum_tier": "foundations",
+      "weakness_tags": [
+        "entropy",
+        "kl_divergence"
+      ],
+      "local_path": null,
+      "exercise_suggestion": "Compute cross-entropy between two discrete distributions in Python."
+    },
+    {
+      "id": "arxiv-matrix-calculus",
+      "title": "The Matrix Calculus You Need For Deep Learning",
+      "authors": [
+        "Terence Parr",
+        "Jeremy Howard"
+      ],
+      "url": "https://arxiv.org/abs/1802.01528",
+      "source_type": "paper",
+      "copyright_status": "open_access",
+      "download_allowed": true,
+      "lessons": [
+        "calculus",
+        "optimization",
+        "linear_algebra"
+      ],
+      "difficulty": "intermediate",
+      "reinforcement_priority": "high",
+      "commute_friendly": false,
+      "curriculum_tier": "foundations",
+      "weakness_tags": [
+        "backprop",
+        "jacobian",
+        "matrix_calculus"
+      ],
+      "local_path": "/Volumes/AI_MODELS/AI_LIBRARY/math/pdfs/arxiv-matrix-calculus.pdf",
+      "exercise_suggestion": "Derive gradient of w\u1d40Xw with respect to w; verify with autograd or finite differences."
+    },
+    {
+      "id": "arxiv-math-of-ai",
+      "title": "The Mathematics of AI",
+      "authors": [
+        "Gitta Kutyniok"
+      ],
+      "url": "https://arxiv.org/pdf/2203.08890.pdf",
+      "source_type": "paper",
+      "copyright_status": "open_access",
+      "download_allowed": true,
+      "lessons": [
+        "transformers",
+        "embeddings",
+        "linear_algebra"
+      ],
+      "difficulty": "advanced",
+      "reinforcement_priority": "low",
+      "commute_friendly": false,
+      "curriculum_tier": "frontier_scan",
+      "weakness_tags": [
+        "research_landscape",
+        "approximation_theory"
+      ],
+      "local_path": "/Volumes/AI_MODELS/AI_LIBRARY/math/pdfs/arxiv-math-of-ai.pdf",
+      "exercise_suggestion": "Write a one-page map linking paper sections to your Month 1 lessons."
+    },
+    {
+      "id": "imperial-multivariate-calc",
+      "title": "Multivariate Calculus (Imperial College London)",
+      "authors": [
+        "Sam Cooper",
+        "David Dye"
+      ],
+      "url": "https://www.youtube.com/playlist?list=PLiiljHvN6z193BBzS0Ln8NnqQmzimTW23",
+      "source_type": "video_playlist",
+      "copyright_status": "reference",
+      "download_allowed": false,
+      "lessons": [
+        "calculus",
+        "optimization"
+      ],
+      "difficulty": "intermediate",
+      "reinforcement_priority": "high",
+      "commute_friendly": true,
+      "curriculum_tier": "foundations",
+      "weakness_tags": [
+        "chain_rule",
+        "jacobian",
+        "gradient_descent"
+      ],
+      "local_path": null,
+      "exercise_suggestion": "After Jacobian lecture: compute Jacobian of [x\u00b2y, xy\u00b2] at (1,2)."
+    },
+    {
+      "id": "imperial-linear-algebra",
+      "title": "Mathematics for ML \u2014 Linear Algebra (Imperial)",
+      "authors": [
+        "Sam Cooper",
+        "David Dye"
+      ],
+      "url": "https://www.youtube.com/playlist?list=PLiiljHvN6z1_o1ztXTKWPrShrMrBLo5P3",
+      "source_type": "video_playlist",
+      "copyright_status": "reference",
+      "download_allowed": false,
+      "lessons": [
+        "linear_algebra",
+        "embeddings"
+      ],
+      "difficulty": "beginner",
+      "reinforcement_priority": "high",
+      "commute_friendly": true,
+      "curriculum_tier": "foundations",
+      "weakness_tags": [
+        "vectors",
+        "eigenvalues",
+        "pca_intuition"
+      ],
+      "local_path": null,
+      "exercise_suggestion": "Watch eigenvector lecture; implement power iteration on a 2\u00d72 matrix."
+    },
+    {
+      "id": "cs229-ml",
+      "title": "CS229: Machine Learning (Stanford)",
+      "authors": [
+        "Anand Avati"
+      ],
+      "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rNH7qL6-efu_q2_bPuy0adh",
+      "source_type": "course",
+      "copyright_status": "reference",
+      "download_allowed": false,
+      "lessons": [
+        "statistics",
+        "optimization",
+        "probability"
+      ],
+      "difficulty": "intermediate",
+      "reinforcement_priority": "medium",
+      "commute_friendly": true,
+      "curriculum_tier": "foundations",
+      "weakness_tags": [
+        "ml_theory",
+        "generalization"
+      ],
+      "local_path": null,
+      "exercise_suggestion": "Follow one CS229 lecture on linear regression; rederive normal equation."
+    },
+    {
+      "id": "khan-stats-probability",
+      "title": "Statistics and Probability (Khan Academy)",
+      "authors": [
+        "Khan Academy"
+      ],
+      "url": "https://www.khanacademy.org/math/statistics-probability",
+      "source_type": "course",
+      "copyright_status": "reference",
+      "download_allowed": false,
+      "lessons": [
+        "statistics",
+        "probability"
+      ],
+      "difficulty": "beginner",
+      "reinforcement_priority": "high",
+      "commute_friendly": true,
+      "curriculum_tier": "foundations",
+      "weakness_tags": [
+        "mean_variance",
+        "distributions",
+        "hypothesis_testing"
+      ],
+      "local_path": null,
+      "exercise_suggestion": "Compute mean and variance of a sample; compare sample vs population formulas."
+    },
+    {
+      "id": "axler-ladr",
+      "title": "Linear Algebra Done Right (Lectures & Slides)",
+      "authors": [
+        "Sheldon Axler"
+      ],
+      "url": "https://linear.axler.net/LADRvideos.html",
+      "source_type": "course",
+      "copyright_status": "reference",
+      "download_allowed": false,
+      "lessons": [
+        "linear_algebra"
+      ],
+      "difficulty": "intermediate",
+      "reinforcement_priority": "medium",
+      "commute_friendly": true,
+      "curriculum_tier": "foundations",
+      "weakness_tags": [
+        "vector_spaces",
+        "linear_maps"
+      ],
+      "local_path": null,
+      "exercise_suggestion": "Define linear independence; give AI example (embedding basis vectors)."
+    },
+    {
+      "id": "khan-linear-algebra",
+      "title": "Linear Algebra (Khan Academy)",
+      "authors": [
+        "Khan Academy"
+      ],
+      "url": "https://www.khanacademy.org/math/linear-algebra",
+      "source_type": "course",
+      "copyright_status": "reference",
+      "download_allowed": false,
+      "lessons": [
+        "linear_algebra",
+        "embeddings"
+      ],
+      "difficulty": "beginner",
+      "reinforcement_priority": "high",
+      "commute_friendly": true,
+      "curriculum_tier": "foundations",
+      "weakness_tags": [
+        "dot_product",
+        "matrix_multiply"
+      ],
+      "local_path": null,
+      "exercise_suggestion": "Complete dot product exercises; relate to cosine similarity lesson."
+    },
+    {
+      "id": "khan-calculus",
+      "title": "Calculus (Khan Academy)",
+      "authors": [
+        "Khan Academy"
+      ],
+      "url": "https://www.khanacademy.org/math/calculus-home",
+      "source_type": "course",
+      "copyright_status": "reference",
+      "download_allowed": false,
+      "lessons": [
+        "calculus",
+        "optimization"
+      ],
+      "difficulty": "beginner",
+      "reinforcement_priority": "medium",
+      "commute_friendly": true,
+      "curriculum_tier": "foundations",
+      "weakness_tags": [
+        "derivatives",
+        "integrals",
+        "multivariable"
+      ],
+      "local_path": null,
+      "exercise_suggestion": "Differentiate x\u00b2 + 3x; interpret slope as rate of change in loss curves."
+    }
+  ]
+}

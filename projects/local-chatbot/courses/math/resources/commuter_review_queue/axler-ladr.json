@@ -1,0 +1,24 @@
+{
+  "resource_id": "axler-ladr",
+  "title": "Linear Algebra Done Right (Lectures & Slides)",
+  "url": "https://linear.axler.net/LADRvideos.html",
+  "lesson": [
+    "linear_algebra"
+  ],
+  "difficulty": "intermediate",
+  "reinforcement_priority": "medium",
+  "commute_friendly": true,
+  "weakness_tags": [
+    "vector_spaces",
+    "linear_maps"
+  ],
+  "review_questions": [
+    "What is the main goal of studying Linear Algebra Done Right (Lectures & Slides)?",
+    "Name one AI engineering application for topics in linear_algebra.",
+    "What notation or concept was hardest? How would you test whether you understand it?",
+    "How does this resource connect to weakness tags: vector_spaces, linear_maps?"
+  ],
+  "exercise_suggestion": "Define linear independence; give AI example (embedding basis vectors).",
+  "manual_only": true,
+  "instructions": "Review manually during commute. Do not automate YouTube or external logins."
+}

@@ -1,0 +1,27 @@
+{
+  "weeks": [
+    { "week": 1, "title": "Python basics", "folder": "foundations/week-01-python", "status": "scaffold", "tier": "foundations" },
+    { "week": 2, "title": "Python + Git foundations", "folder": "foundations/week-02-python-git-foundations", "status": "ready", "tier": "foundations", "anchor": true, "completed": true },
+    { "week": 3, "title": "APIs + JSON foundations", "folder": "foundations/week-03-apis-json-foundations", "status": "ready", "tier": "foundations", "anchor": true, "completed": true },
+    { "week": 4, "title": "Linear algebra foundations", "folder": "math/week-04-linear-algebra-foundations", "status": "ready", "tier": "foundations", "anchor": true, "completed": true },
+    { "week": 5, "title": "Statistics foundations", "folder": "math/week-05-statistics", "status": "scaffold", "tier": "foundations", "completed": false },
+    { "week": 6, "title": "NumPy/Pandas + local LLM", "folder": "ml/week-06-numpy-pandas", "status": "scaffold", "tier": "foundations", "completed": false }
+  ],
+  "tracks": [
+    { "id": "foundations", "name": "Foundation Track", "description": "Python, Git, APIs, JSON, debugging" },
+    { "id": "math", "name": "ML Math Track", "description": "Linear algebra, probability, statistics" },
+    { "id": "ml", "name": "Python/ML Coding", "description": "NumPy, pandas, scikit-learn" },
+    { "id": "llms", "name": "LLM Engineering", "description": "Tokens, embeddings, RAG" },
+    { "id": "systems", "name": "AI Systems", "description": "FastAPI, Docker, deployment" },
+    { "id": "flywheel", "name": "Intelligence Flywheel", "description": "Frontier trend monitoring" }
+  ],
+  "parkingLot": ["OpenClaw", "MCP", "multi-agent swarms", "startup infrastructure", "production agents"],
+  "outcomes": [
+    "Write Python scripts for file I/O and CLI workflows",
+    "Use Git/GitHub for version control",
+    "Call HTTP APIs and parse JSON",
+    "Explain cosine similarity for RAG",
+    "Compute descriptive statistics",
+    "Use NumPy/pandas and local Ollama"
+  ]
+}

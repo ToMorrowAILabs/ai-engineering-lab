@@ -1,0 +1,26 @@
+{
+  "resource_id": "pml-book-1",
+  "title": "Probabilistic Machine Learning: An Introduction",
+  "url": "https://probml.github.io/pml-book/book1.html",
+  "lesson": [
+    "probability",
+    "statistics",
+    "optimization"
+  ],
+  "difficulty": "intermediate",
+  "reinforcement_priority": "medium",
+  "commute_friendly": false,
+  "weakness_tags": [
+    "bayesian_inference",
+    "generative_models"
+  ],
+  "review_questions": [
+    "What is the main goal of studying Probabilistic Machine Learning: An Introduction?",
+    "Name one AI engineering application for topics in probability.",
+    "What notation or concept was hardest? How would you test whether you understand it?",
+    "How does this resource connect to weakness tags: bayesian_inference, generative_models?"
+  ],
+  "exercise_suggestion": "Sketch a Gaussian PDF; sample with NumPy and plot histogram vs density.",
+  "manual_only": true,
+  "instructions": "Review manually during commute. Do not automate YouTube or external logins."
+}

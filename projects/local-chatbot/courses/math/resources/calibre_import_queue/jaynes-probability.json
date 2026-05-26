@@ -1,0 +1,22 @@
+{
+  "resource_id": "jaynes-probability",
+  "title": "Probability Theory: The Logic of Science",
+  "authors": [
+    "E. T. Jaynes"
+  ],
+  "tags": [
+    "probability",
+    "statistics",
+    "bayesian_philosophy",
+    "max_entropy",
+    "frontier_scan"
+  ],
+  "pdf_path": "/Volumes/AI_MODELS/AI_LIBRARY/math/pdfs/jaynes-probability.pdf",
+  "copyright_status": "open_access",
+  "calibre_import_instructions": [
+    "Open Calibre manually.",
+    "Add books -> select PDF from pdf_path or AI_LIBRARY/inbox staging.",
+    "Edit metadata from this sidecar.",
+    "Save to AI_LIBRARY/calibre-library/."
+  ]
+}

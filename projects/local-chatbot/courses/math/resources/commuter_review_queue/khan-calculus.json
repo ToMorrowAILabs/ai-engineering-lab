@@ -1,0 +1,26 @@
+{
+  "resource_id": "khan-calculus",
+  "title": "Calculus (Khan Academy)",
+  "url": "https://www.khanacademy.org/math/calculus-home",
+  "lesson": [
+    "calculus",
+    "optimization"
+  ],
+  "difficulty": "beginner",
+  "reinforcement_priority": "medium",
+  "commute_friendly": true,
+  "weakness_tags": [
+    "derivatives",
+    "integrals",
+    "multivariable"
+  ],
+  "review_questions": [
+    "What is the main goal of studying Calculus (Khan Academy)?",
+    "Name one AI engineering application for topics in calculus.",
+    "What notation or concept was hardest? How would you test whether you understand it?",
+    "How does this resource connect to weakness tags: derivatives, integrals, multivariable?"
+  ],
+  "exercise_suggestion": "Differentiate x\u00b2 + 3x; interpret slope as rate of change in loss curves.",
+  "manual_only": true,
+  "instructions": "Review manually during commute. Do not automate YouTube or external logins."
+}

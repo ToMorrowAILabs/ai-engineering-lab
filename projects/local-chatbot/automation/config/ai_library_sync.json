@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "operating_rule": {
+    "foundations_pct": 70,
+    "applied_projects_pct": 20,
+    "frontier_scanning_pct": 10
+  },
+  "allowed_roots": [
+    "/Volumes/AI_MODELS/AI_LIBRARY",
+    "projects/local-chatbot"
+  ],
+  "library_root": "/Volumes/AI_MODELS/AI_LIBRARY",
+  "repo_relative_root": "projects/local-chatbot",
+  "paths": {
+    "manifest": "courses/math/resources/ingestion_manifest.json",
+    "metadata_index": "courses/math/resources/resource_metadata_index.json",
+    "lesson_resource_map_md": "courses/math/resources/lesson_resource_map.md",
+    "lesson_resource_links": "courses/math/resources/lesson_resource_links.json",
+    "sync_status": "courses/math/resources/sync_status.json",
+    "health_report": "courses/math/resources/resource_health_report.md",
+    "duplicate_detection": "courses/math/resources/duplicate_detection.json",
+    "calibre_import_queue": "courses/math/resources/calibre_import_queue",
+    "notebooklm_pack_queue": "courses/math/resources/notebooklm_pack_queue",
+    "commuter_review_queue": "courses/math/resources/commuter_review_queue",
+    "library_sync_dir": "sync",
+    "library_pdf_dir": "math/pdfs",
+    "library_inbox_dir": "inbox",
+    "library_notebooklm_dir": "notebooklm_packs",
+    "library_calibre_dir": "calibre-library"
+  },
+  "validation": {
+    "required_fields": [
+      "id",
+      "title",
+      "url",
+      "lessons",
+      "difficulty",
+      "reinforcement_priority",
+      "copyright_status",
+      "source_type"
+    ],
+    "required_lesson_slugs": [
+      "linear_algebra",
+      "calculus",
+      "probability",
+      "statistics",
+      "optimization",
+      "embeddings",
+      "transformers"
+    ]
+  },
+  "future_extensions": {
+    "youtube_transcript_index": {
+      "enabled": false,
+      "library_subdir": "youtube/transcripts",
+      "manifest": "sync/future/youtube_transcript_index.json",
+      "notes": "Manual transcript paste only — no YouTube login automation"
+    },
+    "huggingface_dataset_refs": {
+      "enabled": false,
+      "library_subdir": "huggingface/dataset_refs",
+      "manifest": "sync/future/huggingface_dataset_refs.json",
+      "notes": "Reference metadata only — no automated HF hub downloads"
+    },
+    "arxiv_feed_monitor": {
+      "enabled": false,
+      "library_subdir": "papers/arxiv_feed",
+      "manifest": "sync/future/arxiv_feed_monitor.json",
+      "notes": "RSS/feed index for frontier scan — dry-run fetch only when enabled"
+    },
+    "notebooklm_export_manifests": {
+      "enabled": false,
+      "library_subdir": "notebooklm_packs/exports",
+      "manifest": "sync/future/notebooklm_export_manifests.json",
+      "notes": "Manual export manifest — no Google login automation"
+    }
+  }
+}

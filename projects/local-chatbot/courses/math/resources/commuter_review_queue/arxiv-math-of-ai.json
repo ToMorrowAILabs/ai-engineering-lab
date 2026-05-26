@@ -1,0 +1,26 @@
+{
+  "resource_id": "arxiv-math-of-ai",
+  "title": "The Mathematics of AI",
+  "url": "https://arxiv.org/pdf/2203.08890.pdf",
+  "lesson": [
+    "transformers",
+    "embeddings",
+    "linear_algebra"
+  ],
+  "difficulty": "advanced",
+  "reinforcement_priority": "low",
+  "commute_friendly": false,
+  "weakness_tags": [
+    "research_landscape",
+    "approximation_theory"
+  ],
+  "review_questions": [
+    "What is the main goal of studying The Mathematics of AI?",
+    "Name one AI engineering application for topics in transformers.",
+    "What notation or concept was hardest? How would you test whether you understand it?",
+    "How does this resource connect to weakness tags: research_landscape, approximation_theory?"
+  ],
+  "exercise_suggestion": "Write a one-page map linking paper sections to your Month 1 lessons.",
+  "manual_only": true,
+  "instructions": "Review manually during commute. Do not automate YouTube or external logins."
+}

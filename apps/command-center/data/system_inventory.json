@@ -1,0 +1,21 @@
+{
+  "systems": [
+    { "id": "mbp-m4", "name": "MacBook Pro M4", "role": "primary_dev", "status": "active", "classification": "local", "purpose": "Daily development, Cursor, course authoring", "storageUsagePct": 62, "syncState": "synced", "deploymentStatus": "n/a" },
+    { "id": "studio-m4max", "name": "Mac Studio M4 Max", "role": "training_inference", "status": "active", "classification": "local", "purpose": "Heavy ML workloads, local model serving", "storageUsagePct": 45, "syncState": "synced", "modelAssignments": ["ollama-large", "mlx"], "deploymentStatus": "local-only" },
+    { "id": "mini-osiris", "name": "Mac mini M4 (Osiris)", "role": "always_on_server", "status": "planned", "classification": "local", "purpose": "Ollama host, sync jobs, future agents", "storageUsagePct": 0, "syncState": "pending", "deploymentStatus": "not-deployed" },
+    { "id": "lacie-ai-models", "name": "LaCie AI_MODELS Volume", "role": "external_storage", "status": "active", "classification": "local", "purpose": "AI_LIBRARY, models, datasets, PDFs", "storageUsagePct": 38, "syncState": "synced", "deploymentStatus": "n/a" },
+    { "id": "ollama", "name": "Ollama", "role": "local_llm_runtime", "status": "active", "classification": "local", "purpose": "Local LLM inference", "syncState": "synced", "modelAssignments": ["qwen2.5-coder:7b"], "deploymentStatus": "local" },
+    { "id": "cursor", "name": "Cursor IDE", "role": "ai_ide", "status": "active", "classification": "cloud-assisted", "purpose": "AI-assisted development", "syncState": "synced", "deploymentStatus": "desktop" },
+    { "id": "openclaw", "name": "OpenClaw", "role": "agent_framework", "status": "parked", "classification": "local", "purpose": "Month 2+ agent experiments", "syncState": "not-started", "deploymentStatus": "parked" },
+    { "id": "notebooklm", "name": "NotebookLM", "role": "audio_reinforcement", "status": "active", "classification": "cloud", "purpose": "Manual audio overviews — no automation", "syncState": "manual", "deploymentStatus": "saas" },
+    { "id": "calibre", "name": "Calibre", "role": "pdf_library", "status": "active", "classification": "local", "purpose": "Open-access PDF management", "syncState": "manual-import", "deploymentStatus": "local" },
+    { "id": "huggingface", "name": "Hugging Face", "role": "model_hub", "status": "active", "classification": "cloud", "purpose": "Models, datasets — reference only", "syncState": "reference", "deploymentStatus": "saas" },
+    { "id": "github", "name": "GitHub", "role": "version_control", "status": "active", "classification": "cloud", "purpose": "Course repo, checkpoints", "syncState": "synced", "deploymentStatus": "cloud" },
+    { "id": "vercel", "name": "Vercel", "role": "web_deployment", "status": "planned", "classification": "cloud", "purpose": "Command Center hosting", "syncState": "pending", "deploymentStatus": "planned" },
+    { "id": "vector-db", "name": "Vector DB (local)", "role": "embeddings_store", "status": "planned", "classification": "local", "purpose": "Month 2+ RAG experiments", "syncState": "not-started", "deploymentStatus": "parked" }
+  ],
+  "models": [
+    { "name": "qwen2.5-coder:7b", "runtime": "ollama", "host": "local", "purpose": "JSON chatbot, coding exercises" },
+    { "name": "nomic-embed-text", "runtime": "ollama", "host": "local", "purpose": "Embeddings (planned Week 6+)" }
+  ]
+}

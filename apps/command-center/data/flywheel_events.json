@@ -1,0 +1,7 @@
+{
+  "events": [
+    { "id": "fe1", "type": "resource_ingested", "timestamp": "2026-05-26T19:56:00Z", "detail": "4 open PDFs synced to library" },
+    { "id": "fe2", "type": "notebooklm_pack_generated", "timestamp": "2026-05-26T19:56:00Z", "detail": "20 packs in queue" },
+    { "id": "fe3", "type": "course_update_applied", "timestamp": "2026-05-26T18:00:00Z", "detail": "Week 04 linear algebra anchor marked ready" }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "lessons": {
+    "linear_algebra": { "resources": ["mml-book", "khan-linear-algebra", "imperial-linear-algebra", "arxiv-matrix-calculus"], "week": 4 },
+    "calculus": { "resources": ["imperial-multivariate-calc", "arxiv-matrix-calculus"], "week": null },
+    "probability": { "resources": ["bayes-rules", "khan-stats-probability"], "week": 5 },
+    "statistics": { "resources": ["isl-book", "khan-stats-probability", "mml-book"], "week": 5 },
+    "optimization": { "resources": ["arxiv-matrix-calculus", "gallier-math-deep"], "week": null },
+    "embeddings": { "resources": ["mml-book", "imperial-linear-algebra"], "week": null },
+    "transformers": { "resources": ["deeplearningmath", "arxiv-math-of-ai"], "week": null }
+  },
+  "edges": [
+    { "from": "linear_algebra", "to": "embeddings" },
+    { "from": "linear_algebra", "to": "optimization" },
+    { "from": "statistics", "to": "embeddings" },
+    { "from": "optimization", "to": "transformers" }
+  ]
+}

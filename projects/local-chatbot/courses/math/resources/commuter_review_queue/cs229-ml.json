@@ -1,0 +1,26 @@
+{
+  "resource_id": "cs229-ml",
+  "title": "CS229: Machine Learning (Stanford)",
+  "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rNH7qL6-efu_q2_bPuy0adh",
+  "lesson": [
+    "statistics",
+    "optimization",
+    "probability"
+  ],
+  "difficulty": "intermediate",
+  "reinforcement_priority": "medium",
+  "commute_friendly": true,
+  "weakness_tags": [
+    "ml_theory",
+    "generalization"
+  ],
+  "review_questions": [
+    "What is the main goal of studying CS229: Machine Learning (Stanford)?",
+    "Name one AI engineering application for topics in statistics.",
+    "What notation or concept was hardest? How would you test whether you understand it?",
+    "How does this resource connect to weakness tags: ml_theory, generalization?"
+  ],
+  "exercise_suggestion": "Follow one CS229 lecture on linear regression; rederive normal equation.",
+  "manual_only": true,
+  "instructions": "Review manually during commute. Do not automate YouTube or external logins."
+}

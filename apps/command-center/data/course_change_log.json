@@ -1,0 +1,9 @@
+{
+  "changes": [
+    { "id": "c1", "date": "2026-05-26", "triggerSource": "course_builder", "reason": "Add math resource ingestion pipeline", "affectedLesson": "math/week-04", "changeType": "infrastructure", "priority": "high", "status": "approved", "curriculumImpact": "Resource queues for all math lessons", "tier": "foundations" },
+    { "id": "c2", "date": "2026-05-26", "triggerSource": "sync_layer", "reason": "AI library sync + health reports", "affectedLesson": null, "changeType": "infrastructure", "priority": "medium", "status": "approved", "curriculumImpact": "Calibre/NotebookLM/commuter mirrors", "tier": "foundations" },
+    { "id": "c3", "date": "2026-05-25", "triggerSource": "anchor_lesson", "reason": "Polish linear algebra anchor", "affectedLesson": "week-04-linear-algebra-foundations", "changeType": "content", "priority": "high", "status": "approved", "curriculumImpact": "Quality bar for Month 1", "tier": "foundations" },
+    { "id": "c4", "date": "2026-05-24", "triggerSource": "frontier_scan", "reason": "Index arXiv math-of-AI survey", "affectedLesson": null, "changeType": "resource", "priority": "low", "status": "approved", "curriculumImpact": "10% frontier reference only", "tier": "frontier" },
+    { "id": "c5", "date": "2026-05-20", "triggerSource": "proposal", "reason": "OpenClaw integration in Month 1", "affectedLesson": null, "changeType": "scope", "priority": "low", "status": "rejected", "curriculumImpact": "Remains in parking lot", "tier": "frontier" }
+  ]
+}

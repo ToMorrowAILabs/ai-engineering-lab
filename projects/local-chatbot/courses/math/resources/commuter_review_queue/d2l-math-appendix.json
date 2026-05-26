@@ -1,0 +1,27 @@
+{
+  "resource_id": "d2l-math-appendix",
+  "title": "Mathematics for Deep Learning (D2L Appendix)",
+  "url": "https://d2l.ai/chapter_appendix-mathematics-for-deep-learning/index.html",
+  "lesson": [
+    "linear_algebra",
+    "calculus",
+    "probability",
+    "statistics"
+  ],
+  "difficulty": "intermediate",
+  "reinforcement_priority": "high",
+  "commute_friendly": false,
+  "weakness_tags": [
+    "derivatives",
+    "expectation"
+  ],
+  "review_questions": [
+    "What is the main goal of studying Mathematics for Deep Learning (D2L Appendix)?",
+    "Name one AI engineering application for topics in linear_algebra.",
+    "What notation or concept was hardest? How would you test whether you understand it?",
+    "How does this resource connect to weakness tags: derivatives, expectation?"
+  ],
+  "exercise_suggestion": "Implement 2\u00d72 matrix multiply by hand; verify with NumPy.",
+  "manual_only": true,
+  "instructions": "Review manually during commute. Do not automate YouTube or external logins."
+}

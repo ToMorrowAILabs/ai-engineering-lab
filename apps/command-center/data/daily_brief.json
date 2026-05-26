@@ -1,0 +1,12 @@
+{
+  "date": "2026-05-26",
+  "headline": "Month 1 foundations on track — Week 5 statistics next",
+  "summary": "Focus remains on statistics foundations. Frontier signals logged but deprioritized per 70/20/10 rule.",
+  "signals": [
+    { "id": "s1", "title": "arXiv: Matrix calculus reference remains core for backprop", "source": "arxiv", "category": "foundations", "relevanceScore": 88, "classification": "monitor", "importance": "medium", "roadmapImpact": "Reinforces Week 4–6 math path", "url": "https://arxiv.org/abs/1802.01528", "commuterPrompt": "Summarize why matrix calculus matters for gradient descent in 3 minutes." },
+    { "id": "s2", "title": "Hugging Face: Updated NLP course modules", "source": "huggingface", "category": "applied", "relevanceScore": 72, "classification": "monitor", "importance": "low", "roadmapImpact": "Month 2+ LLM track", "url": "https://huggingface.co/learn", "commuterPrompt": "Skim HF course outline; note one skill gap vs Month 1." },
+    { "id": "s3", "title": "OpenAI: Cookbook RAG patterns updated", "source": "openai", "category": "applied", "relevanceScore": 65, "classification": "monitor", "importance": "low", "roadmapImpact": "Post Month 1 capstone", "url": "https://github.com/openai/openai-cookbook", "commuterPrompt": "Ignore for now — complete statistics week first." },
+    { "id": "s4", "title": "Transformer architecture survey paper", "source": "arxiv", "category": "frontier", "relevanceScore": 55, "classification": "ignore", "importance": "low", "roadmapImpact": "10% frontier scan only", "url": "https://arxiv.org/pdf/2203.08890.pdf", "commuterPrompt": "Optional 5-min scan after Week 6." }
+  ],
+  "manualIngestionNote": "Briefs are curated manually. No automated login to X, Reddit, Google, or Hugging Face."
+}
