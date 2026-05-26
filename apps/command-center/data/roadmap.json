@@ -15,7 +15,47 @@
     { "id": "systems", "name": "AI Systems", "description": "FastAPI, Docker, deployment" },
     { "id": "flywheel", "name": "Intelligence Flywheel", "description": "Frontier trend monitoring" }
   ],
-  "parkingLot": ["OpenClaw", "MCP", "multi-agent swarms", "startup infrastructure", "production agents"],
+  "supportMaterials": {
+    "Month 1": {
+      "focus": "Math, Python, APIs, Git, JSON, local LLM basics",
+      "resourceIds": [
+        "mml-book",
+        "khan-linear-algebra",
+        "khan-stats-probability",
+        "imperial-linear-algebra",
+        "mit-linear-algebra-playlist",
+        "maths-cs-ai-compendium",
+        "arxiv-matrix-calculus",
+        "ollama"
+      ],
+      "note": "Support only — core sequence is week-by-week anchors."
+    },
+    "Month 2": {
+      "focus": "ML foundations",
+      "resourceIds": ["isl-book", "ai-ml-roadmap-from-scratch", "learn-ai-engineering"],
+      "note": "Monitor repos now; act after Month 1 complete."
+    },
+    "Month 3": {
+      "focus": "Deep learning",
+      "resourceIds": ["awesome-llm-apps", "learn-ai-engineering"],
+      "note": "Applied project inspiration — 20% tier."
+    },
+    "Month 4+": {
+      "focus": "RAG, agents, MCP, vector DBs, evaluations",
+      "resourceIds": [
+        "langchain",
+        "langgraph",
+        "llama-index",
+        "crewai",
+        "qdrant",
+        "ragas",
+        "awesome-mcp-servers",
+        "ms-ai-agents-beginners"
+      ],
+      "note": "Reference catalog — do not derail Month 1–3 foundations."
+    }
+  },
+  "parkingLot": ["OpenClaw", "MCP production systems", "multi-agent swarms", "startup infrastructure", "production agents"],
   "outcomes": [
     "Write Python scripts for file I/O and CLI workflows",
     "Use Git/GitHub for version control",

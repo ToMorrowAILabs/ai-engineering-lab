@@ -1,20 +1,68 @@
 import { loadJson } from "@/lib/data";
+import type { Resource } from "@/lib/types";
 import { PageHeader, DataTable } from "@/components/ui/PageHeader";
+import { ExternalResourceLink } from "@/components/resources/ResourceBadges";
 
 export default function TrendSignalsPage() {
-  const log = loadJson<{ signals: { id: string; topic: string; velocity: string; source: string; loggedAt: string }[] }>("trend_signal_log.json");
-  const brief = loadJson<{ signals: { title: string; classification: string; category: string; relevanceScore: number }[] }>("daily_brief.json");
+  const log = loadJson<{
+    signals: {
+      id: string;
+      topic: string;
+      title?: string;
+      velocity: string;
+      source: string;
+      classification?: string;
+      learningPhase?: string;
+      actAfter?: string;
+      reason?: string;
+      resourceIds?: string[];
+      loggedAt: string;
+    }[];
+  }>("trend_signal_log.json");
+  const brief = loadJson<{ signals: { title: string; classification: string; category: string; relevanceScore: number; url: string }[] }>("daily_brief.json");
+  const { resources } = loadJson<{ resources: Resource[] }>("resources.json");
+  const byId = Object.fromEntries(resources.map((r) => [r.id, r]));
+
+  const featured = log.signals.find((s) => s.id === "ts4");
 
   return (
     <div>
       <PageHeader title="AI Trend Signals" subtitle="10% frontier scan — monitor, do not chase hype" />
 
+      {featured && (
+        <div className="mb-6 glass-panel p-4">
+          <p className="mb-1 text-sm font-medium text-amber-300">Featured signal</p>
+          <p className="font-medium">{featured.title ?? featured.topic.replace(/_/g, " ")}</p>
+          <p className="mt-2 text-sm text-gray-400">
+            Classification: <span className="badge-monitor">{featured.classification ?? "monitor"}</span>
+            {featured.actAfter && (
+              <span className="ml-2">· Act after {featured.actAfter}</span>
+            )}
+          </p>
+          {featured.reason && <p className="mt-2 text-sm text-gray-400">{featured.reason}</p>}
+          {featured.resourceIds && (
+            <ul className="mt-3 space-y-1">
+              {featured.resourceIds.map((id) => {
+                const r = byId[id];
+                return r ? (
+                  <li key={id} className="text-sm">
+                    <ExternalResourceLink href={r.url}>{r.title}</ExternalResourceLink>
+                  </li>
+                ) : null;
+              })}
+            </ul>
+          )}
+        </div>
+      )}
+
       <h2 className="mb-3 text-lg font-semibold">Signal Log</h2>
       <DataTable
-        headers={["Topic", "Velocity", "Source", "Logged"]}
+        headers={["Topic", "Phase", "Velocity", "Action", "Source", "Logged"]}
         rows={log.signals.map((s) => [
-          s.topic.replace(/_/g, " "),
+          s.title ?? s.topic.replace(/_/g, " "),
+          s.learningPhase ?? "—",
           <span className={s.velocity === "rising" ? "badge-ready" : s.velocity === "parked" ? "badge-frontier" : "badge-monitor"}>{s.velocity}</span>,
+          <span className={s.classification === "later" ? "badge-ignore" : s.classification === "act_now" ? "badge-ready" : "badge-monitor"}>{s.classification ?? "monitor"}</span>,
           s.source,
           s.loggedAt,
         ])}
@@ -24,9 +72,9 @@ export default function TrendSignalsPage() {
       <DataTable
         headers={["Title", "Score", "Action", "Category"]}
         rows={brief.signals.map((s) => [
-          s.title,
+          <ExternalResourceLink href={s.url}>{s.title}</ExternalResourceLink>,
           s.relevanceScore,
-          <span className={s.classification === "ignore" ? "badge-ignore" : "badge-monitor"}>{s.classification}</span>,
+          <span className={s.classification === "ignore" ? "badge-ignore" : s.classification === "act_now" ? "badge-ready" : "badge-monitor"}>{s.classification}</span>,
           s.category,
         ])}
       />

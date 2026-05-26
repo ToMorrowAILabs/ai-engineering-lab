@@ -1,17 +1,64 @@
 {
+  "categories": {
+    "math_foundations": {
+      "label": "Math Foundations",
+      "resourceIds": ["mml-book", "khan-linear-algebra", "khan-stats-probability", "arxiv-matrix-calculus", "maths-cs-ai-compendium"]
+    },
+    "ml_foundations": {
+      "label": "ML Foundations",
+      "resourceIds": ["isl-book", "ai-ml-roadmap-from-scratch", "learn-ai-engineering"]
+    },
+    "llm_apps": {
+      "label": "LLM Apps",
+      "resourceIds": ["langchain", "awesome-llm-apps", "learn-ai-engineering"]
+    },
+    "rag": {
+      "label": "RAG",
+      "resourceIds": ["llama-index", "ragas"]
+    },
+    "agents": {
+      "label": "Agents",
+      "resourceIds": ["langgraph", "crewai", "ms-ai-agents-beginners"]
+    },
+    "vector_db": {
+      "label": "Vector DBs",
+      "resourceIds": ["qdrant"]
+    },
+    "evaluation": {
+      "label": "Evaluation",
+      "resourceIds": ["ragas"]
+    },
+    "mcp": {
+      "label": "MCP",
+      "resourceIds": ["awesome-mcp-servers"]
+    },
+    "local_llms": {
+      "label": "Local LLMs",
+      "resourceIds": ["ollama"]
+    },
+    "commuter_reinforcement": {
+      "label": "Commuter Reinforcement",
+      "resourceIds": ["imperial-linear-algebra", "mit-linear-algebra-playlist", "khan-linear-algebra", "khan-stats-probability"]
+    }
+  },
   "lessons": {
-    "linear_algebra": { "resources": ["mml-book", "khan-linear-algebra", "imperial-linear-algebra", "arxiv-matrix-calculus"], "week": 4 },
-    "calculus": { "resources": ["imperial-multivariate-calc", "arxiv-matrix-calculus"], "week": null },
-    "probability": { "resources": ["bayes-rules", "khan-stats-probability"], "week": 5 },
+    "linear_algebra": { "resources": ["mml-book", "khan-linear-algebra", "imperial-linear-algebra", "mit-linear-algebra-playlist", "maths-cs-ai-compendium", "arxiv-matrix-calculus"], "week": 4 },
+    "calculus": { "resources": ["arxiv-matrix-calculus", "maths-cs-ai-compendium"], "week": null },
+    "probability": { "resources": ["khan-stats-probability"], "week": 5 },
     "statistics": { "resources": ["isl-book", "khan-stats-probability", "mml-book"], "week": 5 },
-    "optimization": { "resources": ["arxiv-matrix-calculus", "gallier-math-deep"], "week": null },
+    "optimization": { "resources": ["arxiv-matrix-calculus"], "week": null },
     "embeddings": { "resources": ["mml-book", "imperial-linear-algebra"], "week": null },
-    "transformers": { "resources": ["deeplearningmath", "arxiv-math-of-ai"], "week": null }
+    "transformers": { "resources": ["arxiv-math-of-ai"], "week": null },
+    "local_llm_basics": { "resources": ["ollama"], "week": 6 },
+    "rag_engineering": { "resources": ["llama-index", "qdrant", "ragas"], "week": null },
+    "agent_engineering": { "resources": ["langgraph", "crewai", "ms-ai-agents-beginners"], "week": null }
   },
   "edges": [
     { "from": "linear_algebra", "to": "embeddings" },
     { "from": "linear_algebra", "to": "optimization" },
     { "from": "statistics", "to": "embeddings" },
-    { "from": "optimization", "to": "transformers" }
+    { "from": "optimization", "to": "transformers" },
+    { "from": "local_llm_basics", "to": "rag_engineering" },
+    { "from": "rag_engineering", "to": "agent_engineering" }
   ]
 }

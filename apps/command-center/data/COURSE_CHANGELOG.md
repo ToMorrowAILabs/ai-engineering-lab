@@ -2,6 +2,9 @@
 
 | Date | Change | Tier | Status |
 |------|--------|------|--------|
+| 2026-05-26 | Curated AI engineering repo graph (14 resources) | applied | approved |
+| 2026-05-26 | MIT Linear Algebra playlist + math GitHub source indexes | foundations | approved |
+| 2026-05-26 | 10 AI engineering repos trend signal logged | applied | approved |
 | 2026-05-26 | Math resource ingestion pipeline | foundations | approved |
 | 2026-05-26 | AI library sync layer | foundations | approved |
 | 2026-05-25 | Linear algebra anchor lesson | foundations | approved |

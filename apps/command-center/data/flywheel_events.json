@@ -1,7 +1,40 @@
 {
   "events": [
-    { "id": "fe1", "type": "resource_ingested", "timestamp": "2026-05-26T19:56:00Z", "detail": "4 open PDFs synced to library" },
-    { "id": "fe2", "type": "notebooklm_pack_generated", "timestamp": "2026-05-26T19:56:00Z", "detail": "20 packs in queue" },
-    { "id": "fe3", "type": "course_update_applied", "timestamp": "2026-05-26T18:00:00Z", "detail": "Week 04 linear algebra anchor marked ready" }
+    {
+      "id": "fe4",
+      "type": "resource_accepted",
+      "timestamp": "2026-05-26T22:00:00Z",
+      "detail": "14 curated AI engineering + math resources added to registry"
+    },
+    {
+      "id": "fe5",
+      "type": "trend_signal_logged",
+      "timestamp": "2026-05-26T22:00:00Z",
+      "detail": "10 AI engineering repos — monitor now, act after Month 1"
+    },
+    {
+      "id": "fe6",
+      "type": "ingestion_index_added",
+      "timestamp": "2026-05-26T22:00:00Z",
+      "detail": "maths-cs-ai-compendium + AI-ML-Roadmap linked in ingestion manifest (no bulk download)"
+    },
+    {
+      "id": "fe1",
+      "type": "resource_ingested",
+      "timestamp": "2026-05-26T19:56:00Z",
+      "detail": "4 open PDFs synced to library"
+    },
+    {
+      "id": "fe2",
+      "type": "notebooklm_pack_generated",
+      "timestamp": "2026-05-26T19:56:00Z",
+      "detail": "20 packs in queue"
+    },
+    {
+      "id": "fe3",
+      "type": "course_update_applied",
+      "timestamp": "2026-05-26T18:00:00Z",
+      "detail": "Week 04 linear algebra anchor marked ready"
+    }
   ]
 }

@@ -1,7 +1,64 @@
 {
   "signals": [
-    { "id": "ts1", "topic": "local_llms", "velocity": "rising", "source": "ollama", "loggedAt": "2026-05-26" },
-    { "id": "ts2", "topic": "embedding_search", "velocity": "stable", "source": "course_internal", "loggedAt": "2026-05-25" },
-    { "id": "ts3", "topic": "agent_frameworks", "velocity": "parked", "source": "frontier_scan", "loggedAt": "2026-05-24" }
+    {
+      "id": "ts4",
+      "topic": "ai_engineering_repos_2026",
+      "title": "10 AI engineering repos (RAG, agents, vector DBs, evals, MCP, local LLMs)",
+      "velocity": "rising",
+      "source": "github_curated",
+      "classification": "monitor",
+      "learningPhase": "Month 4+",
+      "actAfter": "Month 1",
+      "reason": "Maps strongly to 2026 AI engineering job descriptions",
+      "resourceIds": [
+        "langchain",
+        "langgraph",
+        "llama-index",
+        "crewai",
+        "qdrant",
+        "ragas",
+        "ollama",
+        "awesome-mcp-servers",
+        "awesome-llm-apps",
+        "ms-ai-agents-beginners"
+      ],
+      "loggedAt": "2026-05-26"
+    },
+    {
+      "id": "ts1",
+      "topic": "local_llms",
+      "velocity": "rising",
+      "source": "ollama",
+      "classification": "act_now",
+      "learningPhase": "Month 1",
+      "loggedAt": "2026-05-26"
+    },
+    {
+      "id": "ts5",
+      "topic": "mit_math_commuter",
+      "velocity": "rising",
+      "source": "youtube",
+      "classification": "act_now",
+      "learningPhase": "Month 1",
+      "loggedAt": "2026-05-26"
+    },
+    {
+      "id": "ts2",
+      "topic": "embedding_search",
+      "velocity": "stable",
+      "source": "course_internal",
+      "classification": "monitor",
+      "learningPhase": "Month 4+",
+      "loggedAt": "2026-05-25"
+    },
+    {
+      "id": "ts3",
+      "topic": "agent_frameworks",
+      "velocity": "parked",
+      "source": "frontier_scan",
+      "classification": "later",
+      "learningPhase": "Month 4+",
+      "loggedAt": "2026-05-24"
+    }
   ]
 }

@@ -551,6 +551,40 @@
       ],
       "local_path": null,
       "exercise_suggestion": "Differentiate x\u00b2 + 3x; interpret slope as rate of change in loss curves."
+    },
+    {
+      "id": "maths-cs-ai-compendium",
+      "title": "maths-cs-ai-compendium",
+      "authors": ["Henry Ndubuaku"],
+      "url": "https://github.com/HenryNdubuaku/maths-cs-ai-compendium",
+      "source_type": "github_repo_index",
+      "copyright_status": "reference",
+      "download_allowed": false,
+      "lessons": ["linear_algebra", "calculus", "probability", "statistics", "optimization"],
+      "difficulty": "mixed",
+      "reinforcement_priority": "high",
+      "commute_friendly": false,
+      "curriculum_tier": "foundations",
+      "weakness_tags": ["math_reference"],
+      "local_path": null,
+      "exercise_suggestion": "Browse topic index when stuck on Month 1 math; follow open PDF links only."
+    },
+    {
+      "id": "ai-ml-roadmap-from-scratch",
+      "title": "AI-ML-Roadmap-from-scratch",
+      "authors": ["aadi1011"],
+      "url": "https://github.com/aadi1011/AI-ML-Roadmap-from-scratch",
+      "source_type": "github_repo_index",
+      "copyright_status": "reference",
+      "download_allowed": false,
+      "lessons": ["statistics", "optimization"],
+      "difficulty": "intermediate",
+      "reinforcement_priority": "medium",
+      "commute_friendly": false,
+      "curriculum_tier": "foundations",
+      "weakness_tags": ["ml_roadmap"],
+      "local_path": null,
+      "exercise_suggestion": "Cross-check Month 2 ML plan against roadmap modules — link only."
     }
   ]
 }

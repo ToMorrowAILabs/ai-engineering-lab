@@ -1,12 +1,96 @@
 {
   "queue": [
-    { "resourceId": "khan-linear-algebra", "title": "Linear Algebra (Khan)", "commuteFriendly": true, "priority": "high", "reviewQuestions": 4, "weaknessTags": ["dot_product", "matrix_multiply"], "completed": true },
-    { "resourceId": "imperial-linear-algebra", "title": "Imperial Linear Algebra", "commuteFriendly": true, "priority": "high", "reviewQuestions": 4, "weaknessTags": ["vectors", "eigenvalues"], "completed": false },
-    { "resourceId": "khan-stats-probability", "title": "Statistics and Probability", "commuteFriendly": true, "priority": "high", "reviewQuestions": 4, "weaknessTags": ["mean_variance", "distributions"], "completed": false },
-    { "resourceId": "bayes-rules", "title": "Bayes Rules!", "commuteFriendly": false, "priority": "medium", "reviewQuestions": 4, "weaknessTags": ["conditional_probability", "bayes_theorem"], "completed": false }
+    {
+      "resourceId": "mit-linear-algebra-playlist",
+      "title": "MIT Linear Algebra / Math Video Playlist",
+      "url": "https://www.youtube.com/playlist?list=PLUl4u3cNGP63oMNUHXqIUcrkS2PivhN3k",
+      "commuteFriendly": true,
+      "priority": "high",
+      "reviewQuestions": 4,
+      "weaknessTags": ["linear_algebra", "eigenvalues", "matrix_decomposition"],
+      "completed": false,
+      "kind": "watch_now"
+    },
+    {
+      "resourceId": "khan-linear-algebra",
+      "title": "Linear Algebra (Khan Academy)",
+      "url": "https://www.khanacademy.org/math/linear-algebra",
+      "commuteFriendly": true,
+      "priority": "high",
+      "reviewQuestions": 4,
+      "weaknessTags": ["dot_product", "matrix_multiply"],
+      "completed": true,
+      "kind": "watch_now"
+    },
+    {
+      "resourceId": "imperial-linear-algebra",
+      "title": "Imperial Linear Algebra",
+      "url": "https://www.youtube.com/playlist?list=PLiiljHvN6z1_o1ztXTKWPrShrMrBLo5P3",
+      "commuteFriendly": true,
+      "priority": "high",
+      "reviewQuestions": 4,
+      "weaknessTags": ["vectors", "eigenvalues"],
+      "completed": false,
+      "kind": "watch_now"
+    },
+    {
+      "resourceId": "khan-stats-probability",
+      "title": "Statistics and Probability",
+      "url": "https://www.khanacademy.org/math/statistics-probability",
+      "commuteFriendly": true,
+      "priority": "high",
+      "reviewQuestions": 4,
+      "weaknessTags": ["mean_variance", "distributions"],
+      "completed": false,
+      "kind": "watch_now"
+    },
+    {
+      "resourceId": "maths-cs-ai-compendium",
+      "title": "maths-cs-ai-compendium (GitHub)",
+      "url": "https://github.com/HenryNdubuaku/maths-cs-ai-compendium",
+      "commuteFriendly": false,
+      "priority": "medium",
+      "reviewQuestions": 0,
+      "weaknessTags": ["math_reference"],
+      "completed": false,
+      "kind": "read_later"
+    },
+    {
+      "resourceId": "ai-ml-roadmap-from-scratch",
+      "title": "AI-ML-Roadmap-from-scratch (GitHub)",
+      "url": "https://github.com/aadi1011/AI-ML-Roadmap-from-scratch",
+      "commuteFriendly": false,
+      "priority": "low",
+      "reviewQuestions": 0,
+      "weaknessTags": ["ml_roadmap"],
+      "completed": false,
+      "kind": "read_later"
+    },
+    {
+      "resourceId": "learn-ai-engineering",
+      "title": "Learn AI Engineering (GitHub)",
+      "url": "https://github.com/ashishps1/learn-ai-engineering",
+      "commuteFriendly": false,
+      "priority": "low",
+      "reviewQuestions": 0,
+      "weaknessTags": ["applied_ai"],
+      "completed": false,
+      "kind": "read_later"
+    }
   ],
   "playlist": [
-    { "id": "p1", "name": "Week 4 LA Reinforcement", "resourceIds": ["khan-linear-algebra", "imperial-linear-algebra", "mml-book"], "estimatedMinutes": 45 }
+    {
+      "id": "p1",
+      "name": "Week 4 LA Reinforcement",
+      "resourceIds": ["mit-linear-algebra-playlist", "khan-linear-algebra", "imperial-linear-algebra"],
+      "estimatedMinutes": 45
+    },
+    {
+      "id": "p2",
+      "name": "GitHub Review — Read/Watch Later",
+      "resourceIds": ["maths-cs-ai-compendium", "ai-ml-roadmap-from-scratch", "learn-ai-engineering"],
+      "estimatedMinutes": 0
+    }
   ],
   "sessions": [
     { "id": "cs1", "date": "2026-05-26", "resourceId": "khan-linear-algebra", "durationMinutes": 18, "completed": true },

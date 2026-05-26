@@ -1,6 +1,8 @@
 import { loadJson } from "@/lib/data";
 import type { Resource } from "@/lib/types";
-import { PageHeader, DataTable } from "@/components/ui/PageHeader";
+import { PageHeader } from "@/components/ui/PageHeader";
+import { ResourceExplorer } from "@/components/resources/ResourceExplorer";
+import { ExternalResourceLink, SourceTypeBadge } from "@/components/resources/ResourceBadges";
 
 export default function ResourcesPage() {
   const data = loadJson<{
@@ -11,7 +13,7 @@ export default function ResourcesPage() {
 
   return (
     <div>
-      <PageHeader title="Resources" subtitle="Curated sources — link only, no paywall bypass" />
+      <PageHeader title="Resources" subtitle="Curated sources — click titles to open originals in a new tab" />
 
       <div className="mb-6 grid gap-4 sm:grid-cols-3">
         <div className="kpi-card">
@@ -28,30 +30,37 @@ export default function ResourcesPage() {
         </div>
       </div>
 
-      <h2 className="mb-3 text-lg font-semibold">Math & ML Resources</h2>
-      <DataTable
-        headers={["Title", "Tier", "Priority", "Type", "Link"]}
-        rows={data.resources.map((r) => [
-          <>
-            {r.title}
-            {r.pdfAvailable && <span className="ml-2 text-xs text-cyan-400">PDF</span>}
-          </>,
-          <span className={r.curriculum_tier === "frontier_scan" ? "badge-frontier" : "badge-ready"}>{r.curriculum_tier}</span>,
-          r.reinforcement_priority,
-          r.source_type,
-          <a href={r.url} target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">Open</a>,
-        ])}
-      />
+      <ResourceExplorer resources={data.resources} />
 
       <h2 className="mb-3 mt-8 text-lg font-semibold">Source Registry</h2>
-      <DataTable
-        headers={["Source", "Type", "URL"]}
-        rows={data.sourceRegistry.map((s) => [
-          s.name,
-          s.type,
-          <a key={s.id} href={s.url} target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline truncate max-w-xs block">Link</a>,
-        ])}
-      />
+      <div className="glass-panel overflow-x-auto">
+        <table className="w-full text-left text-sm">
+          <thead>
+            <tr className="border-b border-command-border text-xs uppercase text-gray-500">
+              <th className="px-4 py-3">Source</th>
+              <th className="px-4 py-3">Type</th>
+              <th className="px-4 py-3">Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.sourceRegistry.map((s) => (
+              <tr key={s.id} className="border-b border-command-border/50 hover:bg-white/5">
+                <td className="px-4 py-3">
+                  <ExternalResourceLink href={s.url}>{s.name}</ExternalResourceLink>
+                </td>
+                <td className="px-4 py-3">
+                  <SourceTypeBadge type={s.type as Resource["source_type"]} />
+                </td>
+                <td className="px-4 py-3">
+                  <ExternalResourceLink href={s.url} className="text-xs">
+                    Open source
+                  </ExternalResourceLink>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
