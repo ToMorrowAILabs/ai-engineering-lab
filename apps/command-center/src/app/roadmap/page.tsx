@@ -1,7 +1,9 @@
 import { loadJson } from "@/lib/data";
 import type { Resource } from "@/lib/types";
 import { PageHeader, DataTable } from "@/components/ui/PageHeader";
-import { ExternalResourceLink, SourceTypeBadge } from "@/components/resources/ResourceBadges";
+import { ExternalLink, InternalLink } from "@/components/navigation/NavLinks";
+import { SourceTypeBadge } from "@/components/resources/ResourceBadges";
+import { getAllLessons, isSafeUrl } from "@/lib/catalog";
 
 type RoadmapData = {
   weeks: { week: number; title: string; folder: string; status: string; tier: string; anchor?: boolean; completed?: boolean }[];
@@ -15,6 +17,7 @@ export default function RoadmapPage() {
   const roadmap = loadJson<RoadmapData>("roadmap.json");
   const { resources } = loadJson<{ resources: Resource[] }>("resources.json");
   const byId = Object.fromEntries(resources.map((r) => [r.id, r]));
+  const lessons = getAllLessons();
 
   return (
     <div>
@@ -31,21 +34,32 @@ export default function RoadmapPage() {
 
       <h2 className="mb-3 text-lg font-semibold">Week-by-Week</h2>
       <DataTable
-        headers={["Week", "Focus", "Status", "Progress"]}
-        rows={roadmap.weeks.map((w) => [
-          `Week ${w.week}`,
-          <>
-            {w.title}
-            {w.anchor && <span className="ml-2 badge-ready">anchor</span>}
-          </>,
-          <span className={w.status === "ready" ? "badge-ready" : "badge-scaffold"}>{w.status}</span>,
-          w.completed ? "✓" : "—",
-        ])}
+        headers={["Week", "Focus", "Status", "Progress", "Lesson"]}
+        rows={roadmap.weeks.map((w) => {
+          const lesson = lessons.find((l) => l.week === w.week);
+          return [
+            w.week,
+            lesson ? (
+              <InternalLink href={`/lessons/${lesson.slug}`}>{w.title}</InternalLink>
+            ) : (
+              w.title
+            ),
+            <span className={w.status === "ready" ? "badge-ready" : "badge-scaffold"}>{w.status}</span>,
+            w.completed ? "✓" : "—",
+            lesson ? (
+              <InternalLink href={`/lessons/${lesson.slug}`} className="text-xs">
+                Open lesson
+              </InternalLink>
+            ) : (
+              "—"
+            ),
+          ];
+        })}
       />
 
       <h2 className="mb-3 mt-8 text-lg font-semibold">Support Materials by Phase</h2>
       <p className="mb-4 text-sm text-gray-500">
-        Optional references — core sequence stays week-by-week. Click any resource to open its source.
+        Optional references — core sequence stays week-by-week.
       </p>
       <div className="space-y-4">
         {Object.entries(roadmap.supportMaterials).map(([phase, block]) => (
@@ -58,11 +72,14 @@ export default function RoadmapPage() {
             <ul className="space-y-2">
               {block.resourceIds.map((id) => {
                 const r = byId[id];
-                if (!r) return null;
+                if (!r || !isSafeUrl(r.url)) return null;
                 return (
                   <li key={id} className="flex flex-wrap items-center gap-2 text-sm">
                     <SourceTypeBadge type={r.source_type} />
-                    <ExternalResourceLink href={r.url}>{r.title}</ExternalResourceLink>
+                    <InternalLink href={`/resources/${r.id}`}>{r.title}</InternalLink>
+                    <ExternalLink href={r.url} className="text-xs">
+                      Open
+                    </ExternalLink>
                     <span className="text-xs capitalize text-gray-500">{r.action.replace(/_/g, " ")}</span>
                   </li>
                 );

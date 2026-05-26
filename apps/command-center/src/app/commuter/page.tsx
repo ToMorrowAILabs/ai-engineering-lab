@@ -1,6 +1,8 @@
 import { loadJson } from "@/lib/data";
 import { PageHeader, DataTable, KpiCard } from "@/components/ui/PageHeader";
-import { ExternalResourceLink, SourceTypeBadge } from "@/components/resources/ResourceBadges";
+import { ExternalLink, InternalLink } from "@/components/navigation/NavLinks";
+import { SourceTypeBadge } from "@/components/resources/ResourceBadges";
+import { isSafeUrl } from "@/lib/catalog";
 
 export default function CommuterPage() {
   const data = loadJson<{
@@ -37,11 +39,14 @@ export default function CommuterPage() {
       <DataTable
         headers={["Resource", "Priority", "Commute", "Questions", "Weakness tags", "Done"]}
         rows={watchNow.map((q) => [
-          q.url ? (
-            <ExternalResourceLink href={q.url}>{q.title}</ExternalResourceLink>
-          ) : (
-            q.title
-          ),
+          <span key={q.resourceId} className="flex flex-wrap items-center gap-2">
+            <InternalLink href={`/resources/${q.resourceId}`}>{q.title}</InternalLink>
+            {q.url && isSafeUrl(q.url) && (
+              <ExternalLink href={q.url} className="text-xs">
+                Open
+              </ExternalLink>
+            )}
+          </span>,
           q.priority,
           q.commuteFriendly ? "✓" : "—",
           q.reviewQuestions,
@@ -56,10 +61,11 @@ export default function CommuterPage() {
         {readLater.map((q) => (
           <div key={q.resourceId} className="glass-panel flex flex-wrap items-center gap-2 px-4 py-3 text-sm">
             <SourceTypeBadge type="github_repo" />
-            {q.url ? (
-              <ExternalResourceLink href={q.url}>{q.title}</ExternalResourceLink>
-            ) : (
-              q.title
+            <InternalLink href={`/resources/${q.resourceId}`}>{q.title}</InternalLink>
+            {q.url && isSafeUrl(q.url) && (
+              <ExternalLink href={q.url} className="text-xs">
+                Open repo
+              </ExternalLink>
             )}
             <span className="badge-monitor">optional</span>
           </div>
@@ -70,17 +76,28 @@ export default function CommuterPage() {
       {data.playlist.map((p) => (
         <div key={p.id} className="mb-3 glass-panel p-4">
           <p className="font-medium">{p.name}</p>
-          <p className="text-sm text-gray-400">
+          <p className="mt-1 text-sm text-gray-400">
             {p.estimatedMinutes > 0 ? `${p.estimatedMinutes} min · ` : ""}
-            {p.resourceIds.join(" → ")}
           </p>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {p.resourceIds.map((id) => (
+              <InternalLink key={id} href={`/resources/${id}`} className="text-xs">
+                {id}
+              </InternalLink>
+            ))}
+          </div>
         </div>
       ))}
 
       <h2 className="mb-3 mt-8 text-lg font-semibold">Sessions</h2>
       <DataTable
         headers={["Date", "Resource", "Duration", "Complete"]}
-        rows={data.sessions.map((s) => [s.date, s.resourceId, `${s.durationMinutes}m`, s.completed ? "✓" : "○"])}
+        rows={data.sessions.map((s) => [
+          s.date,
+          <InternalLink href={`/resources/${s.resourceId}`}>{s.resourceId}</InternalLink>,
+          `${s.durationMinutes}m`,
+          s.completed ? "✓" : "○",
+        ])}
       />
     </div>
   );

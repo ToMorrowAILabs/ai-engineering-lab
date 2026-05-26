@@ -1,6 +1,8 @@
 import ReactMarkdown from "react-markdown";
 import { loadJson, loadMarkdown } from "@/lib/data";
 import { PageHeader, DataTable } from "@/components/ui/PageHeader";
+import { ExternalLink } from "@/components/navigation/NavLinks";
+import { isSafeUrl } from "@/lib/catalog";
 
 export default function DailyBriefPage() {
   const brief = loadJson<{
@@ -36,20 +38,28 @@ export default function DailyBriefPage() {
       <h2 className="mb-3 text-lg font-semibold">Trend Signals</h2>
       <DataTable
         headers={["Signal", "Score", "Action", "Category", "Impact"]}
-        rows={brief.signals.map((s) => [
-          <a href={s.url} target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">{s.title}</a>,
-          s.relevanceScore,
-          <span className={s.classification === "ignore" ? "badge-ignore" : s.classification === "monitor" ? "badge-monitor" : "badge-ready"}>{s.classification}</span>,
-          s.category,
-          s.roadmapImpact,
-        ])}
+        rows={brief.signals
+          .filter((s) => isSafeUrl(s.url))
+          .map((s) => [
+            <ExternalLink href={s.url}>{s.title}</ExternalLink>,
+            s.relevanceScore,
+            <span className={s.classification === "ignore" ? "badge-ignore" : s.classification === "monitor" ? "badge-monitor" : "badge-ready"}>{s.classification}</span>,
+            s.category,
+            s.roadmapImpact,
+          ])}
       />
 
       <h2 className="mb-3 mt-8 text-lg font-semibold">Commuter Prompts</h2>
       <div className="space-y-3">
         {brief.signals.map((s) => (
           <div key={s.id} className="glass-panel p-4 text-sm">
-            <p className="font-medium">{s.title}</p>
+            <p className="font-medium">
+              {isSafeUrl(s.url) ? (
+                <ExternalLink href={s.url}>{s.title}</ExternalLink>
+              ) : (
+                s.title
+              )}
+            </p>
             <p className="mt-1 text-gray-400">{s.commuterPrompt}</p>
           </div>
         ))}

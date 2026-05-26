@@ -2,7 +2,9 @@ import { loadJson } from "@/lib/data";
 import type { Resource, ResourceCategory } from "@/lib/types";
 import { CATEGORY_LABELS } from "@/lib/types";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { ExternalResourceLink, SourceTypeBadge } from "@/components/resources/ResourceBadges";
+import { ExternalLink, InternalLink, OpenResourceButton } from "@/components/navigation/NavLinks";
+import { SourceTypeBadge } from "@/components/resources/ResourceBadges";
+import { getAllLessons, isSafeUrl } from "@/lib/catalog";
 
 type GraphData = {
   categories: Record<ResourceCategory, { label: string; resourceIds: string[] }>;
@@ -14,25 +16,27 @@ export default function ResourceGraphPage() {
   const graph = loadJson<GraphData>("resource_graph.json");
   const { resources } = loadJson<{ resources: Resource[] }>("resources.json");
   const byId = Object.fromEntries(resources.map((r) => [r.id, r]));
+  const allLessons = getAllLessons();
 
   return (
     <div>
-      <PageHeader title="Resource Graph" subtitle="Grouped by category — every title links to its source" />
+      <PageHeader title="Resource Graph" subtitle="Grouped by category — detail pages and external sources" />
 
       <h2 className="mb-3 text-lg font-semibold">By Category</h2>
       <div className="grid gap-4 lg:grid-cols-2">
         {Object.entries(graph.categories).map(([key, group]) => (
           <div key={key} className="glass-panel p-4">
             <p className="mb-3 font-medium">{group.label ?? CATEGORY_LABELS[key as ResourceCategory]}</p>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {group.resourceIds.map((id) => {
                 const r = byId[id];
-                if (!r) return null;
+                if (!r || !isSafeUrl(r.url)) return null;
                 return (
                   <li key={id} className="flex flex-wrap items-center gap-2 text-sm">
                     <SourceTypeBadge type={r.source_type} />
-                    <ExternalResourceLink href={r.url}>{r.title}</ExternalResourceLink>
+                    <InternalLink href={`/resources/${r.id}`}>{r.title}</InternalLink>
                     <span className="text-xs text-gray-500">{r.learning_phase}</span>
+                    <OpenResourceButton href={r.url} label="Open Resource" />
                   </li>
                 );
               })}
@@ -43,26 +47,41 @@ export default function ResourceGraphPage() {
 
       <h2 className="mb-3 mt-8 text-lg font-semibold">Lesson Mappings</h2>
       <div className="grid gap-4 lg:grid-cols-2">
-        {Object.entries(graph.lessons).map(([lesson, data]) => (
-          <div key={lesson} className="glass-panel p-4">
-            <p className="font-medium capitalize">{lesson.replace(/_/g, " ")}</p>
-            {data.week && <p className="text-xs text-gray-500">Week {data.week}</p>}
-            <ul className="mt-2 space-y-1">
-              {data.resources.map((id) => {
-                const r = byId[id];
-                return (
-                  <li key={id} className="text-sm">
-                    {r ? (
-                      <ExternalResourceLink href={r.url}>{r.title}</ExternalResourceLink>
-                    ) : (
-                      <span className="text-gray-500">{id}</span>
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        ))}
+        {Object.entries(graph.lessons).map(([lesson, data]) => {
+          const weekLesson = data.week
+            ? allLessons.find((l) => l.week === data.week)
+            : undefined;
+          return (
+            <div key={lesson} className="glass-panel p-4">
+              <div className="mb-2 flex flex-wrap items-center gap-2">
+                <p className="font-medium capitalize">{lesson.replace(/_/g, " ")}</p>
+                {data.week && weekLesson && (
+                  <InternalLink href={`/lessons/${weekLesson.slug}`} className="text-xs">
+                    Week {data.week} lesson
+                  </InternalLink>
+                )}
+              </div>
+              <ul className="mt-2 space-y-2">
+                {data.resources.map((id) => {
+                  const r = byId[id];
+                  if (!r || !isSafeUrl(r.url)) {
+                    return (
+                      <li key={id} className="text-sm text-gray-500">
+                        {id} (missing)
+                      </li>
+                    );
+                  }
+                  return (
+                    <li key={id} className="flex flex-wrap items-center gap-2 text-sm">
+                      <InternalLink href={`/resources/${r.id}`}>{r.title}</InternalLink>
+                      <OpenResourceButton href={r.url} label="Open" />
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          );
+        })}
       </div>
 
       <h2 className="mb-3 mt-8 text-lg font-semibold">Prerequisite Edges</h2>

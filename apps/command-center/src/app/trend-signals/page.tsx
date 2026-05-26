@@ -1,7 +1,8 @@
 import { loadJson } from "@/lib/data";
 import type { Resource } from "@/lib/types";
 import { PageHeader, DataTable } from "@/components/ui/PageHeader";
-import { ExternalResourceLink } from "@/components/resources/ResourceBadges";
+import { ExternalLink, InternalLink } from "@/components/navigation/NavLinks";
+import { isSafeUrl } from "@/lib/catalog";
 
 export default function TrendSignalsPage() {
   const log = loadJson<{
@@ -44,9 +45,12 @@ export default function TrendSignalsPage() {
             <ul className="mt-3 space-y-1">
               {featured.resourceIds.map((id) => {
                 const r = byId[id];
-                return r ? (
-                  <li key={id} className="text-sm">
-                    <ExternalResourceLink href={r.url}>{r.title}</ExternalResourceLink>
+                return r && isSafeUrl(r.url) ? (
+                  <li key={id} className="flex flex-wrap items-center gap-2 text-sm">
+                    <InternalLink href={`/resources/${r.id}`}>{r.title}</InternalLink>
+                    <ExternalLink href={r.url} className="text-xs">
+                      Open
+                    </ExternalLink>
                   </li>
                 ) : null;
               })}
@@ -71,12 +75,14 @@ export default function TrendSignalsPage() {
       <h2 className="mb-3 mt-8 text-lg font-semibold">Today&apos;s Brief Signals</h2>
       <DataTable
         headers={["Title", "Score", "Action", "Category"]}
-        rows={brief.signals.map((s) => [
-          <ExternalResourceLink href={s.url}>{s.title}</ExternalResourceLink>,
-          s.relevanceScore,
-          <span className={s.classification === "ignore" ? "badge-ignore" : s.classification === "act_now" ? "badge-ready" : "badge-monitor"}>{s.classification}</span>,
-          s.category,
-        ])}
+        rows={brief.signals
+          .filter((s) => isSafeUrl(s.url))
+          .map((s) => [
+            <ExternalLink href={s.url}>{s.title}</ExternalLink>,
+            s.relevanceScore,
+            <span className={s.classification === "ignore" ? "badge-ignore" : s.classification === "act_now" ? "badge-ready" : "badge-monitor"}>{s.classification}</span>,
+            s.category,
+          ])}
       />
     </div>
   );

@@ -1,0 +1,171 @@
+{
+  "lessons": [
+    {
+      "slug": "week-1",
+      "week": 1,
+      "title": "Python basics",
+      "folder": "foundations/week-01-python",
+      "status": "scaffold",
+      "tier": "foundations",
+      "anchor": false,
+      "completed": false,
+      "objective": "Write basic Python scripts: variables, control flow, functions, file I/O, and virtual environments.",
+      "checklist": [
+        "Complete variables and types exercises",
+        "Write a script with if/for loops",
+        "Create and import a module",
+        "Read and write a text file",
+        "Set up a virtual environment"
+      ],
+      "resourceIds": [],
+      "exercises": [
+        { "id": "python_basics.py", "title": "Python basics drill", "completed": false }
+      ],
+      "quiz": { "title": "Week 1 checkpoint", "score": null, "completed": false, "passingScore": 70 },
+      "commuterResourceIds": [],
+      "notebooklmPackIds": [],
+      "nextSlug": "week-2"
+    },
+    {
+      "slug": "week-2",
+      "week": 2,
+      "title": "Python + Git foundations",
+      "folder": "foundations/week-02-python-git-foundations",
+      "status": "ready",
+      "tier": "foundations",
+      "anchor": true,
+      "completed": true,
+      "objective": "Use Python for CLI workflows and Git/GitHub for version control on a small project.",
+      "checklist": [
+        "Run the anchor lesson notes end-to-end",
+        "Complete python_git_foundations.py exercise",
+        "Pass Week 2 quiz (≥70%)",
+        "Push a commit to GitHub",
+        "Review git workflow cheat sheet"
+      ],
+      "resourceIds": [],
+      "exercises": [
+        { "id": "python_git_foundations.py", "title": "Python + Git foundations exercise", "completed": true }
+      ],
+      "quiz": { "title": "Week 2 checkpoint", "score": 90, "completed": true, "passingScore": 70 },
+      "commuterResourceIds": [],
+      "notebooklmPackIds": [],
+      "nextSlug": "week-3"
+    },
+    {
+      "slug": "week-3",
+      "week": 3,
+      "title": "APIs + JSON foundations",
+      "folder": "foundations/week-03-apis-json-foundations",
+      "status": "ready",
+      "tier": "foundations",
+      "anchor": true,
+      "completed": true,
+      "objective": "Call HTTP APIs with Python, parse JSON responses, and handle common error cases.",
+      "checklist": [
+        "Complete APIs + JSON anchor lesson",
+        "Complete apis_json_foundations.py exercise",
+        "Pass Week 3 quiz (≥70%)",
+        "Call a public API and save JSON to file",
+        "Handle at least one HTTP error status"
+      ],
+      "resourceIds": [],
+      "exercises": [
+        { "id": "apis_json_foundations.py", "title": "APIs + JSON foundations exercise", "completed": true }
+      ],
+      "quiz": { "title": "Week 3 checkpoint", "score": 85, "completed": true, "passingScore": 70 },
+      "commuterResourceIds": [],
+      "notebooklmPackIds": [],
+      "nextSlug": "week-4"
+    },
+    {
+      "slug": "week-4",
+      "week": 4,
+      "title": "Linear algebra foundations",
+      "folder": "math/week-04-linear-algebra-foundations",
+      "status": "ready",
+      "tier": "foundations",
+      "anchor": true,
+      "completed": true,
+      "objective": "Explain vectors, matrices, dot products, and cosine similarity — foundations for embeddings and RAG.",
+      "checklist": [
+        "Complete linear algebra anchor lesson",
+        "Complete linear_algebra_foundations.py exercise",
+        "Pass Week 4 quiz (≥70%)",
+        "Watch one MIT Linear Algebra commute video",
+        "Connect dot product to cosine similarity"
+      ],
+      "resourceIds": [
+        "mml-book",
+        "khan-linear-algebra",
+        "imperial-linear-algebra",
+        "mit-linear-algebra-playlist",
+        "maths-cs-ai-compendium",
+        "arxiv-matrix-calculus"
+      ],
+      "exercises": [
+        { "id": "linear_algebra_foundations.py", "title": "Linear algebra foundations exercise", "completed": true }
+      ],
+      "quiz": { "title": "Week 4 checkpoint", "score": 72, "completed": true, "passingScore": 70 },
+      "commuterResourceIds": [
+        "mit-linear-algebra-playlist",
+        "khan-linear-algebra",
+        "imperial-linear-algebra"
+      ],
+      "notebooklmPackIds": ["week-04-linear-algebra", "mml-book", "imperial-linear-algebra", "arxiv-matrix-calculus"],
+      "nextSlug": "week-5"
+    },
+    {
+      "slug": "week-5",
+      "week": 5,
+      "title": "Statistics foundations",
+      "folder": "math/week-05-statistics",
+      "status": "scaffold",
+      "tier": "foundations",
+      "anchor": false,
+      "completed": false,
+      "objective": "Compute descriptive statistics, understand distributions, and build intuition for ML data analysis.",
+      "checklist": [
+        "Complete statistics scaffold lesson",
+        "Complete statistics_foundations.py exercise",
+        "Pass Week 5 quiz (≥70%)",
+        "Khan stats commute review",
+        "Relate mean/variance to model evaluation"
+      ],
+      "resourceIds": ["isl-book", "khan-stats-probability", "mml-book"],
+      "exercises": [
+        { "id": "statistics_foundations.py", "title": "Statistics foundations exercise", "completed": false }
+      ],
+      "quiz": { "title": "Week 5 checkpoint", "score": null, "completed": false, "passingScore": 70 },
+      "commuterResourceIds": ["khan-stats-probability"],
+      "notebooklmPackIds": ["mml-book"],
+      "nextSlug": "week-6"
+    },
+    {
+      "slug": "week-6",
+      "week": 6,
+      "title": "NumPy/Pandas + local LLM",
+      "folder": "ml/week-06-numpy-pandas",
+      "status": "scaffold",
+      "tier": "foundations",
+      "anchor": false,
+      "completed": false,
+      "objective": "Use NumPy and pandas for tabular data, then run a local LLM with Ollama for a simple chat demo.",
+      "checklist": [
+        "Complete NumPy/pandas lesson",
+        "Install and run Ollama locally",
+        "Complete numpy_pandas_llm.py exercise",
+        "Pass Week 6 quiz (≥70%)",
+        "Run one local LLM prompt from Python"
+      ],
+      "resourceIds": ["ollama"],
+      "exercises": [
+        { "id": "numpy_pandas_llm.py", "title": "NumPy, pandas, and local LLM exercise", "completed": false }
+      ],
+      "quiz": { "title": "Week 6 checkpoint", "score": null, "completed": false, "passingScore": 70 },
+      "commuterResourceIds": [],
+      "notebooklmPackIds": [],
+      "nextSlug": null
+    }
+  ]
+}

@@ -1,7 +1,8 @@
 import { loadJson } from "@/lib/data";
 import type { Resource } from "@/lib/types";
 import { PageHeader, KpiCard, DataTable } from "@/components/ui/PageHeader";
-import { ExternalResourceLink } from "@/components/resources/ResourceBadges";
+import { ExternalLink, InternalLink } from "@/components/navigation/NavLinks";
+import { isSafeUrl } from "@/lib/catalog";
 
 export default function FlywheelPage() {
   const metrics = loadJson<{
@@ -46,8 +47,13 @@ export default function FlywheelPage() {
                   return (
                     <tr key={entry.id} className="border-b border-command-border/50 hover:bg-white/5">
                       <td className="px-4 py-3">
-                        {r ? (
-                          <ExternalResourceLink href={r.url}>{r.title}</ExternalResourceLink>
+                        {r && isSafeUrl(r.url) ? (
+                          <span className="flex flex-wrap items-center gap-2">
+                            <InternalLink href={`/resources/${r.id}`}>{r.title}</InternalLink>
+                            <ExternalLink href={r.url} className="text-xs">
+                              Open
+                            </ExternalLink>
+                          </span>
                         ) : (
                           entry.id
                         )}
@@ -98,6 +104,12 @@ export default function FlywheelPage() {
           new Date(e.timestamp).toLocaleDateString(),
         ])}
       />
+
+      <p className="mt-6 text-sm text-gray-500">
+        <InternalLink href="/change-log">View change log</InternalLink>
+        {" · "}
+        <InternalLink href="/resources">Browse resources</InternalLink>
+      </p>
     </div>
   );
 }

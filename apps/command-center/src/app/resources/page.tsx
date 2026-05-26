@@ -1,8 +1,11 @@
 import { loadJson } from "@/lib/data";
 import type { Resource } from "@/lib/types";
+import { CATEGORY_LABELS } from "@/lib/types";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { ResourceExplorer } from "@/components/resources/ResourceExplorer";
-import { ExternalResourceLink, SourceTypeBadge } from "@/components/resources/ResourceBadges";
+import { ExternalLink, InternalLink } from "@/components/navigation/NavLinks";
+import { SourceTypeBadge } from "@/components/resources/ResourceBadges";
+import { isSafeUrl } from "@/lib/catalog";
 
 export default function ResourcesPage() {
   const data = loadJson<{
@@ -13,7 +16,7 @@ export default function ResourcesPage() {
 
   return (
     <div>
-      <PageHeader title="Resources" subtitle="Curated sources — click titles to open originals in a new tab" />
+      <PageHeader title="Resources" subtitle="Click titles for detail · Open for external source in new tab" />
 
       <div className="mb-6 grid gap-4 sm:grid-cols-3">
         <div className="kpi-card">
@@ -30,7 +33,7 @@ export default function ResourcesPage() {
         </div>
       </div>
 
-      <ResourceExplorer resources={data.resources} />
+      <ResourceExplorer resources={data.resources.filter((r) => isSafeUrl(r.url))} />
 
       <h2 className="mb-3 mt-8 text-lg font-semibold">Source Registry</h2>
       <div className="glass-panel overflow-x-auto">
@@ -43,18 +46,18 @@ export default function ResourcesPage() {
             </tr>
           </thead>
           <tbody>
-            {data.sourceRegistry.map((s) => (
+            {data.sourceRegistry.filter((s) => isSafeUrl(s.url)).map((s) => (
               <tr key={s.id} className="border-b border-command-border/50 hover:bg-white/5">
                 <td className="px-4 py-3">
-                  <ExternalResourceLink href={s.url}>{s.name}</ExternalResourceLink>
+                  <InternalLink href={`/resources/${s.id}`}>{s.name}</InternalLink>
                 </td>
                 <td className="px-4 py-3">
                   <SourceTypeBadge type={s.type as Resource["source_type"]} />
                 </td>
                 <td className="px-4 py-3">
-                  <ExternalResourceLink href={s.url} className="text-xs">
+                  <ExternalLink href={s.url} className="text-xs">
                     Open source
-                  </ExternalResourceLink>
+                  </ExternalLink>
                 </td>
               </tr>
             ))}

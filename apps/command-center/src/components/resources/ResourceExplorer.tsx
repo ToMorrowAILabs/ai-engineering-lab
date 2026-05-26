@@ -3,7 +3,8 @@
 import { useMemo, useState } from "react";
 import type { LearningPhase, Resource, ResourceAction, ResourceCategory, ResourcePriority, SourceType } from "@/lib/types";
 import { CATEGORY_LABELS } from "@/lib/types";
-import { ActionBadge, ExternalResourceLink, PdfBadge, SourceTypeBadge } from "./ResourceBadges";
+import { ActionBadge, PdfBadge, SourceTypeBadge } from "./ResourceBadges";
+import { ExternalLink, InternalLink, OpenResourceButton } from "@/components/navigation/NavLinks";
 
 const PHASES: LearningPhase[] = ["Month 1", "Month 2", "Month 3", "Month 4+"];
 const PRIORITIES: ResourcePriority[] = ["high", "medium", "low"];
@@ -79,7 +80,7 @@ export function ResourceExplorer({ resources }: { resources: Resource[] }) {
           </div>
         </div>
         <p className="text-xs text-gray-500">
-          Showing {filtered.length} of {resources.length} resources · click any title to open source
+          Showing {filtered.length} of {resources.length} resources · titles link to detail pages; use Open for external source
         </p>
       </div>
 
@@ -92,7 +93,7 @@ export function ResourceExplorer({ resources }: { resources: Resource[] }) {
               <th className="px-4 py-3">Category</th>
               <th className="px-4 py-3">Priority</th>
               <th className="px-4 py-3">Action</th>
-              <th className="px-4 py-3">Score</th>
+              <th className="px-4 py-3">Open</th>
             </tr>
           </thead>
           <tbody>
@@ -101,7 +102,7 @@ export function ResourceExplorer({ resources }: { resources: Resource[] }) {
                 <td className="px-4 py-3">
                   <div className="flex flex-wrap items-center gap-2">
                     <SourceTypeBadge type={r.source_type} />
-                    <ExternalResourceLink href={r.url}>{r.title}</ExternalResourceLink>
+                    <InternalLink href={`/resources/${r.id}`}>{r.title}</InternalLink>
                     {r.pdfAvailable && <PdfBadge />}
                     {r.commute_friendly && (
                       <span className="badge-monitor text-[10px]">commute</span>
@@ -111,6 +112,10 @@ export function ResourceExplorer({ resources }: { resources: Resource[] }) {
                     )}
                   </div>
                   <p className="mt-1 max-w-xl text-xs text-gray-500">{r.recommended_use}</p>
+                  <ExternalLink href={r.url} className="mt-1 block text-xs opacity-80">
+                    {r.url.replace(/^https?:\/\//, "").slice(0, 60)}
+                    {r.url.length > 68 ? "…" : ""}
+                  </ExternalLink>
                 </td>
                 <td className="px-4 py-3 whitespace-nowrap text-gray-400">{r.learning_phase}</td>
                 <td className="px-4 py-3 whitespace-nowrap">
@@ -120,7 +125,9 @@ export function ResourceExplorer({ resources }: { resources: Resource[] }) {
                 <td className="px-4 py-3">
                   <ActionBadge action={r.action} />
                 </td>
-                <td className="px-4 py-3 font-mono text-cyan-400">{r.relevance_score}</td>
+                <td className="px-4 py-3">
+                  <OpenResourceButton href={r.url} label="Open" />
+                </td>
               </tr>
             ))}
           </tbody>
