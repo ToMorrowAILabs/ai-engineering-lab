@@ -51,6 +51,34 @@ export function BalanceBar({
   );
 }
 
+export function ProgressBar({
+  value,
+  label,
+  color = "bg-cyan-500",
+}: {
+  value: number;
+  label?: string;
+  color?: string;
+}) {
+  const clamped = Math.min(100, Math.max(0, value));
+  return (
+    <div>
+      {label && (
+        <div className="mb-1.5 flex items-center justify-between text-xs text-gray-500">
+          <span>{label}</span>
+          <span className="font-mono text-gray-400">{clamped}%</span>
+        </div>
+      )}
+      <div className="h-2.5 overflow-hidden rounded-full bg-gray-800">
+        <div
+          className={`h-full rounded-full transition-all duration-500 ${color}`}
+          style={{ width: `${clamped}%` }}
+        />
+      </div>
+    </div>
+  );
+}
+
 export function DataTable({
   headers,
   rows,
