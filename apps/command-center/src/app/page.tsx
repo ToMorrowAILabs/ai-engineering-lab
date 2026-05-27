@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { loadJson } from "@/lib/data";
 import type { Balance702010, ProgressMeta } from "@/lib/types";
-import { KpiCard, BalanceBar, ProgressBar } from "@/components/ui/PageHeader";
-import { CtaButton, GhostButton, WarnButton } from "@/components/ui/Buttons";
+import { BalanceBar, ProgressBar } from "@/components/ui/PageHeader";
+import { CtaButton, GhostButton, LinkStatCard, WarnButton } from "@/components/ui/Buttons";
 import { getLessonBySlug, lessonIdToSlug } from "@/lib/catalog";
 
 export default function DashboardPage() {
@@ -126,26 +126,16 @@ export default function DashboardPage() {
       <div className="mb-6 glass-panel p-5">
         <div className="mb-4 flex items-center justify-between">
           <p className="text-sm font-medium">Month 1 Progress</p>
-          <span className="text-sm font-mono text-cyan-400">{meta.percentComplete}%</span>
+          <Link href="/progress" className="text-xs text-cyan-400 hover:text-cyan-300 transition">
+            View full progress →
+          </Link>
         </div>
         <ProgressBar value={meta.percentComplete} />
-        <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4 text-sm">
-          <div>
-            <p className="text-xs text-gray-500">Lessons</p>
-            <p className="font-semibold text-white">{meta.lessonsCompleted}/{meta.lessonsTotal}</p>
-          </div>
-          <div>
-            <p className="text-xs text-gray-500">Streak</p>
-            <p className="font-semibold text-emerald-400">{meta.streakDays}d</p>
-          </div>
-          <div>
-            <p className="text-xs text-gray-500">Velocity</p>
-            <p className="font-semibold text-white">{meta.learningVelocityLessonsPerWeek}/wk</p>
-          </div>
-          <div>
-            <p className="text-xs text-gray-500">Quiz avg</p>
-            <p className="font-semibold text-cyan-400">{meta.averageQuizScore}%</p>
-          </div>
+        <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <LinkStatCard href="/progress" label="Lessons" value={`${meta.lessonsCompleted}/${meta.lessonsTotal}`} />
+          <LinkStatCard href="/course-kpis" label="Streak" value={`${meta.streakDays}d`} accent="text-emerald-400" />
+          <LinkStatCard href="/progress" label="Velocity" value={`${meta.learningVelocityLessonsPerWeek}/wk`} />
+          <LinkStatCard href="/course-kpis" label="Quiz avg" value={`${meta.averageQuizScore}%`} accent="text-cyan-400" />
         </div>
       </div>
 
@@ -175,18 +165,34 @@ export default function DashboardPage() {
 
       {/* ── VIOLATIONS / RECOMMENDATIONS ────────────────────────── */}
       {!balance702010.onTrack && balance702010.violations.length > 0 && (
-        <div className="mb-6 rounded-xl border border-amber-500/30 bg-amber-500/10 p-4 text-sm text-amber-200">
-          <span className="font-semibold">⚠ Balance violations:</span> {balance702010.violations.join(", ")}
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-amber-500/30 bg-amber-500/10 p-4 text-sm text-amber-200">
+          <span>
+            <span className="font-semibold">⚠ Balance violations:</span>{" "}
+            {balance702010.violations.join(", ")}
+          </span>
+          <Link
+            href="/roadmap"
+            className="rounded-lg border border-amber-500/40 px-3 py-1.5 text-xs font-medium text-amber-300 transition hover:bg-amber-500/15"
+          >
+            Adjust roadmap →
+          </Link>
         </div>
       )}
       {balance702010.recommendations.length > 0 && (
         <div className="mb-6 glass-panel p-4">
           <p className="mb-2 text-sm font-medium text-command-accent">Recommendations</p>
-          <ul className="list-inside list-disc space-y-1 text-sm text-gray-400">
+          <ul className="space-y-2 text-sm text-gray-400">
             {balance702010.recommendations.map((r) => (
-              <li key={r}>{r}</li>
+              <li key={r} className="flex items-start gap-2">
+                <span className="mt-0.5 text-cyan-600">›</span>
+                <span>{r}</span>
+              </li>
             ))}
           </ul>
+          <div className="mt-3 flex flex-wrap gap-2 border-t border-command-border pt-3">
+            <GhostButton href="/roadmap">View roadmap</GhostButton>
+            <GhostButton href="/weakness-remediation">Remediation queue</GhostButton>
+          </div>
         </div>
       )}
 
@@ -194,25 +200,27 @@ export default function DashboardPage() {
       <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-gray-500">Navigate</p>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {[
-          { href: "/roadmap", label: "Roadmap", sub: "Week-by-week plan", accent: true },
-          { href: "/progress", label: "Progress", sub: `${meta.lessonsCompleted}/${meta.lessonsTotal} lessons done`, accent: false },
-          { href: "/daily-brief", label: "Daily Brief", sub: "Today's AI signals", accent: false },
-          { href: "/commuter", label: "Commuter", sub: `${commuterPending} items queued`, accent: false },
-          { href: "/resources", label: "Resources", sub: `${library.librarySummary.pdfCount} PDFs in library`, accent: false },
-          { href: "/flywheel", label: "Flywheel", sub: "Curriculum evolution", accent: false },
-          { href: "/course-kpis", label: "Course KPIs", sub: "Quiz + exercise metrics", accent: false },
-          { href: "/trend-signals", label: "Trend Signals", sub: "10% frontier scan", accent: false },
+          { href: "/roadmap",           label: "Roadmap",      sub: "Week-by-week plan",                   cta: "Open roadmap →",   accent: true  },
+          { href: "/progress",          label: "Progress",     sub: `${meta.lessonsCompleted}/${meta.lessonsTotal} lessons done`,  cta: "View progress →",  accent: false },
+          { href: "/daily-brief",       label: "Daily Brief",  sub: "Today's AI signals",                  cta: "Read brief →",     accent: false },
+          { href: "/commuter",          label: "Commuter",     sub: `${commuterPending} items queued`,     cta: "Start session →",  accent: false },
+          { href: "/resources",         label: "Resources",    sub: `${library.librarySummary.pdfCount} PDFs in library`,          cta: "Browse library →", accent: false },
+          { href: "/flywheel",          label: "Flywheel",     sub: "Curriculum evolution",                cta: "View metrics →",   accent: false },
+          { href: "/course-kpis",       label: "Course KPIs",  sub: "Quiz + exercise metrics",             cta: "View KPIs →",      accent: false },
+          { href: "/trend-signals",     label: "Trend Signals",sub: "10% frontier scan",                   cta: "Read signals →",   accent: false },
         ].map((item) => (
           <Link
             key={item.href}
             href={item.href}
-            className={`glass-panel block p-4 transition hover:bg-white/5 ${
-              item.accent ? "border-cyan-500/30 hover:border-cyan-500/50" : "hover:border-command-border"
+            className={`glass-card flex flex-col p-4 group ${
+              item.accent ? "border-cyan-500/30" : ""
             }`}
           >
-            <p className="font-semibold text-white">{item.label}</p>
-            <p className="mt-0.5 text-xs text-gray-500">{item.sub}</p>
-            <p className="mt-2 text-xs text-cyan-400/70">Open →</p>
+            <p className="font-semibold text-white group-hover:text-cyan-300 transition-colors">{item.label}</p>
+            <p className="mt-0.5 flex-1 text-xs text-gray-500">{item.sub}</p>
+            <p className="mt-3 text-xs font-medium text-cyan-400/70 group-hover:text-cyan-400 transition-colors">
+              {item.cta}
+            </p>
           </Link>
         ))}
       </div>

@@ -57,6 +57,36 @@ export function WarnButton({
   );
 }
 
+/**
+ * Clickable metric card — label + large value + "View →" affordance.
+ * Use in place of static KPI boxes where the value maps to a page.
+ */
+export function LinkStatCard({
+  href,
+  label,
+  value,
+  accent,
+}: {
+  href: string;
+  label: string;
+  value: string | number;
+  accent?: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className="glass-card flex flex-col gap-1 p-4 group"
+      aria-label={`${label}: ${value} — click to view`}
+    >
+      <span className="text-xs uppercase tracking-wide text-gray-500">{label}</span>
+      <span className={`text-2xl font-bold ${accent ?? "text-white"}`}>{value}</span>
+      <span className="mt-1 text-[10px] text-cyan-400/50 transition group-hover:text-cyan-400">
+        View →
+      </span>
+    </Link>
+  );
+}
+
 /** Violet/frontier button — for parked/deferred topics. */
 export function FrontierButton({
   href,

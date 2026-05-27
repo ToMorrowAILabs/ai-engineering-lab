@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { loadJson } from "@/lib/data";
 import type { ProgressMeta } from "@/lib/types";
-import { KpiCard, DataTable, ProgressBar } from "@/components/ui/PageHeader";
+import { DataTable, ProgressBar } from "@/components/ui/PageHeader";
 import { CtaButton, GhostButton, WarnButton } from "@/components/ui/Buttons";
 import { getAllLessons, getLessonBySlug, lessonIdToSlug } from "@/lib/catalog";
 import { WeekChecklistCard } from "@/components/progress/WeekChecklist";
-import { InternalLink } from "@/components/navigation/NavLinks";
+import { InternalLink, StrongTopicLink, TopicFilterLink } from "@/components/navigation/NavLinks";
 
 export default function ProgressPage() {
   const progress = loadJson<{ meta: ProgressMeta }>("progress_metrics.json");
@@ -79,13 +79,16 @@ export default function ProgressPage() {
         {/* Strong topics */}
         <div className="glass-panel p-5">
           <p className="mb-1 font-semibold text-emerald-400">✓ Strong Topics</p>
-          <p className="mb-3 text-xs text-gray-500">Solid foundations — keep applying these</p>
+          <p className="mb-3 text-xs text-gray-500">Click any topic to find related resources</p>
           <div className="flex flex-wrap gap-2">
             {meta.strongTopics.map((t) => (
-              <span key={t} className="badge-ready cursor-default">
-                {t.replace(/_/g, " ")}
-              </span>
+              <StrongTopicLink key={t} topic={t} />
             ))}
+          </div>
+          <div className="mt-3 border-t border-command-border pt-3">
+            <Link href="/resources" className="text-xs text-gray-500 transition hover:text-white">
+              Browse all resources →
+            </Link>
           </div>
         </div>
 
@@ -95,16 +98,11 @@ export default function ProgressPage() {
           <p className="mb-3 text-xs text-gray-500">Click a topic to open targeted remediation</p>
           <div className="flex flex-wrap gap-2">
             {meta.weakTopics.map((t) => (
-              <WarnButton
-                key={t}
-                href={`/weakness-remediation?topic=${encodeURIComponent(t)}`}
-              >
-                {t.replace(/_/g, " ")} →
-              </WarnButton>
+              <TopicFilterLink key={t} topic={t} />
             ))}
           </div>
           <div className="mt-3 border-t border-command-border pt-3">
-            <Link href="/weakness-remediation" className="text-xs text-gray-500 hover:text-white transition">
+            <Link href="/weakness-remediation" className="text-xs text-gray-500 transition hover:text-white">
               View all remediation items →
             </Link>
           </div>
@@ -127,25 +125,52 @@ export default function ProgressPage() {
 
       {/* ── RECENT EVENTS ────────────────────────────────────────── */}
       <h2 className="mb-3 text-lg font-semibold">Recent Events</h2>
-      <DataTable
-        headers={["Type", "Lesson", "When"]}
-        rows={events.events
+      <div className="space-y-2">
+        {events.events
           .slice(-8)
           .reverse()
-          .map((e) => [
-            <span key={e.timestamp} className="capitalize text-gray-300">
-              {e.type.replace(/_/g, " ")}
-            </span>,
-            e.lessonId ? (
-              <InternalLink href={`/lessons/${lessonIdToSlug(e.lessonId)}`}>
-                {e.lessonId.replace(/-/g, " ")}
-              </InternalLink>
-            ) : (
-              "—"
-            ),
-            new Date(e.timestamp).toLocaleDateString(),
-          ])}
-      />
+          .map((e) => {
+            const slug = e.lessonId ? lessonIdToSlug(e.lessonId) : null;
+            const eventTypeColor =
+              e.type === "lesson_completed"
+                ? "badge-ready"
+                : e.type === "quiz_passed"
+                ? "badge-ready"
+                : e.type === "quiz_failed"
+                ? "badge-scaffold"
+                : "badge-monitor";
+            return (
+              <div
+                key={e.timestamp}
+                className={`glass-panel flex flex-wrap items-center justify-between gap-3 px-4 py-3 text-sm transition ${
+                  slug ? "hover:border-cyan-500/20 hover:bg-white/[0.03]" : ""
+                }`}
+              >
+                <span className={`${eventTypeColor} capitalize`}>
+                  {e.type.replace(/_/g, " ")}
+                </span>
+                {slug ? (
+                  <InternalLink href={`/lessons/${slug}`} className="flex-1">
+                    {e.lessonId!.replace(/-/g, " ")}
+                  </InternalLink>
+                ) : (
+                  <span className="flex-1 text-gray-500">—</span>
+                )}
+                <span className="text-xs text-gray-600">
+                  {new Date(e.timestamp).toLocaleDateString()}
+                </span>
+                {slug && (
+                  <Link
+                    href={`/lessons/${slug}`}
+                    className="shrink-0 rounded border border-command-border px-2 py-0.5 text-[10px] text-gray-500 transition hover:border-cyan-500/40 hover:text-cyan-400"
+                  >
+                    Open →
+                  </Link>
+                )}
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 }

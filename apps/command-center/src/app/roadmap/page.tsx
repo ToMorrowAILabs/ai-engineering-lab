@@ -59,15 +59,23 @@ export default function RoadmapPage() {
           return (
             <div
               key={w.week}
-              className="glass-panel flex flex-col gap-4 p-5 transition hover:border-cyan-500/20 hover:bg-white/[0.02] sm:flex-row sm:items-center sm:justify-between"
+              className="glass-panel relative flex flex-col gap-4 p-5 transition hover:border-cyan-500/40 hover:bg-white/[0.06] sm:flex-row sm:items-center sm:justify-between"
             >
+              {/* Invisible full-card link overlay for keyboard/click navigation */}
+              {lesson && (
+                <Link
+                  href={`/lessons/${lesson.slug}`}
+                  className="absolute inset-0 rounded-xl"
+                  aria-label={`Open Week ${w.week}: ${w.title}`}
+                  tabIndex={-1}
+                />
+              )}
+
               {/* Left: meta + title */}
-              <div className="flex-1 min-w-0">
+              <div className="relative z-10 min-w-0 flex-1">
                 <div className="mb-1.5 flex flex-wrap items-center gap-2">
                   <span className="font-mono text-xs font-bold text-gray-500">Week {w.week}</span>
-                  <span
-                    className={w.status === "ready" ? "badge-ready" : "badge-scaffold"}
-                  >
+                  <span className={w.status === "ready" ? "badge-ready" : "badge-scaffold"}>
                     {w.status}
                   </span>
                   {w.anchor && <span className="badge-ready text-[10px]">anchor</span>}
@@ -76,16 +84,9 @@ export default function RoadmapPage() {
                   )}
                 </div>
 
-                {lesson ? (
-                  <Link
-                    href={`/lessons/${lesson.slug}`}
-                    className="block font-semibold text-white hover:text-cyan-300 transition"
-                  >
-                    {w.title}
-                  </Link>
-                ) : (
-                  <p className="font-semibold text-gray-400">{w.title}</p>
-                )}
+                <p className={`font-semibold ${lesson ? "text-white" : "text-gray-400"}`}>
+                  {w.title}
+                </p>
 
                 {lesson && (
                   <p className="mt-1 text-xs text-gray-500">
@@ -98,8 +99,8 @@ export default function RoadmapPage() {
                 )}
               </div>
 
-              {/* Right: CTA button */}
-              <div className="shrink-0">
+              {/* Right: CTA button (z-10 so it sits above the invisible overlay) */}
+              <div className="relative z-10 shrink-0">
                 {lesson ? (
                   <CtaButton href={`/lessons/${lesson.slug}`}>
                     {w.completed ? "Review" : "Open lesson"} →
@@ -128,20 +129,25 @@ export default function RoadmapPage() {
               <span className="text-sm font-medium text-gray-300">{block.focus}</span>
             </div>
             <p className="mb-4 text-xs text-gray-500">{block.note}</p>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {block.resourceIds.map((id) => {
                 const r = byId[id];
                 if (!r || !isSafeUrl(r.url)) return null;
                 return (
-                  <li key={id} className="flex flex-wrap items-center gap-2 text-sm">
+                  <li
+                    key={id}
+                    className="flex flex-wrap items-center gap-2 rounded-lg border border-white/5 bg-white/[0.02] px-3 py-2 text-sm transition hover:border-cyan-500/20 hover:bg-white/[0.04]"
+                  >
                     <SourceTypeBadge type={r.source_type} />
-                    <InternalLink href={`/resources/${r.id}`}>{r.title}</InternalLink>
+                    <InternalLink href={`/resources/${r.id}`} className="flex-1">
+                      {r.title}
+                    </InternalLink>
+                    <span className="badge-monitor text-[10px] capitalize">
+                      {r.action.replace(/_/g, " ")}
+                    </span>
                     <ExternalLink href={r.url} className="text-xs">
                       Open ↗
                     </ExternalLink>
-                    <span className="text-xs capitalize text-gray-600">
-                      {r.action.replace(/_/g, " ")}
-                    </span>
                   </li>
                 );
               })}

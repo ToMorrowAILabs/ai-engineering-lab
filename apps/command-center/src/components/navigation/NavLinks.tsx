@@ -64,3 +64,49 @@ export function LessonLink({ slug, children }: { slug: string; children: React.R
 export function ResourceDetailLink({ slug, children }: { slug: string; children: React.ReactNode }) {
   return <InternalLink href={`/resources/${slug}`}>{children}</InternalLink>;
 }
+
+/**
+ * Amber badge-pill that navigates to weakness-remediation filtered by topic.
+ * Use for weak topic tags anywhere in the app.
+ */
+export function TopicFilterLink({ topic }: { topic: string }) {
+  return (
+    <Link
+      href={`/weakness-remediation?topic=${encodeURIComponent(topic)}`}
+      className="inline-flex items-center rounded-full border border-amber-500/30 bg-amber-500/15 px-2.5 py-0.5 text-xs font-medium text-amber-300 transition hover:border-amber-500/50 hover:bg-amber-500/25"
+      aria-label={`Remediate ${topic.replace(/_/g, " ")}`}
+    >
+      {topic.replace(/_/g, " ")} →
+    </Link>
+  );
+}
+
+/**
+ * Emerald badge-pill for strong topics — navigates to resources page.
+ * Use to surface related learning material for mastered topics.
+ */
+export function StrongTopicLink({ topic }: { topic: string }) {
+  return (
+    <Link
+      href="/resources"
+      className="inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/15 px-2.5 py-0.5 text-xs font-medium text-emerald-300 transition hover:border-emerald-500/50 hover:bg-emerald-500/25"
+      aria-label={`Find resources for ${topic.replace(/_/g, " ")}`}
+    >
+      {topic.replace(/_/g, " ")} ↗
+    </Link>
+  );
+}
+
+/**
+ * Disabled "resource pending" badge — shown when a resourceId can't be resolved.
+ */
+export function PendingResourceBadge({ id }: { id: string }) {
+  return (
+    <span
+      className="inline-flex items-center rounded-full border border-gray-700 bg-gray-800/50 px-2.5 py-0.5 text-xs text-gray-600"
+      title={`Resource not yet loaded: ${id}`}
+    >
+      resource pending
+    </span>
+  );
+}

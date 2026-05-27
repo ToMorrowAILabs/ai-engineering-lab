@@ -1,10 +1,10 @@
 import { loadJson } from "@/lib/data";
 import type { Resource } from "@/lib/types";
 import { PageHeader, KpiCard } from "@/components/ui/PageHeader";
-import { GhostButton } from "@/components/ui/Buttons";
-import { InternalLink, ExternalLink } from "@/components/navigation/NavLinks";
+import { CtaButton, GhostButton } from "@/components/ui/Buttons";
+import { InternalLink, ExternalLink, PendingResourceBadge } from "@/components/navigation/NavLinks";
 import { SourceTypeBadge } from "@/components/resources/ResourceBadges";
-import { isSafeUrl } from "@/lib/catalog";
+import { isSafeUrl, getRelatedLessonSlug } from "@/lib/catalog";
 import { CommuterModePicker } from "@/components/commuter/CommuterModePicker";
 
 export default function CommuterPage() {
@@ -104,25 +104,55 @@ export default function CommuterPage() {
       <p className="mb-4 text-sm text-gray-500">
         GitHub repos and reference material — optional, not blocking Month 1 anchors.
       </p>
-      <div className="mb-8 space-y-2">
+      <div className="mb-8 space-y-3">
         {readLater.map((q) => {
           const r = resourceMap[q.resourceId];
+          const lessonSlug = getRelatedLessonSlug(q.resourceId);
           return (
             <div
               key={q.resourceId}
-              className="glass-panel flex flex-wrap items-center gap-3 px-4 py-3 text-sm"
+              className="glass-panel p-4 transition hover:border-cyan-500/20 hover:bg-white/[0.03]"
             >
-              <SourceTypeBadge type="github_repo" />
-              <InternalLink href={`/resources/${q.resourceId}`}>{q.title}</InternalLink>
-              {r && isSafeUrl(r.url) && (
-                <ExternalLink href={r.url} className="text-xs">
-                  Open repo ↗
-                </ExternalLink>
-              )}
-              <span className="badge-monitor">optional</span>
-              {q.weaknessTags.length > 0 && (
-                <span className="text-xs text-gray-600">{q.weaknessTags.join(", ")}</span>
-              )}
+              <div className="flex flex-wrap items-start justify-between gap-3">
+                <div className="min-w-0 flex-1">
+                  <div className="mb-1.5 flex flex-wrap items-center gap-2">
+                    <SourceTypeBadge type="github_repo" />
+                    <span className="badge-monitor text-[10px]">optional</span>
+                    {q.weaknessTags.length > 0 &&
+                      q.weaknessTags.map((t) => (
+                        <span key={t} className="badge-scaffold text-[10px]">
+                          {t.replace(/_/g, " ")}
+                        </span>
+                      ))}
+                  </div>
+                  <InternalLink href={`/resources/${q.resourceId}`} className="font-semibold">
+                    {q.title}
+                  </InternalLink>
+                </div>
+                <div className="flex shrink-0 flex-wrap gap-2">
+                  <InternalLink href={`/resources/${q.resourceId}`} className="rounded-lg border border-command-border px-3 py-1.5 text-xs font-medium no-underline text-gray-300 transition hover:border-cyan-500/40 hover:text-cyan-300">
+                    View details
+                  </InternalLink>
+                  {r && isSafeUrl(r.url) && (
+                    <a
+                      href={r.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 rounded-lg border border-command-border px-3 py-1.5 text-xs font-medium text-gray-300 transition hover:border-cyan-500/40 hover:text-cyan-300"
+                    >
+                      Open repo ↗
+                    </a>
+                  )}
+                  {lessonSlug && (
+                    <InternalLink
+                      href={`/lessons/${lessonSlug}`}
+                      className="rounded-lg border border-cyan-500/30 bg-cyan-500/10 px-3 py-1.5 text-xs font-medium no-underline text-cyan-300 transition hover:bg-cyan-500/20"
+                    >
+                      Open lesson →
+                    </InternalLink>
+                  )}
+                </div>
+              </div>
             </div>
           );
         })}
@@ -133,23 +163,40 @@ export default function CommuterPage() {
       <div className="mb-8 space-y-3">
         {data.playlist.map((p) => (
           <div key={p.id} className="glass-panel p-5">
-            <div className="flex items-start justify-between">
+            <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
                 <p className="font-semibold text-white">{p.name}</p>
                 {p.estimatedMinutes > 0 && (
-                  <p className="mt-0.5 text-xs text-gray-500">{p.estimatedMinutes} min estimated</p>
+                  <p className="mt-0.5 text-xs text-gray-500">
+                    {p.estimatedMinutes} min · {p.resourceIds.length} resources
+                  </p>
                 )}
               </div>
+              <CtaButton href="/commuter">
+                Start in Commuter →
+              </CtaButton>
             </div>
-            <div className="mt-3 flex flex-wrap gap-2">
+            <div className="mt-4 space-y-2">
               {p.resourceIds.map((id) => {
                 const r = resourceMap[id];
                 return r ? (
-                  <InternalLink key={id} href={`/resources/${id}`} className="text-xs">
-                    {r.title}
-                  </InternalLink>
+                  <div key={id} className="flex flex-wrap items-center gap-2 text-sm">
+                    <InternalLink href={`/resources/${id}`}>{r.title}</InternalLink>
+                    {isSafeUrl(r.url) && (
+                      <a
+                        href={r.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs text-gray-500 transition hover:text-cyan-400"
+                      >
+                        Open ↗
+                      </a>
+                    )}
+                  </div>
                 ) : (
-                  <span key={id} className="text-xs text-gray-600">{id}</span>
+                  <div key={id} className="flex items-center gap-2">
+                    <PendingResourceBadge id={id} />
+                  </div>
                 );
               })}
             </div>
@@ -162,21 +209,40 @@ export default function CommuterPage() {
       <div className="space-y-2">
         {data.sessions.map((s) => {
           const r = resourceMap[s.resourceId];
+          const lessonSlug = getRelatedLessonSlug(s.resourceId);
           return (
             <div
               key={s.id}
-              className="glass-panel flex flex-wrap items-center justify-between gap-3 px-4 py-3 text-sm"
+              className="glass-panel flex flex-wrap items-center gap-3 px-4 py-3 text-sm transition hover:border-cyan-500/20 hover:bg-white/[0.03]"
             >
-              <span className="text-gray-500">{s.date}</span>
-              {r ? (
-                <InternalLink href={`/resources/${s.resourceId}`}>{r.title}</InternalLink>
-              ) : (
-                <span className="text-gray-400">{s.resourceId}</span>
-              )}
-              <span className="text-gray-400">{s.durationMinutes}m</span>
+              <span className="w-24 shrink-0 text-xs text-gray-600">{s.date}</span>
+              <div className="flex flex-1 flex-wrap items-center gap-2">
+                {r ? (
+                  <InternalLink href={`/resources/${s.resourceId}`}>{r.title}</InternalLink>
+                ) : (
+                  <PendingResourceBadge id={s.resourceId} />
+                )}
+              </div>
+              <span className="text-xs text-gray-600">{s.durationMinutes}m</span>
               <span className={s.completed ? "badge-ready" : "badge-scaffold"}>
                 {s.completed ? "done" : "partial"}
               </span>
+              {r && (
+                <InternalLink
+                  href={`/resources/${s.resourceId}`}
+                  className="rounded border border-command-border px-2 py-0.5 text-[10px] font-medium no-underline text-gray-500 transition hover:border-cyan-500/40 hover:text-cyan-400"
+                >
+                  View →
+                </InternalLink>
+              )}
+              {lessonSlug && (
+                <InternalLink
+                  href={`/lessons/${lessonSlug}`}
+                  className="rounded border border-cyan-500/20 bg-cyan-500/5 px-2 py-0.5 text-[10px] font-medium no-underline text-cyan-500/70 transition hover:border-cyan-500/40 hover:text-cyan-400"
+                >
+                  Lesson →
+                </InternalLink>
+              )}
             </div>
           );
         })}
