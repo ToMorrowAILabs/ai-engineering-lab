@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { loadJson } from "@/lib/data";
 import type { Resource } from "@/lib/types";
 import { PageHeader, DataTable } from "@/components/ui/PageHeader";
@@ -10,6 +11,7 @@ type RoadmapData = {
   tracks: { id: string; name: string; description: string }[];
   supportMaterials: Record<string, { focus: string; resourceIds: string[]; note: string }>;
   parkingLot: string[];
+  parkingLotDetails?: Record<string, { reason: string; revisitAfter: string }>;
   outcomes: string[];
 };
 
@@ -42,7 +44,10 @@ export default function RoadmapPage() {
             lesson ? (
               <InternalLink href={`/lessons/${lesson.slug}`}>{w.title}</InternalLink>
             ) : (
-              w.title
+              <span className="flex items-center gap-2">
+                {w.title}
+                <span className="badge-scaffold text-[10px]">lesson coming</span>
+              </span>
             ),
             <span className={w.status === "ready" ? "badge-ready" : "badge-scaffold"}>{w.status}</span>,
             w.completed ? "✓" : "—",
@@ -51,7 +56,7 @@ export default function RoadmapPage() {
                 Open lesson
               </InternalLink>
             ) : (
-              "—"
+              <span className="text-xs text-gray-600">scaffold</span>
             ),
           ];
         })}
@@ -92,19 +97,49 @@ export default function RoadmapPage() {
       <h2 className="mb-3 mt-8 text-lg font-semibold">Curriculum Tracks</h2>
       <div className="grid gap-3 md:grid-cols-2">
         {roadmap.tracks.map((t) => (
-          <div key={t.id} className="glass-panel p-4">
-            <p className="font-medium">{t.name}</p>
-            <p className="text-sm text-gray-400">{t.description}</p>
-          </div>
+          <Link
+            key={t.id}
+            href="/resources"
+            className="glass-panel block p-4 transition hover:border-cyan-500/30 hover:bg-white/5"
+          >
+            <p className="font-medium text-white">{t.name}</p>
+            <p className="mt-1 text-sm text-gray-400">{t.description}</p>
+            <p className="mt-2 text-xs text-cyan-400/80">Browse resources →</p>
+          </Link>
         ))}
       </div>
 
       <h2 className="mb-3 mt-8 text-lg font-semibold">Parking Lot</h2>
+      <p className="mb-3 text-sm text-gray-500">Hover for reason — these topics are intentionally deferred to preserve 70% foundations focus.</p>
       <div className="flex flex-wrap gap-2">
-        {roadmap.parkingLot.map((item) => (
-          <span key={item} className="badge-frontier">{item}</span>
-        ))}
+        {roadmap.parkingLot.map((item) => {
+          const detail = roadmap.parkingLotDetails?.[item];
+          return (
+            <span
+              key={item}
+              className="badge-frontier cursor-help"
+              title={detail ? `Parked: ${detail.reason} Revisit after: ${detail.revisitAfter}` : "Parked — outside Month 1 scope"}
+            >
+              {item}
+            </span>
+          );
+        })}
       </div>
+      {roadmap.parkingLotDetails && (
+        <div className="mt-4 space-y-2">
+          {roadmap.parkingLot.map((item) => {
+            const detail = roadmap.parkingLotDetails![item];
+            if (!detail) return null;
+            return (
+              <details key={item} className="glass-panel px-4 py-2 text-sm">
+                <summary className="cursor-pointer font-medium text-violet-300">{item}</summary>
+                <p className="mt-2 text-gray-400">{detail.reason}</p>
+                <p className="mt-1 text-xs text-gray-500">Revisit after: {detail.revisitAfter}</p>
+              </details>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }

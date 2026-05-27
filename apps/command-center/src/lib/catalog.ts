@@ -33,17 +33,6 @@ export interface Lesson {
   nextSlug: string | null;
 }
 
-const RESOURCE_TO_LESSON: Record<string, string> = {
-  "mml-book": "week-4",
-  "khan-linear-algebra": "week-4",
-  "imperial-linear-algebra": "week-4",
-  "mit-linear-algebra-playlist": "week-4",
-  "maths-cs-ai-compendium": "week-4",
-  "arxiv-matrix-calculus": "week-4",
-  "khan-stats-probability": "week-5",
-  "isl-book": "week-5",
-  ollama: "week-6",
-};
 
 export function weekSlug(week: number): string {
   return `week-${week}`;
@@ -66,7 +55,7 @@ export function getLessonBySlug(slug: string): Lesson | undefined {
 }
 
 export function getRelatedLessonSlug(resourceId: string): string | undefined {
-  return RESOURCE_TO_LESSON[resourceId];
+  return getAllLessons().find((l) => l.resourceIds.includes(resourceId))?.slug;
 }
 
 export function isSafeUrl(url: string): boolean {
@@ -80,9 +69,9 @@ export function isSafeUrl(url: string): boolean {
   }
 }
 
-/** Map progress/event lesson ids (e.g. week-05-statistics) to route slug (week-5). */
+/** Map progress/event lesson ids (e.g. week-05-statistics, week-12-rag) to route slug (week-5, week-12). */
 export function lessonIdToSlug(lessonId: string): string {
-  const weekMatch = lessonId.match(/week-0?(\d)/i);
+  const weekMatch = lessonId.match(/week-0?(\d+)/i);
   if (weekMatch) return `week-${weekMatch[1]}`;
   return lessonId;
 }

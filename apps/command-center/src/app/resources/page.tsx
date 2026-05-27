@@ -13,6 +13,7 @@ export default function ResourcesPage() {
     librarySummary: { pdfCount: number; syncValid: boolean; lastSync: string; calibreStaged: number };
     sourceRegistry: { id: string; name: string; url: string; type: string }[];
   }>("resources.json");
+  const resourceIds = new Set(data.resources.map((r) => r.id));
 
   return (
     <div>
@@ -49,7 +50,11 @@ export default function ResourcesPage() {
             {data.sourceRegistry.filter((s) => isSafeUrl(s.url)).map((s) => (
               <tr key={s.id} className="border-b border-command-border/50 hover:bg-white/5">
                 <td className="px-4 py-3">
-                  <InternalLink href={`/resources/${s.id}`}>{s.name}</InternalLink>
+                  {resourceIds.has(s.id) ? (
+                    <InternalLink href={`/resources/${s.id}`}>{s.name}</InternalLink>
+                  ) : (
+                    <ExternalLink href={s.url}>{s.name}</ExternalLink>
+                  )}
                 </td>
                 <td className="px-4 py-3">
                   <SourceTypeBadge type={s.type as Resource["source_type"]} />

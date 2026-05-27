@@ -1,7 +1,7 @@
 import { loadJson } from "@/lib/data";
 import { PageHeader, DataTable } from "@/components/ui/PageHeader";
 import { InternalLink } from "@/components/navigation/NavLinks";
-import { getAllLessons } from "@/lib/catalog";
+import { getAllLessons, getAllResources } from "@/lib/catalog";
 
 export default function NotebookLMPage() {
   const data = loadJson<{
@@ -9,6 +9,17 @@ export default function NotebookLMPage() {
     exportManifest: { enabled: boolean; note: string };
   }>("notebooklm_packs.json");
   const allLessons = getAllLessons();
+  const resourceIds = new Set(getAllResources().map((r) => r.id));
+
+  function resolvePackLink(id: string) {
+    const weekMatch = id.match(/week-0?(\d+)/i);
+    if (weekMatch) {
+      const lesson = allLessons.find((l) => l.week === parseInt(weekMatch[1], 10));
+      if (lesson) return { href: `/lessons/${lesson.slug}`, label: "Lesson page" };
+    }
+    if (resourceIds.has(id)) return { href: `/resources/${id}`, label: "Resource" };
+    return null;
+  }
 
   return (
     <div>
@@ -34,24 +45,22 @@ export default function NotebookLMPage() {
       <DataTable
         headers={["Pack", "Lessons", "Priority", "Course path", "Detail"]}
         rows={data.packs.map((p) => {
-          const weekLesson = allLessons.find((l) => p.id.startsWith("week-04") && l.week === 4);
+          const link = resolvePackLink(p.id);
           return [
-            p.id.startsWith("week-") && weekLesson ? (
-              <InternalLink href={`/lessons/${weekLesson.slug}`}>{p.title}</InternalLink>
+            link ? (
+              <InternalLink href={link.href}>{p.title}</InternalLink>
             ) : (
-              <InternalLink href={`/resources/${p.id}`}>{p.title}</InternalLink>
+              <span className="text-gray-300">{p.title}</span>
             ),
             p.lessons.join(", "),
             <span className={p.priority === "high" ? "badge-ready" : "badge-monitor"}>{p.priority}</span>,
             <code className="text-xs text-gray-400">{p.repoPath}</code>,
-            p.id.startsWith("week-") && weekLesson ? (
-              <InternalLink href={`/lessons/${weekLesson.slug}`} className="text-xs">
-                Lesson page
+            link ? (
+              <InternalLink href={link.href} className="text-xs">
+                {link.label}
               </InternalLink>
             ) : (
-              <InternalLink href={`/resources/${p.id}`} className="text-xs">
-                Resource
-              </InternalLink>
+              <span className="text-xs text-gray-500">—</span>
             ),
           ];
         })}

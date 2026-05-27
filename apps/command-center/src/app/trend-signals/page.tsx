@@ -24,7 +24,11 @@ export default function TrendSignalsPage() {
   const { resources } = loadJson<{ resources: Resource[] }>("resources.json");
   const byId = Object.fromEntries(resources.map((r) => [r.id, r]));
 
-  const featured = log.signals.find((s) => s.id === "ts4");
+  const featured =
+    log.signals.find((s) => (s as { featured?: boolean }).featured) ??
+    log.signals.find((s) => s.classification === "act_now") ??
+    log.signals[0] ??
+    null;
 
   return (
     <div>
@@ -62,14 +66,26 @@ export default function TrendSignalsPage() {
       <h2 className="mb-3 text-lg font-semibold">Signal Log</h2>
       <DataTable
         headers={["Topic", "Phase", "Velocity", "Action", "Source", "Logged"]}
-        rows={log.signals.map((s) => [
-          s.title ?? s.topic.replace(/_/g, " "),
-          s.learningPhase ?? "—",
-          <span className={s.velocity === "rising" ? "badge-ready" : s.velocity === "parked" ? "badge-frontier" : "badge-monitor"}>{s.velocity}</span>,
-          <span className={s.classification === "later" ? "badge-ignore" : s.classification === "act_now" ? "badge-ready" : "badge-monitor"}>{s.classification ?? "monitor"}</span>,
-          s.source,
-          s.loggedAt,
-        ])}
+        rows={log.signals.map((s) => {
+          const firstResourceId = s.resourceIds?.[0];
+          const firstResource = firstResourceId ? byId[firstResourceId] : null;
+          const topicCell =
+            firstResource && isSafeUrl(firstResource.url) ? (
+              <InternalLink href={`/resources/${firstResource.id}`}>
+                {s.title ?? s.topic.replace(/_/g, " ")}
+              </InternalLink>
+            ) : (
+              <span>{s.title ?? s.topic.replace(/_/g, " ")}</span>
+            );
+          return [
+            topicCell,
+            s.learningPhase ?? "—",
+            <span className={s.velocity === "rising" ? "badge-ready" : s.velocity === "parked" ? "badge-frontier" : "badge-monitor"}>{s.velocity}</span>,
+            <span className={s.classification === "later" ? "badge-ignore" : s.classification === "act_now" ? "badge-ready" : "badge-monitor"}>{s.classification ?? "monitor"}</span>,
+            s.source,
+            s.loggedAt,
+          ];
+        })}
       />
 
       <h2 className="mb-3 mt-8 text-lg font-semibold">Today&apos;s Brief Signals</h2>

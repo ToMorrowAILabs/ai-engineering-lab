@@ -1,6 +1,9 @@
+import Link from "next/link";
 import { loadJson } from "@/lib/data";
 import type { ProgressMeta } from "@/lib/types";
 import { PageHeader, KpiCard, BalanceBar } from "@/components/ui/PageHeader";
+import { InternalLink } from "@/components/navigation/NavLinks";
+import { lessonIdToSlug } from "@/lib/catalog";
 
 export default function CourseKpisPage() {
   const progress = loadJson<{ meta: ProgressMeta; balance702010: { target: { foundations: number; applied: number; frontier: number }; actual: { foundations: number; applied: number; frontier: number } } }>("progress_metrics.json");
@@ -34,17 +37,31 @@ export default function CourseKpisPage() {
       <h2 className="mb-3 text-lg font-semibold">Quiz Scores</h2>
       <div className="grid gap-3 md:grid-cols-3">
         {quizzes.scores.map((q) => (
-          <div key={q.lessonId} className="glass-panel p-4">
+          <Link
+            key={q.lessonId}
+            href={`/lessons/${lessonIdToSlug(q.lessonId)}`}
+            className="glass-panel block p-4 transition hover:border-cyan-500/30 hover:bg-white/5"
+          >
             <p className="text-xs text-gray-500">{q.lessonId}</p>
             <p className="text-2xl font-bold text-cyan-400">{q.score}%</p>
             <p className="text-xs text-gray-500">{q.date}</p>
-          </div>
+            <p className="mt-2 text-xs text-cyan-400/70">View lesson →</p>
+          </Link>
         ))}
       </div>
 
       <div className="mt-6 glass-panel p-4">
         <p className="text-sm font-medium">Next recommended</p>
-        <p className="text-lg text-command-accent">{meta.nextRecommendedLesson}</p>
+        {meta.nextRecommendedLesson ? (
+          <InternalLink
+            href={`/lessons/${lessonIdToSlug(meta.nextRecommendedLesson)}`}
+            className="mt-1 block text-lg"
+          >
+            {meta.nextRecommendedLesson.replace(/-/g, " ")}
+          </InternalLink>
+        ) : (
+          <p className="text-lg text-command-accent">—</p>
+        )}
         <p className="mt-2 text-xs text-gray-500">Est. completion: {meta.estimatedCompletionDate}</p>
       </div>
     </div>
