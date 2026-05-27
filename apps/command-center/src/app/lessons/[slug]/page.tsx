@@ -8,6 +8,8 @@ import {
   getResourceBySlug,
   isSafeUrl,
 } from "@/lib/catalog";
+import { loadJson } from "@/lib/data";
+import { RecallQuestionsBlock } from "@/components/lessons/RecallQuestionsBlock";
 
 export function generateStaticParams() {
   return getAllLessons().map((l) => ({ slug: l.slug }));
@@ -21,6 +23,21 @@ export default async function LessonDetailPage({
   const { slug } = await params;
   const lesson = getLessonBySlug(slug);
   if (!lesson) notFound();
+
+  const recallData = loadJson<{
+    questions: {
+      id: string;
+      lessonId: string;
+      topic: string;
+      question: string;
+      hint: string;
+      difficulty: string;
+    }[];
+  }>("active_recall_questions.json");
+
+  const lessonRecallQuestions = recallData.questions.filter(
+    (q) => q.lessonId === slug
+  );
 
   const resources = lesson.resourceIds
     .map((id) => getResourceBySlug(id))
@@ -126,6 +143,9 @@ export default async function LessonDetailPage({
           </ul>
         </section>
       )}
+
+      {/* Active recall questions for this lesson */}
+      <RecallQuestionsBlock questions={lessonRecallQuestions} />
 
       {lesson.notebooklmPackIds.length > 0 && (
         <section className="mt-6 glass-panel p-4">

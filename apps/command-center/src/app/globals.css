@@ -48,3 +48,16 @@ body {
 .badge-ignore {
   @apply badge bg-gray-500/20 text-gray-400;
 }
+
+/* Clickable card — use instead of glass-panel for anything wrapped in a Link */
+.glass-card {
+  @apply rounded-xl border border-command-border bg-command-panel/80 backdrop-blur-md
+         cursor-pointer transition-all duration-150
+         hover:border-cyan-500/40 hover:bg-white/[0.06];
+}
+
+/* Interactive table/list row */
+.interactive-row {
+  @apply cursor-pointer transition-colors duration-100
+         hover:bg-white/[0.05];
+}

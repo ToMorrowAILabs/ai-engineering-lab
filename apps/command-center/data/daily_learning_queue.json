@@ -1,0 +1,48 @@
+{
+  "date": "2026-05-27",
+  "generatedBy": "manual",
+  "lastUpdated": "2026-05-27T08:00:00Z",
+  "note": "Stub — future agent/cron will auto-generate from progress, weak topics, and trend signals",
+  "items": [
+    {
+      "id": "dlq-1",
+      "type": "lesson",
+      "priority": "high",
+      "lessonId": "week-5",
+      "estimatedMinutes": 45,
+      "action": "Complete lesson exercises and quiz checkpoint",
+      "why": "Current anchor — statistics foundations unlock Week 6 and all ML content",
+      "modes": ["desk"]
+    },
+    {
+      "id": "dlq-2",
+      "type": "remediation",
+      "priority": "high",
+      "topic": "conditional_probability",
+      "resourceId": "bayes-rules",
+      "estimatedMinutes": 20,
+      "action": "Review conditional probability — weak topic from quiz gap",
+      "why": "Detected failure on Week 5 prerequisite — must resolve before quiz",
+      "modes": ["desk", "commute"]
+    },
+    {
+      "id": "dlq-3",
+      "type": "commuter",
+      "priority": "medium",
+      "resourceId": "mit-linear-algebra-playlist",
+      "estimatedMinutes": 20,
+      "action": "Watch MIT Linear Algebra playlist segment",
+      "why": "Passive reinforcement for Week 4 — commute-friendly, builds long-term retention",
+      "modes": ["commute", "walking", "gym"]
+    },
+    {
+      "id": "dlq-4",
+      "type": "brief",
+      "priority": "low",
+      "estimatedMinutes": 5,
+      "action": "Read today's AI brief",
+      "why": "10% frontier scan — keeps trend awareness without derailing foundations",
+      "modes": ["desk", "commute"]
+    }
+  ]
+}
