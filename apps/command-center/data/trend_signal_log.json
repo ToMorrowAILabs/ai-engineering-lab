@@ -1,63 +1,120 @@
 {
   "signals": [
     {
-      "id": "ts4",
-      "topic": "ai_engineering_repos_2026",
-      "title": "10 AI engineering repos (RAG, agents, vector DBs, evals, MCP, local LLMs)",
+      "id": "ts5",
+      "topic": "mit_math_commuter",
+      "title": "MIT Linear Algebra — Commuter Math Playlist",
+      "description": "Gilbert Strang's MIT OCW linear algebra lectures. Directly maps to Week 4 foundations. Watch one lecture per commute session.",
       "velocity": "rising",
-      "source": "github_curated",
-      "classification": "monitor",
-      "learningPhase": "Month 4+",
-      "actAfter": "Month 1",
-      "reason": "Maps strongly to 2026 AI engineering job descriptions",
-      "resourceIds": [
-        "langchain",
-        "langgraph",
-        "llama-index",
-        "crewai",
-        "qdrant",
-        "ragas",
-        "ollama",
-        "awesome-mcp-servers",
-        "awesome-llm-apps",
-        "ms-ai-agents-beginners"
+      "source": "youtube",
+      "classification": "act_now",
+      "learningPhase": "Month 1",
+      "relatedLessonSlug": "week-4",
+      "relatedResourceId": "mit-linear-algebra-playlist",
+      "url": "https://www.youtube.com/playlist?list=PLUl4u3cNGP63oMNUHXqIUcrkS2PivhN3k",
+      "modeTags": ["commuter", "walking", "gym", "chores", "lunch", "dinner"],
+      "commuterFriendly": true,
+      "estimatedMinutes": 35,
+      "activeRecallPrompt": "After watching: explain the geometric meaning of the dot product out loud without looking at notes.",
+      "actions": [
+        { "type": "watch",    "label": "Watch MIT playlist ↗", "href": "https://www.youtube.com/playlist?list=PLUl4u3cNGP63oMNUHXqIUcrkS2PivhN3k" },
+        { "type": "lesson",   "label": "Open Week 4 →",        "href": "/lessons/week-4" },
+        { "type": "resource", "label": "Resource details →",   "href": "/resources/mit-linear-algebra-playlist" }
       ],
       "loggedAt": "2026-05-26"
     },
     {
       "id": "ts1",
       "topic": "local_llms",
+      "title": "Local LLMs — Ollama runtime for Month 1",
+      "description": "Ollama lets you run open-source LLMs locally. Relevant for Week 6 (local LLM basics). Install it now so it's ready when you reach that week. No YouTube video yet — read the README during a commute break.",
       "velocity": "rising",
       "source": "ollama",
       "classification": "act_now",
       "learningPhase": "Month 1",
-      "loggedAt": "2026-05-26"
-    },
-    {
-      "id": "ts5",
-      "topic": "mit_math_commuter",
-      "velocity": "rising",
-      "source": "youtube",
-      "classification": "act_now",
-      "learningPhase": "Month 1",
+      "relatedLessonSlug": null,
+      "relatedResourceId": "ollama",
+      "url": "https://github.com/ollama/ollama",
+      "modeTags": ["commute", "chores", "walking"],
+      "commuterFriendly": true,
+      "estimatedMinutes": 15,
+      "activeRecallPrompt": "What is the difference between running a model locally vs. using an API? When would you prefer each approach?",
+      "videoNeeded": true,
+      "actions": [
+        { "type": "external", "label": "View Ollama repo ↗",   "href": "https://github.com/ollama/ollama" },
+        { "type": "resource", "label": "Resource details →",   "href": "/resources/ollama" },
+        { "type": "badge",    "label": "Video source pending", "href": null }
+      ],
       "loggedAt": "2026-05-26"
     },
     {
       "id": "ts2",
       "topic": "embedding_search",
+      "title": "Embedding Search — foundations for RAG and semantic retrieval",
+      "description": "Cosine similarity + vector embeddings = semantic search. The math starts now (Week 4 linear algebra). You'll implement it in Month 2. Build the foundations first.",
       "velocity": "stable",
       "source": "course_internal",
       "classification": "monitor",
-      "learningPhase": "Month 4+",
+      "learningPhase": "Month 1 (math) → Month 2+ (build)",
+      "relatedLessonSlug": "week-4",
+      "relatedResourceId": "khan-linear-algebra",
+      "url": "https://www.khanacademy.org/math/linear-algebra",
+      "modeTags": ["commute", "walking", "active_recall"],
+      "commuterFriendly": true,
+      "estimatedMinutes": 20,
+      "activeRecallPrompt": "Explain how cosine similarity is used to find relevant documents in a RAG pipeline. What does a score of 0.95 vs 0.2 mean?",
+      "actions": [
+        { "type": "lesson",   "label": "Open Week 4 →",              "href": "/lessons/week-4" },
+        { "type": "resource", "label": "View linear algebra →",      "href": "/resources/khan-linear-algebra" },
+        { "type": "resource", "label": "View MIT playlist →",        "href": "/resources/mit-linear-algebra-playlist" }
+      ],
       "loggedAt": "2026-05-25"
+    },
+    {
+      "id": "ts4",
+      "topic": "ai_engineering_repos_2026",
+      "title": "10 AI engineering repos — RAG, agents, vector DBs, evals, MCP, local LLMs",
+      "description": "Maps to 2026 AI engineering job descriptions. Monitor the landscape now — build after Month 1 foundations are solid.",
+      "velocity": "rising",
+      "source": "github_curated",
+      "classification": "monitor",
+      "learningPhase": "Month 4+",
+      "actAfter": "Month 1",
+      "reason": "Maps strongly to 2026 AI engineering job descriptions",
+      "url": "https://github.com/langchain-ai/langchain",
+      "modeTags": ["passive", "monitor"],
+      "commuterFriendly": false,
+      "resourceIds": [
+        "langchain", "langgraph", "llama-index", "crewai",
+        "qdrant", "ragas", "ollama", "awesome-mcp-servers",
+        "awesome-llm-apps", "ms-ai-agents-beginners"
+      ],
+      "actions": [
+        { "type": "external", "label": "Browse LangChain ↗", "href": "https://github.com/langchain-ai/langchain" },
+        { "type": "resource", "label": "View all resources →", "href": "/resources" }
+      ],
+      "loggedAt": "2026-05-26"
     },
     {
       "id": "ts3",
       "topic": "agent_frameworks",
+      "title": "Agent Frameworks — LangGraph, CrewAI, MS AI Agents, MCP",
+      "description": "Agent orchestration tools for multi-step AI systems. Parked deliberately — not a distraction, a scheduled destination.",
       "velocity": "parked",
       "source": "frontier_scan",
       "classification": "later",
       "learningPhase": "Month 4+",
+      "actAfter": "Month 2",
+      "whyParked": "These frameworks require solid prerequisites: linear algebra, probability, Python, REST APIs, embeddings, cosine similarity, and basic LLM APIs — all Month 1–2 content. Using agents before foundations means you will cargo-cult patterns you cannot debug or adapt. Parked until Month 2 complete.",
+      "url": "https://github.com/langchain-ai/langgraph",
+      "modeTags": ["passive", "monitor", "later"],
+      "commuterFriendly": false,
+      "resourceIds": ["langchain", "langgraph", "crewai", "ms-ai-agents-beginners", "awesome-mcp-servers"],
+      "actions": [
+        { "type": "external",  "label": "Browse LangGraph ↗",     "href": "https://github.com/langchain-ai/langgraph" },
+        { "type": "resource",  "label": "View resources →",       "href": "/resources/langgraph" },
+        { "type": "park",      "label": "Why parked ↓",           "href": null }
+      ],
       "loggedAt": "2026-05-24"
     }
   ]
