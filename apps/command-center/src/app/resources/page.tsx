@@ -14,6 +14,15 @@ export default function ResourcesPage() {
     librarySummary: { pdfCount: number; syncValid: boolean; lastSync: string; calibreStaged: number };
     sourceRegistry: { id: string; name: string; url: string; type: string }[];
   }>("resources.json");
+  const inv = loadJson<{
+    syncedPdfCount: number;
+    calibreBookCount: number;
+    pendingImportCount: number;
+    lastScanned: string;
+    publicNote?: string;
+    categories: { label: string; count: number; description?: string; titles?: string[] }[];
+    highlights: string[];
+  }>("library_inventory.json");
   const resourceIds = new Set(data.resources.map((r) => r.id));
 
   return (
@@ -21,38 +30,74 @@ export default function ResourcesPage() {
       <PageHeader title="Resources" subtitle="Click titles for detail · Open for external source in new tab" />
 
       <div className="mb-6 grid gap-4 sm:grid-cols-3">
-        {/* Total resources — click to scroll to explorer (stays on same page) */}
+        {/* Total course resources */}
         <div className="glass-card flex flex-col gap-1 p-4 group">
-          <span className="text-xs uppercase tracking-wide text-gray-500">Resources</span>
+          <span className="text-xs uppercase tracking-wide text-gray-500">Course Resources</span>
           <span className="text-2xl font-bold text-white">{data.resources.length}</span>
           <span className="text-[10px] text-gray-600 transition group-hover:text-cyan-400">
             Use filters below ↓
           </span>
         </div>
-        {/* PDFs → filter to books */}
+        {/* Synced PDFs — shows real count from library scan */}
         <Link
           href="/resources"
           className="glass-card flex flex-col gap-1 p-4 group"
-          aria-label="Filter resources by PDF availability"
+          aria-label={`${inv.syncedPdfCount} PDFs synced from local library`}
         >
-          <span className="text-xs uppercase tracking-wide text-gray-500">Open PDFs</span>
-          <span className="text-2xl font-bold text-white">{data.librarySummary.pdfCount}</span>
+          <span className="text-xs uppercase tracking-wide text-gray-500">Synced PDFs</span>
+          <span className="text-2xl font-bold text-white">{inv.syncedPdfCount}</span>
           <span className="text-[10px] text-cyan-400/50 transition group-hover:text-cyan-400">
-            Browse library →
+            {inv.calibreBookCount} in Calibre · {inv.pendingImportCount} pending →
           </span>
         </Link>
-        {/* Calibre staged → link to flywheel */}
+        {/* Calibre staged → flywheel */}
         <Link
           href="/flywheel"
           className="glass-card flex flex-col gap-1 p-4 group"
-          aria-label="View Calibre staged items in flywheel"
+          aria-label="View Calibre import queue in flywheel"
         >
           <span className="text-xs uppercase tracking-wide text-gray-500">Calibre staged</span>
-          <span className="text-2xl font-bold text-white">{data.librarySummary.calibreStaged}</span>
+          <span className="text-2xl font-bold text-white">{inv.pendingImportCount}</span>
           <span className="text-[10px] text-cyan-400/50 transition group-hover:text-cyan-400">
             View flywheel →
           </span>
         </Link>
+      </div>
+
+      {/* Library snapshot — no local paths exposed */}
+      <div className="mb-6 glass-panel p-5">
+        <div className="mb-3 flex items-center justify-between">
+          <p className="text-sm font-semibold text-white">Library Inventory</p>
+          <span className="text-xs text-gray-600">Scanned {inv.lastScanned}</span>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {inv.categories.map((cat) => (
+            <div key={cat.label} className="rounded-lg border border-white/5 bg-white/[0.02] p-3">
+              <div className="mb-1 flex items-center justify-between">
+                <span className="text-sm font-medium text-gray-300">{cat.label}</span>
+                <span className="font-mono text-sm font-bold text-cyan-400">{cat.count}</span>
+              </div>
+              {cat.description && (
+                <p className="text-xs text-gray-600">{cat.description}</p>
+              )}
+              {cat.titles && cat.titles.length > 0 && (
+                <ul className="mt-2 space-y-0.5">
+                  {cat.titles.slice(0, 3).map((t) => (
+                    <li key={t} className="text-[10px] text-gray-600 before:mr-1.5 before:content-['›']">
+                      {t}
+                    </li>
+                  ))}
+                  {cat.titles.length > 3 && (
+                    <li className="text-[10px] text-gray-700">
+                      +{cat.titles.length - 3} more
+                    </li>
+                  )}
+                </ul>
+              )}
+            </div>
+          ))}
+        </div>
+        <p className="mt-3 text-[10px] text-gray-700">{inv.publicNote ?? "Local paths hidden for privacy."}</p>
       </div>
 
       <ResourceExplorer resources={data.resources.filter((r) => isSafeUrl(r.url))} />

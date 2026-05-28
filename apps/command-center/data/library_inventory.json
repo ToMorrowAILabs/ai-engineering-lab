@@ -1,0 +1,33 @@
+{
+  "lastScanned": "2026-05-28",
+  "scannedBy": "manual-find",
+  "syncedPdfCount": 33,
+  "calibreBookCount": 29,
+  "pendingImportCount": 4,
+  "publicNote": "Local AI learning library scanned from external volume. Local paths are hidden for privacy.",
+  "categories": [
+    {
+      "label": "Calibre Library",
+      "description": "Organized and catalogued books",
+      "count": 29
+    },
+    {
+      "label": "AI / Math Papers",
+      "description": "Research papers pending Calibre import",
+      "count": 4,
+      "titles": [
+        "Mathematics for Machine Learning and AI (arXiv)",
+        "Matrix Calculus for Deep Learning (arXiv)",
+        "Mathematics for Deep Learning — Gallier & Quaintance",
+        "Probability Theory: The Logic of Science — Jaynes"
+      ]
+    }
+  ],
+  "highlights": [
+    "Deep Learning with JavaScript",
+    "Machine Learning Refined",
+    "Statistics for Data Scientists",
+    "Learning TensorFlow",
+    "Mathematics for Machine Learning (arXiv)"
+  ]
+}

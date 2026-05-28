@@ -1,6 +1,7 @@
+import Link from "next/link";
 import { loadJson } from "@/lib/data";
 import type { Resource } from "@/lib/types";
-import { PageHeader, KpiCard, DataTable } from "@/components/ui/PageHeader";
+import { PageHeader, KpiCard } from "@/components/ui/PageHeader";
 import { ExternalLink, InternalLink } from "@/components/navigation/NavLinks";
 import { isSafeUrl } from "@/lib/catalog";
 
@@ -22,10 +23,10 @@ export default function FlywheelPage() {
       <PageHeader title="Flywheel Analytics" subtitle={`Period: ${metrics.period} — curriculum evolution engine`} />
 
       <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <KpiCard label="Accepted resources" value={metrics.metrics.resourcesAccepted} />
-        <KpiCard label="New this batch" value={metrics.metrics.resourceIngestionRate} accent="text-cyan-400" />
-        <KpiCard label="Updates applied" value={metrics.metrics.courseUpdatesApplied} accent="text-emerald-400" />
-        <KpiCard label="Trend velocity" value={metrics.metrics.trendVelocity} />
+        <KpiCard label="Accepted resources" value={metrics.metrics.resourcesAccepted} href="/resources" />
+        <KpiCard label="New this batch" value={metrics.metrics.resourceIngestionRate} accent="text-cyan-400" href="/resources" />
+        <KpiCard label="Updates applied" value={metrics.metrics.courseUpdatesApplied} accent="text-emerald-400" href="/change-log" />
+        <KpiCard label="Trend velocity" value={metrics.metrics.trendVelocity} href="/trend-signals" />
       </div>
 
       {metrics.newlyAcceptedResources && metrics.newlyAcceptedResources.length > 0 && (
@@ -76,34 +77,60 @@ export default function FlywheelPage() {
 
       <div className="mb-6 grid gap-4 lg:grid-cols-3">
         <div className="glass-panel p-4">
-          <p className="mb-2 text-sm font-medium text-emerald-400">Emerging</p>
-          {metrics.emergingTopics.map((t) => (
-            <span key={t} className="mr-2 badge-ready">{t.replace(/_/g, " ")}</span>
-          ))}
+          <p className="mb-3 text-sm font-medium text-emerald-400">Emerging Topics</p>
+          <div className="flex flex-wrap gap-2">
+            {metrics.emergingTopics.map((t) => (
+              <Link
+                key={t}
+                href="/trend-signals"
+                className="inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/15 px-2.5 py-0.5 text-xs font-medium text-emerald-300 transition hover:border-emerald-500/50 hover:bg-emerald-500/25"
+              >
+                {t.replace(/_/g, " ")} ↗
+              </Link>
+            ))}
+          </div>
         </div>
         <div className="glass-panel p-4">
-          <p className="mb-2 text-sm font-medium text-gray-400">Declining</p>
-          {metrics.decliningTopics.length ? metrics.decliningTopics.map((t) => (
-            <span key={t} className="mr-2 badge-ignore">{t}</span>
-          )) : "—"}
+          <p className="mb-3 text-sm font-medium text-gray-400">Declining Topics</p>
+          <div className="flex flex-wrap gap-2">
+            {metrics.decliningTopics.length ? metrics.decliningTopics.map((t) => (
+              <span key={t} className="badge-ignore">{t.replace(/_/g, " ")}</span>
+            )) : <span className="text-sm text-gray-600">None declining</span>}
+          </div>
         </div>
         <div className="glass-panel p-4">
-          <p className="mb-2 text-sm font-medium text-violet-400">Parked</p>
-          {metrics.parkedIdeas.map((t) => (
-            <span key={t} className="mr-2 badge-frontier">{t.replace(/_/g, " ")}</span>
-          ))}
+          <p className="mb-3 text-sm font-medium text-violet-400">Parked Ideas</p>
+          <div className="flex flex-wrap gap-2">
+            {metrics.parkedIdeas.map((t) => (
+              <Link
+                key={t}
+                href="/roadmap"
+                className="inline-flex items-center rounded-full border border-violet-500/30 bg-violet-500/15 px-2.5 py-0.5 text-xs font-medium text-violet-300 transition hover:border-violet-500/50 hover:bg-violet-500/25"
+              >
+                {t.replace(/_/g, " ")} →
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
 
       <h2 className="mb-3 text-lg font-semibold">Flywheel Events</h2>
-      <DataTable
-        headers={["Type", "Detail", "When"]}
-        rows={events.events.map((e) => [
-          e.type.replace(/_/g, " "),
-          e.detail,
-          new Date(e.timestamp).toLocaleDateString(),
-        ])}
-      />
+      <div className="space-y-2">
+        {events.events.map((e) => (
+          <div
+            key={e.id}
+            className="glass-panel flex flex-wrap items-center gap-3 px-4 py-3 text-sm"
+          >
+            <span className="badge-monitor capitalize shrink-0">
+              {e.type.replace(/_/g, " ")}
+            </span>
+            <span className="flex-1 text-gray-300">{e.detail}</span>
+            <span className="text-xs text-gray-600 shrink-0">
+              {new Date(e.timestamp).toLocaleDateString()}
+            </span>
+          </div>
+        ))}
+      </div>
 
       <p className="mt-6 text-sm text-gray-500">
         <InternalLink href="/change-log">View change log</InternalLink>

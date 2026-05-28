@@ -1,6 +1,6 @@
 import { loadJson } from "@/lib/data";
 import type { Resource } from "@/lib/types";
-import { PageHeader, DataTable } from "@/components/ui/PageHeader";
+import { PageHeader } from "@/components/ui/PageHeader";
 import { ExternalLink, InternalLink } from "@/components/navigation/NavLinks";
 import { isSafeUrl } from "@/lib/catalog";
 
@@ -64,42 +64,92 @@ export default function TrendSignalsPage() {
       )}
 
       <h2 className="mb-3 text-lg font-semibold">Signal Log</h2>
-      <DataTable
-        headers={["Topic", "Phase", "Velocity", "Action", "Source", "Logged"]}
-        rows={log.signals.map((s) => {
+      <div className="mb-8 space-y-3">
+        {log.signals.map((s) => {
           const firstResourceId = s.resourceIds?.[0];
           const firstResource = firstResourceId ? byId[firstResourceId] : null;
-          const topicCell =
-            firstResource && isSafeUrl(firstResource.url) ? (
-              <InternalLink href={`/resources/${firstResource.id}`}>
-                {s.title ?? s.topic.replace(/_/g, " ")}
-              </InternalLink>
-            ) : (
-              <span>{s.title ?? s.topic.replace(/_/g, " ")}</span>
-            );
-          return [
-            topicCell,
-            s.learningPhase ?? "—",
-            <span className={s.velocity === "rising" ? "badge-ready" : s.velocity === "parked" ? "badge-frontier" : "badge-monitor"}>{s.velocity}</span>,
-            <span className={s.classification === "later" ? "badge-ignore" : s.classification === "act_now" ? "badge-ready" : "badge-monitor"}>{s.classification ?? "monitor"}</span>,
-            s.source,
-            s.loggedAt,
-          ];
+          const velocityClass =
+            s.velocity === "rising" ? "badge-ready" : s.velocity === "parked" ? "badge-frontier" : "badge-monitor";
+          const classClass =
+            s.classification === "later" ? "badge-ignore" : s.classification === "act_now" ? "badge-ready" : "badge-monitor";
+          return (
+            <div
+              key={s.id}
+              className="glass-panel p-4 transition hover:border-cyan-500/20 hover:bg-white/[0.03]"
+            >
+              <div className="mb-2 flex flex-wrap items-start justify-between gap-2">
+                <div className="flex-1">
+                  {firstResource && isSafeUrl(firstResource.url) ? (
+                    <InternalLink href={`/resources/${firstResource.id}`} className="font-semibold">
+                      {s.title ?? s.topic.replace(/_/g, " ")}
+                    </InternalLink>
+                  ) : (
+                    <p className="font-semibold text-white">{s.title ?? s.topic.replace(/_/g, " ")}</p>
+                  )}
+                  <p className="mt-0.5 text-xs text-gray-500">{s.source}</p>
+                </div>
+                <div className="flex shrink-0 flex-wrap gap-1.5">
+                  <span className={`${velocityClass} text-[10px]`}>{s.velocity}</span>
+                  <span className={`${classClass} text-[10px]`}>{s.classification ?? "monitor"}</span>
+                  {s.learningPhase && (
+                    <span className="badge-monitor text-[10px]">{s.learningPhase}</span>
+                  )}
+                </div>
+              </div>
+              {s.reason && <p className="text-xs text-gray-500">{s.reason}</p>}
+              <div className="mt-2 flex flex-wrap items-center gap-2">
+                {s.actAfter && (
+                  <span className="text-[10px] text-gray-600">Act after: {s.actAfter}</span>
+                )}
+                <span className="text-[10px] text-gray-700">{s.loggedAt}</span>
+                {firstResource && isSafeUrl(firstResource.url) && (
+                  <ExternalLink href={firstResource.url} className="text-xs">
+                    Open source
+                  </ExternalLink>
+                )}
+                {firstResource && (
+                  <InternalLink
+                    href={`/resources/${firstResource.id}`}
+                    className="rounded border border-command-border px-2 py-0.5 text-[10px] font-medium no-underline text-gray-500 transition hover:border-cyan-500/40 hover:text-cyan-400"
+                  >
+                    Details →
+                  </InternalLink>
+                )}
+              </div>
+            </div>
+          );
         })}
-      />
+      </div>
 
-      <h2 className="mb-3 mt-8 text-lg font-semibold">Today&apos;s Brief Signals</h2>
-      <DataTable
-        headers={["Title", "Score", "Action", "Category"]}
-        rows={brief.signals
+      <h2 className="mb-3 text-lg font-semibold">Today&apos;s Brief Signals</h2>
+      <div className="space-y-3">
+        {brief.signals
           .filter((s) => isSafeUrl(s.url))
-          .map((s) => [
-            <ExternalLink href={s.url}>{s.title}</ExternalLink>,
-            s.relevanceScore,
-            <span className={s.classification === "ignore" ? "badge-ignore" : s.classification === "act_now" ? "badge-ready" : "badge-monitor"}>{s.classification}</span>,
-            s.category,
-          ])}
-      />
+          .map((s) => {
+            const badgeClass =
+              s.classification === "ignore" ? "badge-ignore" : s.classification === "act_now" ? "badge-ready" : "badge-monitor";
+            return (
+              <div
+                key={s.title}
+                className="glass-panel flex flex-wrap items-start justify-between gap-3 p-4 transition hover:border-cyan-500/20 hover:bg-white/[0.03]"
+              >
+                <div className="flex-1">
+                  <ExternalLink href={s.url} className="font-semibold">
+                    {s.title}
+                  </ExternalLink>
+                  <div className="mt-1.5 flex flex-wrap gap-1.5">
+                    <span className={`${badgeClass} text-[10px]`}>{s.classification}</span>
+                    <span className="badge-monitor text-[10px]">{s.category}</span>
+                    <span className="text-[10px] text-gray-600">score: {s.relevanceScore}</span>
+                  </div>
+                </div>
+                <ExternalLink href={s.url} className="shrink-0 text-xs">
+                  Read ↗
+                </ExternalLink>
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 }

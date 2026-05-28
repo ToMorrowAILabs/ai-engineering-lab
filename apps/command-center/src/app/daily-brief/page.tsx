@@ -1,7 +1,8 @@
 import ReactMarkdown from "react-markdown";
 import { loadJson, loadMarkdown } from "@/lib/data";
-import { PageHeader, DataTable } from "@/components/ui/PageHeader";
+import { PageHeader } from "@/components/ui/PageHeader";
 import { ExternalLink } from "@/components/navigation/NavLinks";
+import { GhostButton } from "@/components/ui/Buttons";
 import { isSafeUrl } from "@/lib/catalog";
 
 export default function DailyBriefPage() {
@@ -36,34 +37,65 @@ export default function DailyBriefPage() {
       <p className="mb-4 text-sm text-gray-500">{brief.manualIngestionNote}</p>
 
       <h2 className="mb-3 text-lg font-semibold">Trend Signals</h2>
-      <DataTable
-        headers={["Signal", "Score", "Action", "Category", "Impact"]}
-        rows={brief.signals
+      <div className="mb-8 space-y-3">
+        {brief.signals
           .filter((s) => isSafeUrl(s.url))
-          .map((s) => [
-            <ExternalLink href={s.url}>{s.title}</ExternalLink>,
-            s.relevanceScore,
-            <span className={s.classification === "ignore" ? "badge-ignore" : s.classification === "monitor" ? "badge-monitor" : "badge-ready"}>{s.classification}</span>,
-            s.category,
-            s.roadmapImpact,
-          ])}
-      />
+          .map((s) => {
+            const badgeClass =
+              s.classification === "ignore"
+                ? "badge-ignore"
+                : s.classification === "monitor"
+                ? "badge-monitor"
+                : "badge-ready";
+            return (
+              <div
+                key={s.id}
+                className="glass-panel p-4 transition hover:border-cyan-500/20 hover:bg-white/[0.03]"
+              >
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div className="flex-1">
+                    <ExternalLink href={s.url} className="font-semibold">
+                      {s.title}
+                    </ExternalLink>
+                    <div className="mt-1.5 flex flex-wrap gap-1.5">
+                      <span className={`${badgeClass} text-[10px]`}>{s.classification}</span>
+                      <span className="badge-monitor text-[10px]">{s.category}</span>
+                      <span className="text-[10px] text-gray-600">relevance {s.relevanceScore}</span>
+                    </div>
+                    {s.roadmapImpact && (
+                      <p className="mt-1.5 text-xs text-gray-500">{s.roadmapImpact}</p>
+                    )}
+                  </div>
+                  <a
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex shrink-0 items-center gap-1 rounded-lg border border-command-border px-3 py-1.5 text-xs font-medium text-gray-300 transition hover:border-cyan-500/40 hover:text-cyan-300"
+                  >
+                    Read ↗
+                  </a>
+                </div>
+              </div>
+            );
+          })}
+      </div>
 
-      <h2 className="mb-3 mt-8 text-lg font-semibold">Commuter Prompts</h2>
-      <div className="space-y-3">
+      <h2 className="mb-3 text-lg font-semibold">Commuter Prompts</h2>
+      <div className="mb-6 space-y-3">
         {brief.signals.map((s) => (
-          <div key={s.id} className="glass-panel p-4 text-sm">
-            <p className="font-medium">
+          <div key={s.id} className="glass-panel p-4 text-sm transition hover:border-cyan-500/15">
+            <p className="font-semibold text-white">
               {isSafeUrl(s.url) ? (
                 <ExternalLink href={s.url}>{s.title}</ExternalLink>
               ) : (
                 s.title
               )}
             </p>
-            <p className="mt-1 text-gray-400">{s.commuterPrompt}</p>
+            <p className="mt-2 text-gray-400">{s.commuterPrompt}</p>
           </div>
         ))}
       </div>
+      <GhostButton href="/commuter">Take to Commuter queue →</GhostButton>
     </div>
   );
 }

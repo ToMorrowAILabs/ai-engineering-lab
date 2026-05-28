@@ -9,6 +9,7 @@ export default function DashboardPage() {
   const progress = loadJson<{ meta: ProgressMeta; balance702010: Balance702010 }>("progress_metrics.json");
   const flywheel = loadJson<{ metrics: Record<string, number> }>("flywheel_metrics.json");
   const library = loadJson<{ librarySummary: { pdfCount: number; syncValid: boolean } }>("resources.json");
+  const libraryInventory = loadJson<{ syncedPdfCount: number; calibreBookCount: number; pendingImportCount: number; lastScanned: string; categories: { label: string; count: number }[] }>("library_inventory.json");
   const brief = loadJson<{ headline: string; date: string }>("daily_brief.json");
   const commuter = loadJson<{
     queue: { resourceId: string; title: string; completed: boolean; kind?: string }[];
@@ -204,7 +205,7 @@ export default function DashboardPage() {
           { href: "/progress",          label: "Progress",     sub: `${meta.lessonsCompleted}/${meta.lessonsTotal} lessons done`,  cta: "View progress →",  accent: false },
           { href: "/daily-brief",       label: "Daily Brief",  sub: "Today's AI signals",                  cta: "Read brief →",     accent: false },
           { href: "/commuter",          label: "Commuter",     sub: `${commuterPending} items queued`,     cta: "Start session →",  accent: false },
-          { href: "/resources",         label: "Resources",    sub: `${library.librarySummary.pdfCount} PDFs in library`,          cta: "Browse library →", accent: false },
+          { href: "/resources",         label: "Resources",    sub: `${libraryInventory.syncedPdfCount} PDFs synced`,              cta: "Browse library →", accent: false },
           { href: "/flywheel",          label: "Flywheel",     sub: "Curriculum evolution",                cta: "View metrics →",   accent: false },
           { href: "/course-kpis",       label: "Course KPIs",  sub: "Quiz + exercise metrics",             cta: "View KPIs →",      accent: false },
           { href: "/trend-signals",     label: "Trend Signals",sub: "10% frontier scan",                   cta: "Read signals →",   accent: false },

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function PageHeader({ title, subtitle }: { title: string; subtitle?: string }) {
   return (
     <div className="mb-8">
@@ -12,19 +14,36 @@ export function KpiCard({
   value,
   hint,
   accent,
+  href,
 }: {
   label: string;
   value: string | number;
   hint?: string;
   accent?: string;
+  href?: string;
 }) {
-  return (
-    <div className="kpi-card">
+  const inner = (
+    <>
       <span className="text-xs uppercase tracking-wide text-gray-500">{label}</span>
       <span className={`text-2xl font-bold ${accent ?? "text-white"}`}>{value}</span>
       {hint && <span className="text-xs text-gray-500">{hint}</span>}
-    </div>
+      {href && (
+        <span className="mt-1 text-[10px] text-cyan-400/50 transition group-hover:text-cyan-400">
+          View →
+        </span>
+      )}
+    </>
   );
+
+  if (href) {
+    return (
+      <Link href={href} className="kpi-card glass-card group" aria-label={`${label}: ${value}`}>
+        {inner}
+      </Link>
+    );
+  }
+
+  return <div className="kpi-card">{inner}</div>;
 }
 
 export function BalanceBar({

@@ -20,14 +20,14 @@ export default function CourseKpisPage() {
       <PageHeader title="Course KPIs" subtitle="Learning performance dashboard" />
 
       <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <KpiCard label="Lessons completed" value={meta.lessonsCompleted} hint={`${meta.lessonsRemaining} remaining`} />
-        <KpiCard label="Avg quiz score" value={`${meta.averageQuizScore}%`} accent="text-emerald-400" />
-        <KpiCard label="Exercise rate" value={`${exerciseRate}%`} />
-        <KpiCard label="Avg lesson time" value={`${meta.averageLessonDurationMinutes}m`} />
-        <KpiCard label="Reinforcement %" value={`${meta.reinforcementCompletionPct}%`} />
-        <KpiCard label="Commuter %" value={`${meta.commuterReviewCompletionPct}%`} />
-        <KpiCard label="Consistency" value={`${meta.monthlyConsistencyScore}%`} accent="text-amber-400" />
-        <KpiCard label="Remediation queue" value={meta.activeRemediationQueueSize} />
+        <KpiCard label="Lessons completed" value={meta.lessonsCompleted} hint={`${meta.lessonsRemaining} remaining`} href="/progress" />
+        <KpiCard label="Avg quiz score" value={`${meta.averageQuizScore}%`} accent="text-emerald-400" href="/course-kpis" />
+        <KpiCard label="Exercise rate" value={`${exerciseRate}%`} href="/progress" />
+        <KpiCard label="Avg lesson time" value={`${meta.averageLessonDurationMinutes}m`} href="/progress" />
+        <KpiCard label="Reinforcement %" value={`${meta.reinforcementCompletionPct}%`} href="/commuter" />
+        <KpiCard label="Commuter %" value={`${meta.commuterReviewCompletionPct}%`} href="/commuter" />
+        <KpiCard label="Consistency" value={`${meta.monthlyConsistencyScore}%`} accent="text-amber-400" href="/progress" />
+        <KpiCard label="Remediation queue" value={meta.activeRemediationQueueSize} href="/weakness-remediation" />
       </div>
 
       <div className="mb-6">
@@ -36,33 +36,54 @@ export default function CourseKpisPage() {
 
       <h2 className="mb-3 text-lg font-semibold">Quiz Scores</h2>
       <div className="grid gap-3 md:grid-cols-3">
-        {quizzes.scores.map((q) => (
-          <Link
-            key={q.lessonId}
-            href={`/lessons/${lessonIdToSlug(q.lessonId)}`}
-            className="glass-panel block p-4 transition hover:border-cyan-500/30 hover:bg-white/5"
-          >
-            <p className="text-xs text-gray-500">{q.lessonId}</p>
-            <p className="text-2xl font-bold text-cyan-400">{q.score}%</p>
-            <p className="text-xs text-gray-500">{q.date}</p>
-            <p className="mt-2 text-xs text-cyan-400/70">View lesson →</p>
-          </Link>
-        ))}
+        {quizzes.scores.map((q) => {
+          const passed = q.score >= 70;
+          return (
+            <Link
+              key={q.lessonId}
+              href={`/lessons/${lessonIdToSlug(q.lessonId)}`}
+              className="glass-card flex flex-col p-5 group"
+            >
+              <div className="mb-2 flex items-center justify-between">
+                <span className="font-mono text-xs font-bold text-gray-500">
+                  {q.lessonId.replace(/-/g, " ")}
+                </span>
+                <span className={passed ? "badge-ready text-[10px]" : "badge-scaffold text-[10px]"}>
+                  {passed ? "passed" : "needs review"}
+                </span>
+              </div>
+              <p className={`text-3xl font-bold ${passed ? "text-emerald-400" : "text-amber-400"}`}>
+                {q.score}%
+              </p>
+              <p className="mt-1 text-xs text-gray-600">{q.date}</p>
+              <p className="mt-3 text-xs font-medium text-cyan-400/60 transition group-hover:text-cyan-400">
+                Open lesson →
+              </p>
+            </Link>
+          );
+        })}
       </div>
 
-      <div className="mt-6 glass-panel p-4">
-        <p className="text-sm font-medium">Next recommended</p>
+      <div className="mt-6 rounded-xl border border-cyan-500/25 bg-gradient-to-r from-[#0d1525] to-command-bg p-5">
+        <p className="mb-1 text-xs font-bold uppercase tracking-wider text-cyan-400">Next recommended</p>
         {meta.nextRecommendedLesson ? (
-          <InternalLink
-            href={`/lessons/${lessonIdToSlug(meta.nextRecommendedLesson)}`}
-            className="mt-1 block text-lg"
-          >
-            {meta.nextRecommendedLesson.replace(/-/g, " ")}
-          </InternalLink>
+          <>
+            <p className="text-lg font-semibold text-white">
+              {meta.nextRecommendedLesson.replace(/-/g, " ")}
+            </p>
+            <p className="mt-1 text-xs text-gray-500">Est. completion: {meta.estimatedCompletionDate}</p>
+            <div className="mt-3">
+              <Link
+                href={`/lessons/${lessonIdToSlug(meta.nextRecommendedLesson)}`}
+                className="inline-flex items-center gap-1.5 rounded-lg bg-cyan-500 px-4 py-2 text-sm font-semibold text-black transition hover:bg-cyan-400"
+              >
+                Open lesson →
+              </Link>
+            </div>
+          </>
         ) : (
-          <p className="text-lg text-command-accent">—</p>
+          <p className="text-gray-400">No recommendation available — check progress data.</p>
         )}
-        <p className="mt-2 text-xs text-gray-500">Est. completion: {meta.estimatedCompletionDate}</p>
       </div>
     </div>
   );
