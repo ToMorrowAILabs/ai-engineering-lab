@@ -6,6 +6,30 @@ import { InternalLink, ExternalLink, PendingResourceBadge } from "@/components/n
 import { SourceTypeBadge } from "@/components/resources/ResourceBadges";
 import { isSafeUrl, getRelatedLessonSlug } from "@/lib/catalog";
 import { CommuterModePicker } from "@/components/commuter/CommuterModePicker";
+import { FrontierSignalBrowser } from "@/components/signals/FrontierSignalBrowser";
+
+type FrontierSignal = {
+  id: string;
+  date: string;
+  source: string;
+  person_or_lab: string;
+  title: string;
+  summary: string;
+  url: string;
+  topic: string;
+  related_course_phase: string | null;
+  related_lesson: string | null;
+  relevance_score: number;
+  urgency: string;
+  classification: "act_now" | "monitor" | "parked" | "ignore";
+  reason: string;
+  commuter_ready: boolean;
+  suggested_commuter_mode: string | null;
+  reading_time_minutes: number | null;
+  watch_time_minutes: number | null;
+  action: string;
+  related_resources: string[];
+};
 
 type MediaResource = {
   id: string;
@@ -103,6 +127,12 @@ export default function CommuterPage() {
     sessions: { id: string; date: string; resourceId: string; durationMinutes: number; completed: boolean }[];
     metrics: { passiveReinforcementScore: number; reviewCadenceDays: number; retentionReinforcementLevel: string };
   }>("commuter_queue.json");
+
+  const { signals: frontierSignals } = loadJson<{ signals: FrontierSignal[] }>("frontier_signal_queue.json");
+  const commuterFrontier = frontierSignals
+    .filter((s) => s.commuter_ready && s.classification !== "ignore")
+    .sort((a, b) => b.relevance_score - a.relevance_score)
+    .slice(0, 4);
 
   const modesData = loadJson<{
     note: string;
@@ -318,6 +348,25 @@ export default function CommuterPage() {
           </div>
         )}
       </div>
+
+      {/* ── FRONTIER REINFORCEMENT ──────────────────────────── */}
+      {commuterFrontier.length > 0 && (
+        <div className="mb-8">
+          <div className="mb-4 flex items-center justify-between">
+            <div>
+              <h2 className="text-lg font-semibold">🔭 Frontier Reinforcement</h2>
+              <p className="text-xs text-gray-600 mt-0.5">Commuter-ready frontier signals · scored for current phase</p>
+            </div>
+            <a
+              href="/trend-signals"
+              className="text-xs text-cyan-500 hover:text-cyan-400 transition"
+            >
+              All signals →
+            </a>
+          </div>
+          <FrontierSignalBrowser signals={commuterFrontier} />
+        </div>
+      )}
 
       {/* ── MODE PICKER (client component) ─────────────────── */}
       <h2 className="mb-4 text-lg font-semibold">Choose a learning mode</h2>

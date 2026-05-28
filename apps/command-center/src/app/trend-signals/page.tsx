@@ -3,6 +3,7 @@ import type { Resource } from "@/lib/types";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { ExternalLink, InternalLink } from "@/components/navigation/NavLinks";
 import { isSafeUrl } from "@/lib/catalog";
+import { FrontierSignalBrowser } from "@/components/signals/FrontierSignalBrowser";
 
 type SignalAction = {
   type: "watch" | "lesson" | "resource" | "external" | "park" | "badge";
@@ -121,6 +122,29 @@ function SignalActions({ actions, signalUrl }: { actions?: SignalAction[]; signa
   );
 }
 
+type FrontierSignal = {
+  id: string;
+  date: string;
+  source: string;
+  person_or_lab: string;
+  title: string;
+  summary: string;
+  url: string;
+  topic: string;
+  related_course_phase: string | null;
+  related_lesson: string | null;
+  relevance_score: number;
+  urgency: string;
+  classification: "act_now" | "monitor" | "parked" | "ignore";
+  reason: string;
+  commuter_ready: boolean;
+  suggested_commuter_mode: string | null;
+  reading_time_minutes: number | null;
+  watch_time_minutes: number | null;
+  action: string;
+  related_resources: string[];
+};
+
 export default function TrendSignalsPage() {
   const log = loadJson<{ signals: Signal[] }>("trend_signal_log.json");
   const brief = loadJson<{
@@ -136,6 +160,7 @@ export default function TrendSignalsPage() {
   }>("daily_brief.json");
   const { resources } = loadJson<{ resources: Resource[] }>("resources.json");
   const byId = Object.fromEntries(resources.map((r) => [r.id, r]));
+  const { signals: frontierSignals } = loadJson<{ signals: FrontierSignal[] }>("frontier_signal_queue.json");
 
   const featured =
     log.signals.find((s) => s.classification === "act_now" && s.commuterFriendly) ??
@@ -296,6 +321,23 @@ export default function TrendSignalsPage() {
             </div>
           );
         })}
+      </div>
+
+      {/* ── FRONTIER INTELLIGENCE ───────────────────────────── */}
+      <div className="mb-10">
+        <div className="mb-4 flex items-center justify-between">
+          <div>
+            <h2 className="text-lg font-semibold">🔭 Frontier Intelligence</h2>
+            <p className="text-xs text-gray-600 mt-0.5">Scored signals from people watchlist, arXiv, Reddit, GitHub trending · 10% focus budget</p>
+          </div>
+          <a
+            href="/daily-brief"
+            className="text-xs text-cyan-500 hover:text-cyan-400 transition"
+          >
+            Daily brief →
+          </a>
+        </div>
+        <FrontierSignalBrowser signals={frontierSignals} />
       </div>
 
       {/* ── TODAY'S BRIEF SIGNALS ───────────────────────────── */}

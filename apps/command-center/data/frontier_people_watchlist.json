@@ -1,0 +1,436 @@
+{
+  "meta": {
+    "lastUpdated": "2026-05-28",
+    "description": "High-signal AI/ML people and labs to monitor for frontier intelligence. Safe ingestion only — no login automation, no restricted scraping.",
+    "totalPeople": 20,
+    "totalLabs": 9
+  },
+  "people": [
+    {
+      "id": "karpathy",
+      "name": "Andrej Karpathy",
+      "role": "Independent researcher / educator",
+      "organization": "Independent (ex-OpenAI, ex-Tesla)",
+      "source_handles": { "x_twitter": "@karpathy", "youtube": "AndrejKarpathy", "github": "karpathy" },
+      "source_urls": {
+        "youtube": "https://www.youtube.com/@AndrejKarpathy",
+        "github": "https://github.com/karpathy",
+        "blog": "https://karpathy.github.io"
+      },
+      "topics": ["neural_networks", "llm_from_scratch", "backprop", "python", "training"],
+      "priority": "highest",
+      "relevance_to_course": "Direct — Neural Networks Zero to Hero maps exactly to Month 1–3 foundations",
+      "watch_frequency": "weekly",
+      "safe_ingestion_method": "youtube_link, manual_paste for X posts",
+      "notes": "Zero to Hero series is must-watch. Watch one video per week during commute."
+    },
+    {
+      "id": "andrew_ng",
+      "name": "Andrew Ng",
+      "role": "Founder / Educator",
+      "organization": "DeepLearning.AI, AI Fund",
+      "source_handles": { "x_twitter": "@AndrewYNg", "youtube": "deeplearningai" },
+      "source_urls": {
+        "youtube": "https://www.youtube.com/@deeplearningai",
+        "blog": "https://www.deeplearning.ai",
+        "coursera": "https://www.coursera.org/specializations/machine-learning-introduction"
+      },
+      "topics": ["ml_basics", "neural_networks", "deep_learning", "education", "ai_career"],
+      "priority": "high",
+      "relevance_to_course": "ML Specialization is core Month 2 reference. Short courses useful from Month 1.",
+      "watch_frequency": "weekly",
+      "safe_ingestion_method": "youtube_link, rss (deeplearning.ai blog)",
+      "notes": "The AI career advice posts are particularly useful for 70/20/10 framing."
+    },
+    {
+      "id": "sebastian_raschka",
+      "name": "Sebastian Raschka",
+      "role": "ML Researcher / Educator",
+      "organization": "Lightning AI",
+      "source_handles": { "x_twitter": "@rasbt", "github": "rasbt" },
+      "source_urls": {
+        "substack": "https://magazine.sebastianraschka.com",
+        "github": "https://github.com/rasbt",
+        "book": "https://github.com/rasbt/LLMs-from-scratch"
+      },
+      "topics": ["llm_from_scratch", "python", "pytorch", "transformers", "education"],
+      "priority": "high",
+      "relevance_to_course": "'Build an LLM from Scratch' is Month 3 anchor reference. Substack newsletter is excellent for Month 2+ ML intuition.",
+      "watch_frequency": "biweekly",
+      "safe_ingestion_method": "rss (Substack), github_api, manual_paste for X",
+      "notes": "Newsletter 'AI Research Insights' is excellent for applied ML. Free Substack tier is sufficient."
+    },
+    {
+      "id": "chip_huyen",
+      "name": "Chip Huyen",
+      "role": "Author / ML Engineer",
+      "organization": "Independent (ex-Nvidia, Snorkel)",
+      "source_handles": { "x_twitter": "@chipro", "github": "chiphuyen" },
+      "source_urls": {
+        "blog": "https://huyenchip.com",
+        "book": "https://www.oreilly.com/library/view/ai-engineering/9781098166298/"
+      },
+      "topics": ["ml_systems", "ai_engineering", "mlops", "llm_engineering", "production"],
+      "priority": "high",
+      "relevance_to_course": "AI Engineering book is the roadmap for Month 3+ production work. Blog posts relevant from Month 2.",
+      "watch_frequency": "biweekly",
+      "safe_ingestion_method": "rss (blog), manual_paste for X",
+      "notes": "Her framework for ML systems thinking is directly applicable to this curriculum."
+    },
+    {
+      "id": "lilian_weng",
+      "name": "Lilian Weng",
+      "role": "VP of Research",
+      "organization": "OpenAI",
+      "source_handles": { "x_twitter": "@lilianweng", "github": "lilianweng" },
+      "source_urls": {
+        "blog": "https://lilianweng.github.io"
+      },
+      "topics": ["transformers", "attention", "llm_internals", "rl", "agents", "research"],
+      "priority": "high",
+      "relevance_to_course": "Blog posts are deeply technical deep dives — Month 4+ reference material for transformers, attention, agents.",
+      "watch_frequency": "monthly",
+      "safe_ingestion_method": "rss (blog)",
+      "notes": "Extremely dense technical content. File posts in LATER.md until Month 3–4."
+    },
+    {
+      "id": "simon_willison",
+      "name": "Simon Willison",
+      "role": "Developer / Blogger",
+      "organization": "Independent",
+      "source_handles": { "x_twitter": "@simonw", "github": "simonw" },
+      "source_urls": {
+        "blog": "https://simonwillison.net",
+        "github": "https://github.com/simonw"
+      },
+      "topics": ["llm_tools", "prompt_engineering", "local_llms", "python", "apis"],
+      "priority": "high",
+      "relevance_to_course": "Practical LLM engineering — Month 2 reference. API patterns and Python tooling directly relevant.",
+      "watch_frequency": "weekly",
+      "safe_ingestion_method": "rss (blog), github_api, manual_paste for X",
+      "notes": "Posts are practical and short. Good commuter reading. Very high signal-to-noise."
+    },
+    {
+      "id": "jeremy_howard",
+      "name": "Jeremy Howard",
+      "role": "Researcher / Educator",
+      "organization": "fast.ai",
+      "source_handles": { "x_twitter": "@jeremyphoward", "github": "jph00" },
+      "source_urls": {
+        "course": "https://course.fast.ai",
+        "youtube": "https://www.youtube.com/@howardjeremyp",
+        "github": "https://github.com/fastai"
+      },
+      "topics": ["practical_dl", "python", "fastai", "training", "education"],
+      "priority": "high",
+      "relevance_to_course": "Practical Deep Learning for Coders is Month 3 reference. Top-down approach complements bottom-up foundations.",
+      "watch_frequency": "biweekly",
+      "safe_ingestion_method": "youtube_link, rss",
+      "notes": "Part 1 of practical DL is excellent after Month 2 NumPy/pandas foundations."
+    },
+    {
+      "id": "francois_chollet",
+      "name": "François Chollet",
+      "role": "AI Researcher",
+      "organization": "Google (ARC Prize)",
+      "source_handles": { "x_twitter": "@fchollet", "github": "fchollet" },
+      "source_urls": {
+        "github": "https://github.com/fchollet",
+        "book": "https://www.manning.com/books/deep-learning-with-python"
+      },
+      "topics": ["deep_learning", "keras", "reasoning", "arc_agi", "intelligence"],
+      "priority": "medium",
+      "relevance_to_course": "Deep Learning with Python is Month 3+ reference. ARC-AGI work is frontier-only for now.",
+      "watch_frequency": "monthly",
+      "safe_ingestion_method": "manual_paste for X, github_api",
+      "notes": "More philosophical/research-focused. Good for frontier 10% allocation."
+    },
+    {
+      "id": "sam_altman",
+      "name": "Sam Altman",
+      "role": "CEO",
+      "organization": "OpenAI",
+      "source_handles": { "x_twitter": "@sama" },
+      "source_urls": {
+        "blog": "https://blog.samaltman.com"
+      },
+      "topics": ["openai", "ai_policy", "agi", "product", "scaling"],
+      "priority": "low",
+      "relevance_to_course": "Industry direction only — 10% frontier allocation. Product roadmap signals matter more than technical details.",
+      "watch_frequency": "monthly",
+      "safe_ingestion_method": "manual_paste for X",
+      "notes": "Low frequency. Most posts are industry commentary. Note product direction changes that affect API access."
+    },
+    {
+      "id": "dario_amodei",
+      "name": "Dario Amodei",
+      "role": "CEO",
+      "organization": "Anthropic",
+      "source_handles": { "x_twitter": "@DarioAmodei" },
+      "source_urls": {
+        "blog": "https://www.anthropic.com/blog"
+      },
+      "topics": ["anthropic", "safety", "model_behavior", "agi", "scaling"],
+      "priority": "low",
+      "relevance_to_course": "Safety and alignment context for 10% frontier. Technical model papers are relevant.",
+      "watch_frequency": "monthly",
+      "safe_ingestion_method": "rss (Anthropic blog), manual_paste for X",
+      "notes": "Anthropic's model cards and research are more useful than personal posts."
+    },
+    {
+      "id": "ilya_sutskever",
+      "name": "Ilya Sutskever",
+      "role": "Co-founder / CEO",
+      "organization": "Safe Superintelligence (SSI)",
+      "source_handles": { "x_twitter": "@ilyasut" },
+      "source_urls": {},
+      "topics": ["research", "scaling", "agi", "safety"],
+      "priority": "low",
+      "relevance_to_course": "Research direction signals only. Very rare posts, mostly about AGI timelines.",
+      "watch_frequency": "monthly",
+      "safe_ingestion_method": "manual_paste for X",
+      "notes": "Minimal signal for current phase. Monitor for major research releases."
+    },
+    {
+      "id": "yann_lecun",
+      "name": "Yann LeCun",
+      "role": "Chief AI Scientist",
+      "organization": "Meta AI / NYU",
+      "source_handles": { "x_twitter": "@ylecun" },
+      "source_urls": {
+        "youtube": "https://www.youtube.com/@ylecun"
+      },
+      "topics": ["deep_learning", "cnn", "research", "agi_debate", "ai_safety"],
+      "priority": "low",
+      "relevance_to_course": "Historical deep learning context. CNN foundations relevant Month 3+. AGI debate is frontier noise for now.",
+      "watch_frequency": "monthly",
+      "safe_ingestion_method": "manual_paste for X, youtube_link",
+      "notes": "High volume of opinion posts. Filter for technical content only."
+    },
+    {
+      "id": "harrison_chase",
+      "name": "Harrison Chase",
+      "role": "Co-founder / CEO",
+      "organization": "LangChain",
+      "source_handles": { "x_twitter": "@hwchase17", "github": "hwchase17" },
+      "source_urls": {
+        "github": "https://github.com/langchain-ai/langchain",
+        "blog": "https://blog.langchain.dev"
+      },
+      "topics": ["langchain", "agents", "rag", "llm_apps", "tooling"],
+      "priority": "medium",
+      "relevance_to_course": "LangChain/LangGraph are Month 4+ tools. Monitor architecture patterns for RAG/agents context.",
+      "watch_frequency": "monthly",
+      "safe_ingestion_method": "rss (blog), github_api, manual_paste for X",
+      "notes": "Parked until Month 4. Monitor LangGraph architecture decisions now for future reference."
+    },
+    {
+      "id": "jerry_liu",
+      "name": "Jerry Liu",
+      "role": "Co-founder / CEO",
+      "organization": "LlamaIndex",
+      "source_handles": { "x_twitter": "@jerryjliu0", "github": "jerryjliu" },
+      "source_urls": {
+        "github": "https://github.com/run-llama/llama_index",
+        "blog": "https://www.llamaindex.ai/blog"
+      },
+      "topics": ["rag", "llm_apps", "indexing", "retrieval", "agents"],
+      "priority": "medium",
+      "relevance_to_course": "LlamaIndex is Month 4+ RAG tool. RAG architecture patterns relevant from Month 2 embeddings.",
+      "watch_frequency": "monthly",
+      "safe_ingestion_method": "rss (blog), github_api, manual_paste for X",
+      "notes": "Parked until Month 4. Note RAG pattern innovations for later reference."
+    },
+    {
+      "id": "clement_delangue",
+      "name": "Clément Delangue",
+      "role": "Co-founder / CEO",
+      "organization": "Hugging Face",
+      "source_handles": { "x_twitter": "@ClementDelangue" },
+      "source_urls": {
+        "blog": "https://huggingface.co/blog"
+      },
+      "topics": ["open_source_ai", "models", "datasets", "community", "democratization"],
+      "priority": "medium",
+      "relevance_to_course": "HuggingFace platform relevant from Month 2 embeddings. Monitor new model releases.",
+      "watch_frequency": "biweekly",
+      "safe_ingestion_method": "rss (HF blog), manual_paste for X",
+      "notes": "HF paper of the day is excellent for tracking model progress. Quick scan 2x/week."
+    },
+    {
+      "id": "jim_fan",
+      "name": "Jim Fan",
+      "role": "Senior Research Scientist",
+      "organization": "NVIDIA",
+      "source_handles": { "x_twitter": "@DrJimFan" },
+      "source_urls": {},
+      "topics": ["robotics", "embodied_ai", "research", "frontier"],
+      "priority": "low",
+      "relevance_to_course": "Very frontier — robotics/embodied AI is beyond Month 4+ scope. Monitor for general AI direction.",
+      "watch_frequency": "monthly",
+      "safe_ingestion_method": "manual_paste for X",
+      "notes": "Mostly frontier content. Park everything. Only note if directly relevant to LLM foundations."
+    },
+    {
+      "id": "fei_fei_li",
+      "name": "Fei-Fei Li",
+      "role": "Co-Director / Founder",
+      "organization": "Stanford HAI / World Labs",
+      "source_handles": { "x_twitter": "@drfeifei" },
+      "source_urls": {
+        "course": "https://cs231n.stanford.edu"
+      },
+      "topics": ["computer_vision", "ai_policy", "education", "research"],
+      "priority": "low",
+      "relevance_to_course": "CS231n is Month 3+ computer vision reference. Policy work is frontier noise for current phase.",
+      "watch_frequency": "monthly",
+      "safe_ingestion_method": "manual_paste for X",
+      "notes": "CS231n materials are excellent for visual foundations (convolution, etc.) — Month 3+."
+    },
+    {
+      "id": "geoff_hinton",
+      "name": "Geoffrey Hinton",
+      "role": "Independent researcher",
+      "organization": "Independent (ex-Google)",
+      "source_handles": { "x_twitter": "@geoffreyhinton" },
+      "source_urls": {},
+      "topics": ["research", "safety", "backprop_history", "agi_risk"],
+      "priority": "low",
+      "relevance_to_course": "Historical backprop context is valuable. Safety/AGI commentary is frontier scan only.",
+      "watch_frequency": "monthly",
+      "safe_ingestion_method": "manual_paste for X",
+      "notes": "Rare posts. High signal when technical. Note for historical ML context."
+    },
+    {
+      "id": "noam_shazeer",
+      "name": "Noam Shazeer",
+      "role": "Co-founder / CEO",
+      "organization": "Character.AI (ex-Google)",
+      "source_handles": {},
+      "source_urls": {},
+      "topics": ["transformer_architecture", "attention", "research"],
+      "priority": "low",
+      "relevance_to_course": "Transformer architecture co-author. Papers are Month 4+ reference. Very low social media presence.",
+      "watch_frequency": "quarterly",
+      "safe_ingestion_method": "arxiv_api",
+      "notes": "Follow via arXiv. Minimal direct social presence. Transformer paper is canonical Month 4 reading."
+    },
+    {
+      "id": "demis_hassabis",
+      "name": "Demis Hassabis",
+      "role": "Co-founder / CEO",
+      "organization": "Google DeepMind",
+      "source_handles": { "x_twitter": "@demishassabis" },
+      "source_urls": {
+        "blog": "https://deepmind.google/research"
+      },
+      "topics": ["deepmind", "research", "agi", "science_ai", "gemini"],
+      "priority": "low",
+      "relevance_to_course": "DeepMind research papers relevant Month 3+. Product announcements relevant as frontier scan.",
+      "watch_frequency": "monthly",
+      "safe_ingestion_method": "rss (DeepMind blog), manual_paste for X",
+      "notes": "Focus on DeepMind research blog, not personal X posts."
+    }
+  ],
+  "labs": [
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "source_urls": { "blog": "https://openai.com/blog", "research": "https://openai.com/research" },
+      "topics": ["gpt", "apis", "safety", "scaling", "agents"],
+      "priority": "high",
+      "relevance_to_course": "API patterns relevant Month 1–2. Model updates affect engineering choices Month 3+.",
+      "watch_frequency": "weekly",
+      "safe_ingestion_method": "rss (blog)",
+      "notes": "Focus on API changes and engineering-relevant blog posts."
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "source_urls": { "blog": "https://www.anthropic.com/blog", "research": "https://www.anthropic.com/research" },
+      "topics": ["claude", "safety", "mcp", "apis", "constitutional_ai"],
+      "priority": "high",
+      "relevance_to_course": "Claude API is the primary LLM used in this Command Center. Updates directly relevant.",
+      "watch_frequency": "weekly",
+      "safe_ingestion_method": "rss (blog)",
+      "notes": "MCP protocol changes matter from Month 3+. Claude API updates relevant throughout."
+    },
+    {
+      "id": "google_deepmind",
+      "name": "Google DeepMind",
+      "source_urls": { "blog": "https://deepmind.google/research", "papers": "https://arxiv.org/search/?searchtype=author&query=DeepMind" },
+      "topics": ["gemini", "research", "science_ai", "rl", "transformers"],
+      "priority": "medium",
+      "relevance_to_course": "Research papers relevant Month 3+. Gemini API is alternative to Claude for Month 2+ projects.",
+      "watch_frequency": "biweekly",
+      "safe_ingestion_method": "rss (blog), arxiv_api",
+      "notes": "Filter for engineering-relevant posts, not pure research papers until Month 3."
+    },
+    {
+      "id": "meta_ai",
+      "name": "Meta AI",
+      "source_urls": { "blog": "https://ai.meta.com/blog", "github": "https://github.com/facebookresearch" },
+      "topics": ["llama", "open_source", "pytorch", "research"],
+      "priority": "medium",
+      "relevance_to_course": "Llama models are Month 3+ local LLM reference. PyTorch is foundational for Month 3+.",
+      "watch_frequency": "biweekly",
+      "safe_ingestion_method": "rss (blog), github_api",
+      "notes": "Llama model releases are immediately relevant when they improve local inference quality."
+    },
+    {
+      "id": "hugging_face",
+      "name": "Hugging Face",
+      "source_urls": { "blog": "https://huggingface.co/blog", "papers": "https://huggingface.co/papers", "models": "https://huggingface.co/models" },
+      "topics": ["models", "datasets", "transformers_lib", "embedding_models", "papers"],
+      "priority": "high",
+      "relevance_to_course": "Paper of the day is excellent frontier signal. Embedding models relevant Month 2. Transformers library Month 3+.",
+      "watch_frequency": "weekly",
+      "safe_ingestion_method": "rss (blog), api (papers endpoint), api (models endpoint)",
+      "notes": "HF paper of the day is the best daily AI signal. Already integrated in ingestion pipeline."
+    },
+    {
+      "id": "microsoft_ai",
+      "name": "Microsoft AI",
+      "source_urls": { "blog": "https://blogs.microsoft.com/ai", "github": "https://github.com/microsoft" },
+      "topics": ["azure", "copilot", "phi", "agents", "ai_toolkit"],
+      "priority": "medium",
+      "relevance_to_course": "Phi models are excellent for local LLM Month 3+. AI Agents for Beginners curriculum is a reference.",
+      "watch_frequency": "biweekly",
+      "safe_ingestion_method": "rss (blog), github_api",
+      "notes": "MS AI Agents for Beginners is already in resources. Phi model updates are relevant for local LLM week."
+    },
+    {
+      "id": "stanford_ai_lab",
+      "name": "Stanford AI Lab",
+      "source_urls": { "website": "https://ai.stanford.edu", "blog": "https://hai.stanford.edu/news" },
+      "topics": ["research", "education", "foundation_models", "ai_policy"],
+      "priority": "low",
+      "relevance_to_course": "CS229 and CS231n are Month 2–3+ references. Research papers mostly frontier scan.",
+      "watch_frequency": "monthly",
+      "safe_ingestion_method": "rss (HAI blog)",
+      "notes": "CS229 materials are the canonical ML course for Month 2 reference."
+    },
+    {
+      "id": "mit_csail",
+      "name": "MIT CSAIL",
+      "source_urls": { "website": "https://www.csail.mit.edu", "youtube": "https://www.youtube.com/user/MITCSAIL" },
+      "topics": ["research", "mathematics", "algorithms", "systems"],
+      "priority": "medium",
+      "relevance_to_course": "MIT OCW linear algebra (Strang) is primary Month 1 commuter resource. Already in commuter queue.",
+      "watch_frequency": "monthly",
+      "safe_ingestion_method": "youtube_link, rss",
+      "notes": "Gilbert Strang MIT 18.06 is already in the commuter queue and is the most relevant MIT content."
+    },
+    {
+      "id": "deeplearning_ai",
+      "name": "DeepLearning.AI",
+      "source_urls": { "website": "https://www.deeplearning.ai", "youtube": "https://www.youtube.com/@deeplearningai", "blog": "https://www.deeplearning.ai/the-batch" },
+      "topics": ["education", "short_courses", "llm_engineering", "ml_basics"],
+      "priority": "high",
+      "relevance_to_course": "'The Batch' newsletter is excellent weekly signal. Short courses are Month 2–3 applied references.",
+      "watch_frequency": "weekly",
+      "safe_ingestion_method": "rss (The Batch), youtube_link",
+      "notes": "'The Batch' newsletter digest is excellent 10-minute weekly read. Subscribe to RSS."
+    }
+  ]
+}

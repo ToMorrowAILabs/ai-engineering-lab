@@ -1,0 +1,242 @@
+{
+  "meta": {
+    "lastUpdated": "2026-05-28",
+    "description": "Maps frontier AI/ML topics to course phases, related lessons, and classification rules. Used to score and route frontier signals.",
+    "scoringModel": {
+      "description": "relevance_score = lesson_match(40%) + weak_topic_match(25%) + source_credibility(15%) + implementation_value(10%) + commuter_usefulness(10%)",
+      "weights": {
+        "lesson_match": 0.40,
+        "weak_topic_match": 0.25,
+        "source_credibility": 0.15,
+        "implementation_value": 0.10,
+        "commuter_usefulness": 0.10
+      }
+    },
+    "classificationRules": {
+      "act_now": "Directly reinforces current Month 1 lesson or weak topic. Score >= 70.",
+      "monitor": "Relevant but belongs to Month 2+. Score 40–69. Add to LATER.md.",
+      "parked": "Important topic but would distract from foundations. Score 20–39. Explicitly defer.",
+      "ignore": "Hype, no implementation value, irrelevant to 3-year arc. Score < 20."
+    }
+  },
+  "mappings": [
+    {
+      "frontier_topic": "linear_algebra",
+      "aliases": ["vectors", "matrices", "dot product", "eigenvalues", "matrix decomposition", "SVD", "PCA"],
+      "current_phase": "Month 1",
+      "classification": "act_now",
+      "related_lessons": ["week-4"],
+      "related_weak_topics": ["linear_algebra", "eigenvalues", "matrix_decomposition"],
+      "why_relevant_now": "Core Week 4 content. Every signal about linear algebra directly reinforces current study.",
+      "commuter_ready": true,
+      "implementation_path": "Implement from scratch in NumPy — verify against sklearn",
+      "future_connection": "Foundation for embeddings, attention mechanisms, PCA, gradient descent"
+    },
+    {
+      "frontier_topic": "probability_statistics",
+      "aliases": ["bayes theorem", "conditional probability", "distributions", "statistics", "variance", "expectation"],
+      "current_phase": "Month 1",
+      "classification": "act_now",
+      "related_lessons": ["week-5"],
+      "related_weak_topics": ["conditional_probability", "probability"],
+      "why_relevant_now": "Core Week 5 content. Bayesian reasoning is foundational for ML understanding.",
+      "commuter_ready": true,
+      "implementation_path": "Implement Bayes theorem, Gaussian, and MLE from scratch",
+      "future_connection": "Foundation for ML model assumptions, uncertainty quantification, training"
+    },
+    {
+      "frontier_topic": "python_tooling",
+      "aliases": ["python", "numpy", "pandas", "matplotlib", "scipy", "python ecosystem"],
+      "current_phase": "Month 1",
+      "classification": "act_now",
+      "related_lessons": ["week-1", "week-2", "week-3"],
+      "related_weak_topics": [],
+      "why_relevant_now": "Python is the implementation language for everything. Any Python tooling improvement is immediately useful.",
+      "commuter_ready": false,
+      "implementation_path": "Implement mathematical operations using NumPy, plot with matplotlib",
+      "future_connection": "All future projects built in Python"
+    },
+    {
+      "frontier_topic": "apis_rest",
+      "aliases": ["REST APIs", "JSON", "HTTP", "requests", "API design", "webhooks"],
+      "current_phase": "Month 1",
+      "classification": "act_now",
+      "related_lessons": ["week-3"],
+      "related_weak_topics": [],
+      "why_relevant_now": "APIs are Week 3 core content and the interface layer for all LLM work.",
+      "commuter_ready": false,
+      "implementation_path": "Build REST client in Python, call Claude API",
+      "future_connection": "Every LLM application is built on top of API patterns"
+    },
+    {
+      "frontier_topic": "local_llms",
+      "aliases": ["ollama", "llama", "local inference", "quantization", "GGUF", "llm serving", "mlx"],
+      "current_phase": "Month 1 Week 6",
+      "classification": "act_now",
+      "related_lessons": [],
+      "related_weak_topics": [],
+      "why_relevant_now": "Ollama is the Week 6 local LLM tool. Install and basic usage is current-phase content.",
+      "commuter_ready": true,
+      "implementation_path": "Install Ollama, run a model, call via Python requests",
+      "future_connection": "Foundation for local agent execution, cost-free experimentation"
+    },
+    {
+      "frontier_topic": "git_version_control",
+      "aliases": ["git", "github", "version control", "branching", "commits"],
+      "current_phase": "Month 1",
+      "classification": "act_now",
+      "related_lessons": ["week-2"],
+      "related_weak_topics": [],
+      "why_relevant_now": "Git is Week 2 content and the professional engineering habit underpinning everything.",
+      "commuter_ready": false,
+      "implementation_path": "Daily commits, branch management, meaningful commit messages",
+      "future_connection": "All projects require git discipline"
+    },
+    {
+      "frontier_topic": "embeddings",
+      "aliases": ["word embeddings", "sentence embeddings", "vector representations", "semantic embeddings", "embedding models"],
+      "current_phase": "Month 2",
+      "classification": "monitor",
+      "related_lessons": ["week-4"],
+      "related_weak_topics": ["linear_algebra"],
+      "why_relevant_now": "Math foundations are being built now. Monitor embedding concepts to contextualize the linear algebra.",
+      "commuter_ready": true,
+      "implementation_path": "sentence-transformers → cosine similarity → semantic search",
+      "future_connection": "Core primitive for RAG, semantic search, recommendation systems"
+    },
+    {
+      "frontier_topic": "gradient_descent",
+      "aliases": ["optimization", "SGD", "adam", "learning rate", "backpropagation", "loss functions"],
+      "current_phase": "Month 2",
+      "classification": "monitor",
+      "related_lessons": ["week-4", "week-5"],
+      "related_weak_topics": ["linear_algebra"],
+      "why_relevant_now": "Calculus and linear algebra foundations being built now enable understanding gradient descent in Month 2.",
+      "commuter_ready": true,
+      "implementation_path": "Implement gradient descent from scratch on a toy problem",
+      "future_connection": "Foundation for all ML training — neural networks, fine-tuning"
+    },
+    {
+      "frontier_topic": "transformers_attention",
+      "aliases": ["transformer", "attention mechanism", "self-attention", "multi-head attention", "positional encoding", "BERT", "GPT architecture"],
+      "current_phase": "Month 4+",
+      "classification": "monitor",
+      "related_lessons": [],
+      "related_weak_topics": [],
+      "why_relevant_now": "Build awareness now, act later. Requires embeddings + backprop + neural network foundations first.",
+      "commuter_ready": true,
+      "commuter_note": "Conceptual overview via audio is fine — do not attempt implementation until Month 3+",
+      "implementation_path": "Implement scaled dot-product attention from scratch after Month 3 neural network foundations",
+      "future_connection": "Core architecture of every modern LLM"
+    },
+    {
+      "frontier_topic": "rag_retrieval",
+      "aliases": ["RAG", "retrieval augmented generation", "vector search", "semantic search", "document retrieval", "chunking"],
+      "current_phase": "Month 4+",
+      "classification": "parked",
+      "related_lessons": [],
+      "related_weak_topics": [],
+      "why_parked": "Requires embeddings (Month 2), vector DBs (Month 3), and LLM API patterns (Month 2–3) as prerequisites.",
+      "commuter_ready": false,
+      "implementation_path": "PDF → chunk → embed → ChromaDB → similarity search → Claude context injection",
+      "future_connection": "Core architecture for personal knowledge assistant and AI engineering portfolio"
+    },
+    {
+      "frontier_topic": "vector_databases",
+      "aliases": ["vector db", "chromadb", "pinecone", "weaviate", "qdrant", "milvus", "FAISS"],
+      "current_phase": "Month 3–4",
+      "classification": "parked",
+      "related_lessons": [],
+      "related_weak_topics": [],
+      "why_parked": "Requires embeddings and RAG understanding first. Premature without Month 2 foundations.",
+      "commuter_ready": false,
+      "implementation_path": "ChromaDB local → Pinecone cloud → production retrieval patterns",
+      "future_connection": "Storage layer for all RAG and semantic search systems"
+    },
+    {
+      "frontier_topic": "agents",
+      "aliases": ["AI agents", "multi-agent", "agentic systems", "tool use", "ReAct", "function calling", "autonomous AI"],
+      "current_phase": "Month 4+",
+      "classification": "parked",
+      "related_lessons": [],
+      "related_weak_topics": [],
+      "why_parked": "Requires LLM API mastery, RAG understanding, and Python architecture patterns. Premature in Month 1.",
+      "commuter_ready": false,
+      "implementation_path": "Tool use API → ReAct pattern → multi-step agent → evaluation framework",
+      "future_connection": "The destination — production AI agents are the capstone of this curriculum"
+    },
+    {
+      "frontier_topic": "mcp_protocol",
+      "aliases": ["MCP", "model context protocol", "tool servers", "MCP servers"],
+      "current_phase": "Month 4+",
+      "classification": "parked",
+      "related_lessons": [],
+      "related_weak_topics": [],
+      "why_parked": "MCP requires solid agent foundations. Defer until agents phase is reached.",
+      "commuter_ready": false,
+      "implementation_path": "Build an MCP server → connect to Claude Desktop → build compound agent",
+      "future_connection": "Standardized interface for agent-tool communication"
+    },
+    {
+      "frontier_topic": "llm_apis",
+      "aliases": ["Claude API", "OpenAI API", "Anthropic API", "LLM inference", "streaming", "context windows", "prompt engineering"],
+      "current_phase": "Month 2",
+      "classification": "monitor",
+      "related_lessons": ["week-3"],
+      "related_weak_topics": [],
+      "why_relevant_now": "REST API patterns are Week 3 — LLM APIs extend the same pattern. Light awareness is fine now.",
+      "commuter_ready": true,
+      "implementation_path": "Claude API wrapper → streaming → conversation history → multi-turn",
+      "future_connection": "Interface layer for all LLM engineering work"
+    },
+    {
+      "frontier_topic": "fine_tuning",
+      "aliases": ["LoRA", "QLoRA", "PEFT", "fine-tuning", "SFT", "RLHF", "DPO", "model training"],
+      "current_phase": "Month 4+",
+      "classification": "parked",
+      "related_lessons": [],
+      "related_weak_topics": [],
+      "why_parked": "Requires deep understanding of transformers, backprop, and gradient descent. Premature in Month 1–2.",
+      "commuter_ready": false,
+      "implementation_path": "LoRA fine-tune small model → evaluate → deploy",
+      "future_connection": "Customization layer for production AI systems"
+    },
+    {
+      "frontier_topic": "evaluation_evals",
+      "aliases": ["evals", "benchmarks", "LLM evaluation", "ragas", "model assessment", "MMLU", "ARC"],
+      "current_phase": "Month 3+",
+      "classification": "parked",
+      "related_lessons": [],
+      "related_weak_topics": [],
+      "why_parked": "Evaluation requires having something to evaluate. Build first, then measure.",
+      "commuter_ready": false,
+      "implementation_path": "Build eval dataset → run RAGAS → iterate on RAG pipeline quality",
+      "future_connection": "Quality gate for all production AI systems"
+    },
+    {
+      "frontier_topic": "scaling_laws",
+      "aliases": ["scaling", "compute efficiency", "Chinchilla", "training compute", "model size"],
+      "current_phase": "Month 4+",
+      "classification": "parked",
+      "related_lessons": [],
+      "related_weak_topics": [],
+      "why_parked": "Research-level content. Interesting for context but not actionable in Month 1–3.",
+      "commuter_ready": true,
+      "commuter_note": "Conceptual awareness OK via audio — no implementation planned",
+      "implementation_path": "N/A — understand for general LLM engineering context",
+      "future_connection": "Informs model selection and infrastructure decisions"
+    },
+    {
+      "frontier_topic": "prompt_engineering",
+      "aliases": ["prompting", "chain of thought", "few-shot", "system prompts", "prompt design", "prompt patterns"],
+      "current_phase": "Month 2",
+      "classification": "monitor",
+      "related_lessons": ["week-3"],
+      "related_weak_topics": [],
+      "why_relevant_now": "API patterns (Week 3) naturally lead to prompt engineering. Light practice is useful now.",
+      "commuter_ready": true,
+      "implementation_path": "Build prompt template library → test with Claude API → iterate",
+      "future_connection": "Core skill for all LLM engineering — the first applied layer"
+    }
+  ]
+}

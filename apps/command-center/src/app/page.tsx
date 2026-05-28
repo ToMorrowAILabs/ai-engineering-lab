@@ -7,6 +7,29 @@ import { getLessonBySlug, lessonIdToSlug } from "@/lib/catalog";
 import { ActivityFeed } from "@/components/dashboard/ActivityFeed";
 import { StreakHeatmap } from "@/components/dashboard/StreakHeatmap";
 
+type FrontierSignal = {
+  id: string;
+  date: string;
+  source: string;
+  person_or_lab: string;
+  title: string;
+  summary: string;
+  url: string;
+  topic: string;
+  related_course_phase: string | null;
+  related_lesson: string | null;
+  relevance_score: number;
+  urgency: string;
+  classification: "act_now" | "monitor" | "parked" | "ignore";
+  reason: string;
+  commuter_ready: boolean;
+  suggested_commuter_mode: string | null;
+  reading_time_minutes: number | null;
+  watch_time_minutes: number | null;
+  action: string;
+  related_resources: string[];
+};
+
 export default function DashboardPage() {
   const progress = loadJson<{ meta: ProgressMeta; balance702010: Balance702010 }>("progress_metrics.json");
   const flywheel = loadJson<{ metrics: Record<string, number> }>("flywheel_metrics.json");
@@ -19,6 +42,11 @@ export default function DashboardPage() {
   const events = loadJson<{
     events: { id: string; type: string; lessonId?: string; resourceId?: string; tag?: string; score?: number; timestamp: string }[];
   }>("lesson_events.json");
+  const { signals: frontierSignals } = loadJson<{ signals: FrontierSignal[] }>("frontier_signal_queue.json");
+  const topFrontierActNow = frontierSignals
+    .filter((s) => s.classification === "act_now")
+    .sort((a, b) => b.relevance_score - a.relevance_score)
+    .slice(0, 3);
   const { meta, balance702010 } = progress;
 
   // Resolve the active lesson from nextRecommendedLesson
@@ -216,6 +244,7 @@ export default function DashboardPage() {
           { href: "/flywheel",          label: "Flywheel",     sub: "Curriculum evolution",                cta: "View metrics →",   accent: false },
           { href: "/course-kpis",       label: "Course KPIs",  sub: "Quiz + exercise metrics",             cta: "View KPIs →",      accent: false },
           { href: "/trend-signals",     label: "Trend Signals",sub: "10% frontier scan",                   cta: "Read signals →",   accent: false },
+          { href: "/trend-signals",     label: "Frontier Radar",sub: `${topFrontierActNow.length} act-now signals`,               cta: "View radar →",     accent: false },
         ].map((item) => (
           <Link
             key={item.href}
@@ -232,6 +261,45 @@ export default function DashboardPage() {
           </Link>
         ))}
       </div>
+
+      {/* ── FRONTIER RADAR ──────────────────────────────────────── */}
+      {topFrontierActNow.length > 0 && (
+        <div className="mt-6 overflow-hidden rounded-xl border border-cyan-500/20 bg-command-panel/40">
+          <div className="flex items-center justify-between border-b border-command-border/50 bg-cyan-500/5 px-5 py-2.5">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-cyan-400">🔭 Frontier Radar — Act Now</p>
+            <Link href="/trend-signals" className="text-[10px] text-cyan-500 hover:text-cyan-400 transition">
+              All signals →
+            </Link>
+          </div>
+          <div className="divide-y divide-command-border/30">
+            {topFrontierActNow.map((s) => (
+              <div key={s.id} className="flex flex-wrap items-start justify-between gap-3 px-5 py-3 transition hover:bg-white/[0.02]">
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-semibold text-white leading-snug">{s.title}</p>
+                  <p className="mt-0.5 text-[10px] text-gray-600">{s.person_or_lab} · score {s.relevance_score} · {s.related_course_phase}</p>
+                </div>
+                <div className="flex shrink-0 items-center gap-2">
+                  {s.commuter_ready && (
+                    <span className="rounded-full border border-cyan-500/20 bg-cyan-500/8 px-2 py-0.5 text-[9px] text-cyan-400">
+                      🎧 commuter
+                    </span>
+                  )}
+                  {s.url && (
+                    <a
+                      href={s.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-1 text-[10px] font-medium text-emerald-400 transition hover:bg-emerald-500/20"
+                    >
+                      Act now ↗
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* ── ACTIVITY + STREAK ───────────────────────────────────── */}
       <div className="mt-6 grid gap-4 lg:grid-cols-2">
