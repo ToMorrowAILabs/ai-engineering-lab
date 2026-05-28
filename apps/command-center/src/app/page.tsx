@@ -4,6 +4,8 @@ import type { Balance702010, ProgressMeta } from "@/lib/types";
 import { BalanceBar, ProgressBar } from "@/components/ui/PageHeader";
 import { CtaButton, GhostButton, LinkStatCard, WarnButton } from "@/components/ui/Buttons";
 import { getLessonBySlug, lessonIdToSlug } from "@/lib/catalog";
+import { ActivityFeed } from "@/components/dashboard/ActivityFeed";
+import { StreakHeatmap } from "@/components/dashboard/StreakHeatmap";
 
 export default function DashboardPage() {
   const progress = loadJson<{ meta: ProgressMeta; balance702010: Balance702010 }>("progress_metrics.json");
@@ -14,6 +16,9 @@ export default function DashboardPage() {
   const commuter = loadJson<{
     queue: { resourceId: string; title: string; completed: boolean; kind?: string }[];
   }>("commuter_queue.json");
+  const events = loadJson<{
+    events: { id: string; type: string; lessonId?: string; resourceId?: string; tag?: string; score?: number; timestamp: string }[];
+  }>("lesson_events.json");
   const { meta, balance702010 } = progress;
 
   // Resolve the active lesson from nextRecommendedLesson
@@ -206,6 +211,8 @@ export default function DashboardPage() {
           { href: "/daily-brief",       label: "Daily Brief",  sub: "Today's AI signals",                  cta: "Read brief →",     accent: false },
           { href: "/commuter",          label: "Commuter",     sub: `${commuterPending} items queued`,     cta: "Start session →",  accent: false },
           { href: "/resources",         label: "Resources",    sub: `${libraryInventory.syncedPdfCount} PDFs synced`,              cta: "Browse library →", accent: false },
+          { href: "/tutor",             label: "AI Tutor",     sub: "Claude explain/quiz/exercise",        cta: "Ask tutor →",      accent: false },
+          { href: "/graph",             label: "Concept Graph",sub: "Prerequisite map",                    cta: "Explore graph →",  accent: false },
           { href: "/flywheel",          label: "Flywheel",     sub: "Curriculum evolution",                cta: "View metrics →",   accent: false },
           { href: "/course-kpis",       label: "Course KPIs",  sub: "Quiz + exercise metrics",             cta: "View KPIs →",      accent: false },
           { href: "/trend-signals",     label: "Trend Signals",sub: "10% frontier scan",                   cta: "Read signals →",   accent: false },
@@ -224,6 +231,32 @@ export default function DashboardPage() {
             </p>
           </Link>
         ))}
+      </div>
+
+      {/* ── ACTIVITY + STREAK ───────────────────────────────────── */}
+      <div className="mt-6 grid gap-4 lg:grid-cols-2">
+        {/* Activity feed */}
+        <div className="glass-panel p-4">
+          <div className="mb-3 flex items-center justify-between">
+            <p className="text-sm font-medium">Recent Activity</p>
+            <span className="text-[10px] text-gray-600">last {events.events.length} events</span>
+          </div>
+          <ActivityFeed events={events.events} />
+        </div>
+
+        {/* Streak heatmap */}
+        <div className="glass-panel p-4">
+          <div className="mb-3 flex items-center justify-between">
+            <p className="text-sm font-medium">Study Heatmap</p>
+            <Link href="/progress" className="text-[10px] text-cyan-400 hover:text-cyan-300 transition">
+              Full progress →
+            </Link>
+          </div>
+          <StreakHeatmap
+            activityDates={events.events.map((e) => e.timestamp)}
+            streakDays={meta.streakDays}
+          />
+        </div>
       </div>
     </div>
   );

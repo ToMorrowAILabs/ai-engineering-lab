@@ -1,0 +1,76 @@
+{
+  "note": "SM-2 spaced repetition state. Updated by /api/learning after each recall review.",
+  "lastComputed": "2026-05-28",
+  "cards": [
+    {
+      "id": "topic:linear_algebra",
+      "easinessFactor": 2.6,
+      "repetitions": 3,
+      "interval": 10,
+      "nextReviewDate": "2026-06-07",
+      "lastReviewDate": "2026-05-28",
+      "lastQuality": 4
+    },
+    {
+      "id": "topic:dot_product",
+      "easinessFactor": 2.7,
+      "repetitions": 4,
+      "interval": 15,
+      "nextReviewDate": "2026-06-12",
+      "lastReviewDate": "2026-05-28",
+      "lastQuality": 5
+    },
+    {
+      "id": "topic:matrix_operations",
+      "easinessFactor": 2.4,
+      "repetitions": 2,
+      "interval": 6,
+      "nextReviewDate": "2026-06-03",
+      "lastReviewDate": "2026-05-28",
+      "lastQuality": 3
+    },
+    {
+      "id": "topic:conditional_probability",
+      "easinessFactor": 1.8,
+      "repetitions": 0,
+      "interval": 1,
+      "nextReviewDate": "2026-05-29",
+      "lastReviewDate": "2026-05-27",
+      "lastQuality": 2
+    },
+    {
+      "id": "topic:probability",
+      "easinessFactor": 2.2,
+      "repetitions": 1,
+      "interval": 3,
+      "nextReviewDate": "2026-05-31",
+      "lastReviewDate": "2026-05-28",
+      "lastQuality": 3
+    },
+    {
+      "id": "topic:git_workflow",
+      "easinessFactor": 2.8,
+      "repetitions": 5,
+      "interval": 21,
+      "nextReviewDate": "2026-06-18",
+      "lastReviewDate": "2026-05-28",
+      "lastQuality": 5
+    },
+    {
+      "id": "topic:apis",
+      "easinessFactor": 2.6,
+      "repetitions": 3,
+      "interval": 10,
+      "nextReviewDate": "2026-06-07",
+      "lastReviewDate": "2026-05-28",
+      "lastQuality": 4
+    }
+  ],
+  "masterySnapshot": {
+    "overallMastery": 52,
+    "strongTopics": ["git_workflow", "dot_product", "linear_algebra", "apis"],
+    "weakTopics": ["conditional_probability", "eigenvalues", "matrix_decomposition"],
+    "dueForReview": ["conditional_probability"],
+    "computedAt": "2026-05-28T08:00:00Z"
+  }
+}

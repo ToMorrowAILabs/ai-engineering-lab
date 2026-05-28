@@ -88,6 +88,8 @@ export const NAV_ITEMS: NavItem[] = [
   { href: "/roadmap", label: "Roadmap", section: "Core" },
   { href: "/progress", label: "Progress", section: "Core" },
   { href: "/course-kpis", label: "Course KPIs", section: "Core" },
+  { href: "/tutor", label: "AI Tutor", section: "Learning" },
+  { href: "/graph", label: "Concept Graph", section: "Learning" },
   { href: "/resources", label: "Resources", section: "Learning" },
   { href: "/commuter", label: "Commuter", section: "Learning" },
   { href: "/notebooklm", label: "NotebookLM Packs", section: "Learning" },

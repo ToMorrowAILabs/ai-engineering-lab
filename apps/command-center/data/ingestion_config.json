@@ -1,0 +1,52 @@
+{
+  "note": "Configuration for the daily AI ingestion pipeline. Feeds are fetched via /api/ingest.",
+  "schedule": "daily at 07:00 UTC",
+  "currentPhase": "Month 1",
+  "feeds": {
+    "arxiv": {
+      "enabled": true,
+      "categories": ["cs.LG", "cs.AI", "cs.CL", "stat.ML"],
+      "maxResults": 20
+    },
+    "github": {
+      "enabled": true,
+      "topics": ["machine-learning", "deep-learning", "llm", "rag", "transformers"],
+      "requiresToken": false
+    },
+    "huggingface_papers": {
+      "enabled": true,
+      "limit": 15
+    },
+    "huggingface_models": {
+      "enabled": true,
+      "sort": "likes7d",
+      "limit": 15
+    },
+    "youtube": {
+      "enabled": false,
+      "channels": ["@AndrejKarpathy", "@lexfridman", "@YannicKilcher"],
+      "requiresApiKey": true,
+      "note": "Requires YOUTUBE_API_KEY env var. Enable after adding key."
+    },
+    "anthropic_blog": {
+      "enabled": false,
+      "rss": "https://www.anthropic.com/rss.xml",
+      "note": "Enable when RSS feed is available."
+    }
+  },
+  "scoring": {
+    "phaseWeights": {
+      "Month 1": { "foundations": 0.7, "applied": 0.2, "frontier": 0.1 }
+    },
+    "classificationThresholds": {
+      "act_now": 60,
+      "monitor": 35,
+      "parked": 15
+    }
+  },
+  "outputFiles": {
+    "feedCache": "feed_cache.json",
+    "trendSignals": "trend_signal_log.json",
+    "dailyBrief": "daily_brief.json"
+  }
+}
