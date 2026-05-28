@@ -1,0 +1,27 @@
+{
+  "resource_id": "arxiv-matrix-calculus",
+  "title": "The Matrix Calculus You Need For Deep Learning",
+  "url": "https://arxiv.org/abs/1802.01528",
+  "lesson": [
+    "calculus",
+    "optimization",
+    "linear_algebra"
+  ],
+  "difficulty": "intermediate",
+  "reinforcement_priority": "high",
+  "commute_friendly": false,
+  "weakness_tags": [
+    "backprop",
+    "jacobian",
+    "matrix_calculus"
+  ],
+  "review_questions": [
+    "What is the main goal of studying The Matrix Calculus You Need For Deep Learning?",
+    "Name one AI engineering application for topics in calculus.",
+    "What notation or concept was hardest? How would you test whether you understand it?",
+    "How does this resource connect to weakness tags: backprop, jacobian, matrix_calculus?"
+  ],
+  "exercise_suggestion": "Derive gradient of w\u1d40Xw with respect to w; verify with autograd or finite differences.",
+  "manual_only": true,
+  "instructions": "Review manually during commute. Do not automate YouTube or external logins."
+}

@@ -1,0 +1,23 @@
+{
+  "resource_id": "arxiv-math-of-ai",
+  "title": "The Mathematics of AI",
+  "authors": [
+    "Gitta Kutyniok"
+  ],
+  "tags": [
+    "transformers",
+    "embeddings",
+    "linear_algebra",
+    "research_landscape",
+    "approximation_theory",
+    "frontier_scan"
+  ],
+  "pdf_path": "/Volumes/AI_MODELS/AI_LIBRARY/math/pdfs/arxiv-math-of-ai.pdf",
+  "copyright_status": "open_access",
+  "calibre_import_instructions": [
+    "Open Calibre manually.",
+    "Add books -> select PDF from pdf_path or AI_LIBRARY/inbox staging.",
+    "Edit metadata from this sidecar.",
+    "Save to AI_LIBRARY/calibre-library/."
+  ]
+}

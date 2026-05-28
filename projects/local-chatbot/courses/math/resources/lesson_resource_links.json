@@ -1,0 +1,406 @@
+{
+  "schema_version": "1.0.0",
+  "updated_at": "2026-05-26T20:00:30.968817+00:00",
+  "source_manifest": "ingestion_manifest.json",
+  "lessons": {
+    "calculus": {
+      "lesson": "calculus",
+      "resource_ids": [
+        "gallier-math-deep",
+        "dlbook-part-basics",
+        "mml-book",
+        "d2l-math-appendix",
+        "deeplearningmath",
+        "arxiv-matrix-calculus",
+        "imperial-multivariate-calc",
+        "khan-calculus"
+      ],
+      "primary": [
+        "dlbook-part-basics",
+        "mml-book",
+        "d2l-math-appendix",
+        "arxiv-matrix-calculus",
+        "imperial-multivariate-calc"
+      ],
+      "commute_friendly": [
+        "imperial-multivariate-calc",
+        "khan-calculus"
+      ],
+      "open_pdf": [
+        "gallier-math-deep",
+        "arxiv-matrix-calculus"
+      ],
+      "exercise_suggestions": [
+        {
+          "resource_id": "gallier-math-deep",
+          "suggestion": "Pick one optimization section; implement gradient descent on a quadratic function in pure Python."
+        },
+        {
+          "resource_id": "dlbook-part-basics",
+          "suggestion": "Implement softmax and log-sum-exp in NumPy; compare to dlbook notation."
+        },
+        {
+          "resource_id": "mml-book",
+          "suggestion": "Work MML Exercises 3.1\u20133.3 (dot products / cosine) alongside week-04 lesson."
+        },
+        {
+          "resource_id": "d2l-math-appendix",
+          "suggestion": "Implement 2\u00d72 matrix multiply by hand; verify with NumPy."
+        },
+        {
+          "resource_id": "deeplearningmath",
+          "suggestion": "Read transformer math chapter; write attention score formula in LaTeX from memory."
+        },
+        {
+          "resource_id": "arxiv-matrix-calculus",
+          "suggestion": "Derive gradient of w\u1d40Xw with respect to w; verify with autograd or finite differences."
+        },
+        {
+          "resource_id": "imperial-multivariate-calc",
+          "suggestion": "After Jacobian lecture: compute Jacobian of [x\u00b2y, xy\u00b2] at (1,2)."
+        },
+        {
+          "resource_id": "khan-calculus",
+          "suggestion": "Differentiate x\u00b2 + 3x; interpret slope as rate of change in loss curves."
+        }
+      ]
+    },
+    "optimization": {
+      "lesson": "optimization",
+      "resource_ids": [
+        "gallier-math-deep",
+        "mml-book",
+        "pml-book-1",
+        "deeplearningmath",
+        "esl-book",
+        "arxiv-matrix-calculus",
+        "imperial-multivariate-calc",
+        "cs229-ml",
+        "khan-calculus"
+      ],
+      "primary": [
+        "mml-book",
+        "arxiv-matrix-calculus",
+        "imperial-multivariate-calc"
+      ],
+      "commute_friendly": [
+        "imperial-multivariate-calc",
+        "cs229-ml",
+        "khan-calculus"
+      ],
+      "open_pdf": [
+        "gallier-math-deep",
+        "arxiv-matrix-calculus"
+      ],
+      "exercise_suggestions": [
+        {
+          "resource_id": "gallier-math-deep",
+          "suggestion": "Pick one optimization section; implement gradient descent on a quadratic function in pure Python."
+        },
+        {
+          "resource_id": "mml-book",
+          "suggestion": "Work MML Exercises 3.1\u20133.3 (dot products / cosine) alongside week-04 lesson."
+        },
+        {
+          "resource_id": "pml-book-1",
+          "suggestion": "Sketch a Gaussian PDF; sample with NumPy and plot histogram vs density."
+        },
+        {
+          "resource_id": "deeplearningmath",
+          "suggestion": "Read transformer math chapter; write attention score formula in LaTeX from memory."
+        },
+        {
+          "resource_id": "esl-book",
+          "suggestion": "Compare ridge vs lasso penalties on a synthetic regression dataset."
+        },
+        {
+          "resource_id": "arxiv-matrix-calculus",
+          "suggestion": "Derive gradient of w\u1d40Xw with respect to w; verify with autograd or finite differences."
+        },
+        {
+          "resource_id": "imperial-multivariate-calc",
+          "suggestion": "After Jacobian lecture: compute Jacobian of [x\u00b2y, xy\u00b2] at (1,2)."
+        },
+        {
+          "resource_id": "cs229-ml",
+          "suggestion": "Follow one CS229 lecture on linear regression; rederive normal equation."
+        },
+        {
+          "resource_id": "khan-calculus",
+          "suggestion": "Differentiate x\u00b2 + 3x; interpret slope as rate of change in loss curves."
+        }
+      ]
+    },
+    "linear_algebra": {
+      "lesson": "linear_algebra",
+      "resource_ids": [
+        "gallier-math-deep",
+        "dlbook-part-basics",
+        "mml-book",
+        "d2l-math-appendix",
+        "arxiv-matrix-calculus",
+        "arxiv-math-of-ai",
+        "imperial-linear-algebra",
+        "axler-ladr",
+        "khan-linear-algebra"
+      ],
+      "primary": [
+        "dlbook-part-basics",
+        "mml-book",
+        "d2l-math-appendix",
+        "arxiv-matrix-calculus",
+        "imperial-linear-algebra",
+        "khan-linear-algebra"
+      ],
+      "commute_friendly": [
+        "imperial-linear-algebra",
+        "axler-ladr",
+        "khan-linear-algebra"
+      ],
+      "open_pdf": [
+        "gallier-math-deep",
+        "arxiv-matrix-calculus",
+        "arxiv-math-of-ai"
+      ],
+      "exercise_suggestions": [
+        {
+          "resource_id": "gallier-math-deep",
+          "suggestion": "Pick one optimization section; implement gradient descent on a quadratic function in pure Python."
+        },
+        {
+          "resource_id": "dlbook-part-basics",
+          "suggestion": "Implement softmax and log-sum-exp in NumPy; compare to dlbook notation."
+        },
+        {
+          "resource_id": "mml-book",
+          "suggestion": "Work MML Exercises 3.1\u20133.3 (dot products / cosine) alongside week-04 lesson."
+        },
+        {
+          "resource_id": "d2l-math-appendix",
+          "suggestion": "Implement 2\u00d72 matrix multiply by hand; verify with NumPy."
+        },
+        {
+          "resource_id": "arxiv-matrix-calculus",
+          "suggestion": "Derive gradient of w\u1d40Xw with respect to w; verify with autograd or finite differences."
+        },
+        {
+          "resource_id": "arxiv-math-of-ai",
+          "suggestion": "Write a one-page map linking paper sections to your Month 1 lessons."
+        },
+        {
+          "resource_id": "imperial-linear-algebra",
+          "suggestion": "Watch eigenvector lecture; implement power iteration on a 2\u00d72 matrix."
+        },
+        {
+          "resource_id": "axler-ladr",
+          "suggestion": "Define linear independence; give AI example (embedding basis vectors)."
+        },
+        {
+          "resource_id": "khan-linear-algebra",
+          "suggestion": "Complete dot product exercises; relate to cosine similarity lesson."
+        }
+      ]
+    },
+    "probability": {
+      "lesson": "probability",
+      "resource_ids": [
+        "dlbook-part-basics",
+        "mml-book",
+        "pml-book-1",
+        "d2l-math-appendix",
+        "bayes-rules",
+        "isl-book",
+        "jaynes-probability",
+        "mackay-itila",
+        "cs229-ml",
+        "khan-stats-probability"
+      ],
+      "primary": [
+        "dlbook-part-basics",
+        "mml-book",
+        "d2l-math-appendix",
+        "isl-book",
+        "khan-stats-probability"
+      ],
+      "commute_friendly": [
+        "cs229-ml",
+        "khan-stats-probability"
+      ],
+      "open_pdf": [
+        "jaynes-probability"
+      ],
+      "exercise_suggestions": [
+        {
+          "resource_id": "dlbook-part-basics",
+          "suggestion": "Implement softmax and log-sum-exp in NumPy; compare to dlbook notation."
+        },
+        {
+          "resource_id": "mml-book",
+          "suggestion": "Work MML Exercises 3.1\u20133.3 (dot products / cosine) alongside week-04 lesson."
+        },
+        {
+          "resource_id": "pml-book-1",
+          "suggestion": "Sketch a Gaussian PDF; sample with NumPy and plot histogram vs density."
+        },
+        {
+          "resource_id": "d2l-math-appendix",
+          "suggestion": "Implement 2\u00d72 matrix multiply by hand; verify with NumPy."
+        },
+        {
+          "resource_id": "bayes-rules",
+          "suggestion": "Compute posterior for a Beta-Binomial toy example with Python."
+        },
+        {
+          "resource_id": "isl-book",
+          "suggestion": "Fit logistic regression on ISL-style toy data; interpret coefficients."
+        },
+        {
+          "resource_id": "jaynes-probability",
+          "suggestion": "Summarize Jaynes' view of probability vs frequency interpretation in 200 words."
+        },
+        {
+          "resource_id": "mackay-itila",
+          "suggestion": "Compute cross-entropy between two discrete distributions in Python."
+        },
+        {
+          "resource_id": "cs229-ml",
+          "suggestion": "Follow one CS229 lecture on linear regression; rederive normal equation."
+        },
+        {
+          "resource_id": "khan-stats-probability",
+          "suggestion": "Compute mean and variance of a sample; compare sample vs population formulas."
+        }
+      ]
+    },
+    "statistics": {
+      "lesson": "statistics",
+      "resource_ids": [
+        "mml-book",
+        "pml-book-1",
+        "d2l-math-appendix",
+        "bayes-rules",
+        "esl-book",
+        "isl-book",
+        "jaynes-probability",
+        "mackay-itila",
+        "cs229-ml",
+        "khan-stats-probability"
+      ],
+      "primary": [
+        "mml-book",
+        "d2l-math-appendix",
+        "isl-book",
+        "khan-stats-probability"
+      ],
+      "commute_friendly": [
+        "cs229-ml",
+        "khan-stats-probability"
+      ],
+      "open_pdf": [
+        "jaynes-probability"
+      ],
+      "exercise_suggestions": [
+        {
+          "resource_id": "mml-book",
+          "suggestion": "Work MML Exercises 3.1\u20133.3 (dot products / cosine) alongside week-04 lesson."
+        },
+        {
+          "resource_id": "pml-book-1",
+          "suggestion": "Sketch a Gaussian PDF; sample with NumPy and plot histogram vs density."
+        },
+        {
+          "resource_id": "d2l-math-appendix",
+          "suggestion": "Implement 2\u00d72 matrix multiply by hand; verify with NumPy."
+        },
+        {
+          "resource_id": "bayes-rules",
+          "suggestion": "Compute posterior for a Beta-Binomial toy example with Python."
+        },
+        {
+          "resource_id": "esl-book",
+          "suggestion": "Compare ridge vs lasso penalties on a synthetic regression dataset."
+        },
+        {
+          "resource_id": "isl-book",
+          "suggestion": "Fit logistic regression on ISL-style toy data; interpret coefficients."
+        },
+        {
+          "resource_id": "jaynes-probability",
+          "suggestion": "Summarize Jaynes' view of probability vs frequency interpretation in 200 words."
+        },
+        {
+          "resource_id": "mackay-itila",
+          "suggestion": "Compute cross-entropy between two discrete distributions in Python."
+        },
+        {
+          "resource_id": "cs229-ml",
+          "suggestion": "Follow one CS229 lecture on linear regression; rederive normal equation."
+        },
+        {
+          "resource_id": "khan-stats-probability",
+          "suggestion": "Compute mean and variance of a sample; compare sample vs population formulas."
+        }
+      ]
+    },
+    "transformers": {
+      "lesson": "transformers",
+      "resource_ids": [
+        "deeplearningmath",
+        "arxiv-math-of-ai"
+      ],
+      "primary": [],
+      "commute_friendly": [],
+      "open_pdf": [
+        "arxiv-math-of-ai"
+      ],
+      "exercise_suggestions": [
+        {
+          "resource_id": "deeplearningmath",
+          "suggestion": "Read transformer math chapter; write attention score formula in LaTeX from memory."
+        },
+        {
+          "resource_id": "arxiv-math-of-ai",
+          "suggestion": "Write a one-page map linking paper sections to your Month 1 lessons."
+        }
+      ]
+    },
+    "embeddings": {
+      "lesson": "embeddings",
+      "resource_ids": [
+        "mackay-itila",
+        "arxiv-math-of-ai",
+        "imperial-linear-algebra",
+        "khan-linear-algebra"
+      ],
+      "primary": [
+        "imperial-linear-algebra",
+        "khan-linear-algebra"
+      ],
+      "commute_friendly": [
+        "imperial-linear-algebra",
+        "khan-linear-algebra"
+      ],
+      "open_pdf": [
+        "arxiv-math-of-ai"
+      ],
+      "exercise_suggestions": [
+        {
+          "resource_id": "mackay-itila",
+          "suggestion": "Compute cross-entropy between two discrete distributions in Python."
+        },
+        {
+          "resource_id": "arxiv-math-of-ai",
+          "suggestion": "Write a one-page map linking paper sections to your Month 1 lessons."
+        },
+        {
+          "resource_id": "imperial-linear-algebra",
+          "suggestion": "Watch eigenvector lecture; implement power iteration on a 2\u00d72 matrix."
+        },
+        {
+          "resource_id": "khan-linear-algebra",
+          "suggestion": "Complete dot product exercises; relate to cosine similarity lesson."
+        }
+      ]
+    }
+  }
+}

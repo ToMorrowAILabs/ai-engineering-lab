@@ -1,0 +1,59 @@
+{
+  "meta": {
+    "description": "Manual X/Twitter signal import file. Paste post content and metadata here after reading on X. No automated scraping. No OAuth. Human-curated only.",
+    "instructions": "Fill in the fields below from the post you saw on X. Set 'status' to 'pending' when adding. The system will score and classify on next review.",
+    "template_reference": "See x_signal_import_template.md for field descriptions and examples.",
+    "safetyNote": "This file is for manual paste only. Do not automate ingestion from X/Twitter. No OAuth flows. No scraping scripts.",
+    "lastUpdated": "2026-05-28"
+  },
+  "imports": [
+    {
+      "id": "ximport-001",
+      "imported_at": "2026-05-28",
+      "status": "reviewed",
+      "post_author_handle": "@karpathy",
+      "post_author_name": "Andrej Karpathy",
+      "post_text": "The most underrated ML paper of 2024 is probably 'The Platonic Representation Hypothesis' — the idea that as models get bigger and train on more data, they all converge to the same internal representation of reality. Worth reading before building embeddings.",
+      "post_url": "https://x.com/karpathy/status/example-id",
+      "posted_at": "2026-05-27",
+      "linked_url": "https://arxiv.org/abs/2405.07987",
+      "topic_guess": "embeddings",
+      "your_notes": "File for Month 2 reading. Karpathy's framing of why embeddings work is exactly what I need before implementing cosine similarity.",
+      "relevance_score_estimate": 55,
+      "classification_guess": "monitor",
+      "action_taken": "Added to LATER.md under Month 2 Embeddings"
+    },
+    {
+      "id": "ximport-002",
+      "imported_at": "2026-05-28",
+      "status": "pending",
+      "post_author_handle": "@simonw",
+      "post_author_name": "Simon Willison",
+      "post_text": "Ollama just shipped structured output support — you can now force a local LLM to return valid JSON matching a Pydantic schema. This makes local agents significantly more reliable.",
+      "post_url": "https://x.com/simonw/status/example-id",
+      "posted_at": "2026-05-28",
+      "linked_url": "https://ollama.com/blog/structured-outputs",
+      "topic_guess": "local_llms",
+      "your_notes": "Directly relevant to Week 6. Try this during Ollama install exercise.",
+      "relevance_score_estimate": 82,
+      "classification_guess": "act_now",
+      "action_taken": null
+    },
+    {
+      "id": "ximport-template",
+      "imported_at": "YYYY-MM-DD",
+      "status": "pending",
+      "post_author_handle": "@handle",
+      "post_author_name": "Display Name",
+      "post_text": "Paste the full post text here. Include thread context if relevant.",
+      "post_url": "https://x.com/handle/status/POST_ID",
+      "posted_at": "YYYY-MM-DD",
+      "linked_url": "https://url-linked-in-post.com or null",
+      "topic_guess": "one of: linear_algebra | probability_statistics | python_tooling | apis_rest | local_llms | git_version_control | embeddings | gradient_descent | transformers_attention | rag_retrieval | agents | llm_apis | prompt_engineering | fine_tuning | evaluation_evals | other",
+      "your_notes": "Why did this catch your eye? What would you do with it?",
+      "relevance_score_estimate": 0,
+      "classification_guess": "pending",
+      "action_taken": null
+    }
+  ]
+}

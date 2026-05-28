@@ -1,0 +1,77 @@
+{
+  "scanned_count": 8,
+  "unique_count": 4,
+  "duplicate_group_count": 4,
+  "duplicate_groups": [
+    {
+      "sha256": "2ada390ed8ea18a78ac597ceb465912f7973b27e2114dcb24adab36bc63a3fbc",
+      "copies": [
+        {
+          "path": "/Volumes/AI_MODELS/AI_LIBRARY/math/pdfs/arxiv-math-of-ai.pdf",
+          "size_bytes": 8744025,
+          "name": "arxiv-math-of-ai.pdf"
+        },
+        {
+          "path": "/Volumes/AI_MODELS/AI_LIBRARY/inbox/arxiv-math-of-ai.pdf",
+          "size_bytes": 8744025,
+          "name": "arxiv-math-of-ai.pdf"
+        }
+      ]
+    },
+    {
+      "sha256": "5ec0f6fc76751527bbcf9ec076a82a490ad2f6fde05f2c140b181386bbeffbd8",
+      "copies": [
+        {
+          "path": "/Volumes/AI_MODELS/AI_LIBRARY/math/pdfs/arxiv-matrix-calculus.pdf",
+          "size_bytes": 761311,
+          "name": "arxiv-matrix-calculus.pdf"
+        },
+        {
+          "path": "/Volumes/AI_MODELS/AI_LIBRARY/inbox/arxiv-matrix-calculus.pdf",
+          "size_bytes": 761311,
+          "name": "arxiv-matrix-calculus.pdf"
+        }
+      ]
+    },
+    {
+      "sha256": "a1f91e337445851d27f2f4adb61e8ccc0f8fac941f9e0254ad94ba6b91c7c49b",
+      "copies": [
+        {
+          "path": "/Volumes/AI_MODELS/AI_LIBRARY/math/pdfs/gallier-math-deep.pdf",
+          "size_bytes": 24629575,
+          "name": "gallier-math-deep.pdf"
+        },
+        {
+          "path": "/Volumes/AI_MODELS/AI_LIBRARY/inbox/gallier-math-deep.pdf",
+          "size_bytes": 24629575,
+          "name": "gallier-math-deep.pdf"
+        }
+      ]
+    },
+    {
+      "sha256": "23dd1664db7ebc440ec2d0a156cf1e84a8a7cf8c4632cea25df39b77ad9b1b58",
+      "copies": [
+        {
+          "path": "/Volumes/AI_MODELS/AI_LIBRARY/math/pdfs/jaynes-probability.pdf",
+          "size_bytes": 493553,
+          "name": "jaynes-probability.pdf"
+        },
+        {
+          "path": "/Volumes/AI_MODELS/AI_LIBRARY/inbox/jaynes-probability.pdf",
+          "size_bytes": 493553,
+          "name": "jaynes-probability.pdf"
+        }
+      ]
+    }
+  ],
+  "scanned_paths": [
+    "/Volumes/AI_MODELS/AI_LIBRARY/math/pdfs/arxiv-math-of-ai.pdf",
+    "/Volumes/AI_MODELS/AI_LIBRARY/math/pdfs/arxiv-matrix-calculus.pdf",
+    "/Volumes/AI_MODELS/AI_LIBRARY/math/pdfs/gallier-math-deep.pdf",
+    "/Volumes/AI_MODELS/AI_LIBRARY/math/pdfs/jaynes-probability.pdf",
+    "/Volumes/AI_MODELS/AI_LIBRARY/inbox/arxiv-math-of-ai.pdf",
+    "/Volumes/AI_MODELS/AI_LIBRARY/inbox/arxiv-matrix-calculus.pdf",
+    "/Volumes/AI_MODELS/AI_LIBRARY/inbox/gallier-math-deep.pdf",
+    "/Volumes/AI_MODELS/AI_LIBRARY/inbox/jaynes-probability.pdf"
+  ]
+}

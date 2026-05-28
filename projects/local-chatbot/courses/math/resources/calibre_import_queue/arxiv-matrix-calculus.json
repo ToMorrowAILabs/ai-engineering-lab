@@ -1,0 +1,25 @@
+{
+  "resource_id": "arxiv-matrix-calculus",
+  "title": "The Matrix Calculus You Need For Deep Learning",
+  "authors": [
+    "Terence Parr",
+    "Jeremy Howard"
+  ],
+  "tags": [
+    "calculus",
+    "optimization",
+    "linear_algebra",
+    "backprop",
+    "jacobian",
+    "matrix_calculus",
+    "foundations"
+  ],
+  "pdf_path": "/Volumes/AI_MODELS/AI_LIBRARY/math/pdfs/arxiv-matrix-calculus.pdf",
+  "copyright_status": "open_access",
+  "calibre_import_instructions": [
+    "Open Calibre manually.",
+    "Add books -> select PDF from pdf_path or AI_LIBRARY/inbox staging.",
+    "Edit metadata from this sidecar.",
+    "Save to AI_LIBRARY/calibre-library/."
+  ]
+}

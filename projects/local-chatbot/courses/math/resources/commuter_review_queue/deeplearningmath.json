@@ -1,0 +1,26 @@
+{
+  "resource_id": "deeplearningmath",
+  "title": "The Mathematical Engineering of Deep Learning",
+  "url": "https://deeplearningmath.org",
+  "lesson": [
+    "transformers",
+    "optimization",
+    "calculus"
+  ],
+  "difficulty": "advanced",
+  "reinforcement_priority": "low",
+  "commute_friendly": false,
+  "weakness_tags": [
+    "transformer_math",
+    "attention_derivation"
+  ],
+  "review_questions": [
+    "What is the main goal of studying The Mathematical Engineering of Deep Learning?",
+    "Name one AI engineering application for topics in transformers.",
+    "What notation or concept was hardest? How would you test whether you understand it?",
+    "How does this resource connect to weakness tags: transformer_math, attention_derivation?"
+  ],
+  "exercise_suggestion": "Read transformer math chapter; write attention score formula in LaTeX from memory.",
+  "manual_only": true,
+  "instructions": "Review manually during commute. Do not automate YouTube or external logins."
+}

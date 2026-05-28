@@ -1,0 +1,26 @@
+{
+  "resource_id": "imperial-multivariate-calc",
+  "title": "Multivariate Calculus (Imperial College London)",
+  "url": "https://www.youtube.com/playlist?list=PLiiljHvN6z193BBzS0Ln8NnqQmzimTW23",
+  "lesson": [
+    "calculus",
+    "optimization"
+  ],
+  "difficulty": "intermediate",
+  "reinforcement_priority": "high",
+  "commute_friendly": true,
+  "weakness_tags": [
+    "chain_rule",
+    "jacobian",
+    "gradient_descent"
+  ],
+  "review_questions": [
+    "What is the main goal of studying Multivariate Calculus (Imperial College London)?",
+    "Name one AI engineering application for topics in calculus.",
+    "What notation or concept was hardest? How would you test whether you understand it?",
+    "How does this resource connect to weakness tags: chain_rule, jacobian, gradient_descent?"
+  ],
+  "exercise_suggestion": "After Jacobian lecture: compute Jacobian of [x\u00b2y, xy\u00b2] at (1,2).",
+  "manual_only": true,
+  "instructions": "Review manually during commute. Do not automate YouTube or external logins."
+}

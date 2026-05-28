@@ -1,0 +1,26 @@
+{
+  "resource_id": "dlbook-part-basics",
+  "title": "Applied Math and Machine Learning Basics (Deep Learning Ch. 2\u20134)",
+  "url": "https://www.deeplearningbook.org/contents/part_basics.html",
+  "lesson": [
+    "linear_algebra",
+    "probability",
+    "calculus"
+  ],
+  "difficulty": "intermediate",
+  "reinforcement_priority": "high",
+  "commute_friendly": false,
+  "weakness_tags": [
+    "linear_algebra",
+    "probability_basics"
+  ],
+  "review_questions": [
+    "What is the main goal of studying Applied Math and Machine Learning Basics (Deep Learning Ch. 2\u20134)?",
+    "Name one AI engineering application for topics in linear_algebra.",
+    "What notation or concept was hardest? How would you test whether you understand it?",
+    "How does this resource connect to weakness tags: linear_algebra, probability_basics?"
+  ],
+  "exercise_suggestion": "Implement softmax and log-sum-exp in NumPy; compare to dlbook notation.",
+  "manual_only": true,
+  "instructions": "Review manually during commute. Do not automate YouTube or external logins."
+}

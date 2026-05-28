@@ -1,0 +1,127 @@
+{
+  "generatedBy": "manual",
+  "lastUpdated": "2026-05-27",
+  "note": "Stub — future agent will generate questions from lesson content and quiz results",
+  "questions": [
+    {
+      "id": "arq-w2-1",
+      "lessonId": "week-2",
+      "topic": "git_workflow",
+      "question": "What is the difference between git merge and git rebase?",
+      "hint": "Merge creates a merge commit; rebase rewrites history linearly.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "arq-w2-2",
+      "lessonId": "week-2",
+      "topic": "git_workflow",
+      "question": "When should you use a feature branch instead of committing to main?",
+      "hint": "Any change that might break others — or that needs review.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "arq-w3-1",
+      "lessonId": "week-3",
+      "topic": "apis",
+      "question": "What is the difference between GET and POST in REST APIs?",
+      "hint": "GET retrieves data; POST creates or sends data to the server.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "arq-w3-2",
+      "lessonId": "week-3",
+      "topic": "json_parsing",
+      "question": "What Python function parses a JSON string into a dictionary?",
+      "hint": "json.loads() for strings; json.load() for file objects.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "arq-w4-1",
+      "lessonId": "week-4",
+      "topic": "linear_algebra",
+      "question": "What is the geometric meaning of a dot product?",
+      "hint": "The projection of one vector onto another — related to the cosine of the angle between them.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "arq-w4-2",
+      "lessonId": "week-4",
+      "topic": "linear_algebra",
+      "question": "What does it mean for two vectors to be orthogonal?",
+      "hint": "Their dot product equals zero — they are perpendicular in n-dimensional space.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "arq-w4-3",
+      "lessonId": "week-4",
+      "topic": "matrix_operations",
+      "question": "Why is matrix multiplication NOT commutative — why does order matter?",
+      "hint": "Each matrix applies a geometric transformation; the order of transformations changes the outcome.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "arq-w4-4",
+      "lessonId": "week-4",
+      "topic": "eigenvalues",
+      "question": "What does an eigenvector tell you about a matrix transformation?",
+      "hint": "It is the direction that only gets scaled (not rotated) by the transformation.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "arq-w4-5",
+      "lessonId": "week-4",
+      "topic": "linear_algebra",
+      "question": "How does cosine similarity relate to dot products — and why does RAG use it?",
+      "hint": "Cosine similarity is the dot product of unit vectors — it measures direction, not magnitude.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "arq-w5-1",
+      "lessonId": "week-5",
+      "topic": "probability",
+      "question": "Explain conditional probability in plain English with one real example.",
+      "hint": "P(A|B) — the probability of A given that B has already happened. E.g. P(rain|cloudy).",
+      "difficulty": "easy"
+    },
+    {
+      "id": "arq-w5-2",
+      "lessonId": "week-5",
+      "topic": "distributions",
+      "question": "Why does the normal distribution appear so often in nature and in ML?",
+      "hint": "Central Limit Theorem — the sum of many independent random variables tends to a normal distribution.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "arq-w5-3",
+      "lessonId": "week-5",
+      "topic": "conditional_probability",
+      "question": "Walk through Bayes' theorem with a medical test example.",
+      "hint": "P(Disease|Positive) = P(Positive|Disease) × P(Disease) / P(Positive). Prior × likelihood / evidence.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "arq-w5-4",
+      "lessonId": "week-5",
+      "topic": "distributions",
+      "question": "What is the difference between descriptive statistics and inferential statistics?",
+      "hint": "Descriptive summarizes data you have; inferential makes predictions about data you don't have.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "arq-w6-1",
+      "lessonId": "week-6",
+      "topic": "numpy",
+      "question": "Why is NumPy so much faster than Python lists for numerical operations?",
+      "hint": "Vectorized operations, C implementation under the hood, and contiguous memory layout.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "arq-w6-2",
+      "lessonId": "week-6",
+      "topic": "local_llms",
+      "question": "What is Ollama and why does a local LLM matter for an AI engineer?",
+      "hint": "Run open-weight models locally — no API costs, privacy, and ability to experiment freely.",
+      "difficulty": "easy"
+    }
+  ]
+}

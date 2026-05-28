@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "updated_at": "2026-05-26T22:00:00Z",
+  "policy": "Link-first indexing only. Download open/public PDFs per download_policy.md — no bulk copyrighted material.",
+  "source_indexes": [
+    {
+      "id": "maths-cs-ai-compendium",
+      "title": "maths-cs-ai-compendium",
+      "url": "https://github.com/HenryNdubuaku/maths-cs-ai-compendium",
+      "source_type": "github_repo",
+      "download_allowed": false,
+      "ingestion_manifest_ref": "projects/local-chatbot/courses/math/resources/ingestion_manifest.json",
+      "learning_phase": "Month 1",
+      "notes": "Curated math/CS/AI topic index — browse for open PDF links only"
+    },
+    {
+      "id": "ai-ml-roadmap-from-scratch",
+      "title": "AI-ML-Roadmap-from-scratch",
+      "url": "https://github.com/aadi1011/AI-ML-Roadmap-from-scratch",
+      "source_type": "github_repo",
+      "download_allowed": false,
+      "ingestion_manifest_ref": "projects/local-chatbot/courses/math/resources/ingestion_manifest.json",
+      "learning_phase": "Month 2",
+      "notes": "ML roadmap source index — link only"
+    }
+  ],
+  "open_pdf_hooks": [
+    {
+      "resourceId": "arxiv-matrix-calculus",
+      "url": "https://arxiv.org/abs/1802.01528",
+      "download_allowed": true,
+      "staging_path": "AI_LIBRARY/math/pdfs/"
+    }
+  ]
+}

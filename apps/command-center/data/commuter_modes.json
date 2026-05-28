@@ -1,0 +1,89 @@
+{
+  "note": "Stub — future agent will update resourceIds and prompts nightly from lesson progress",
+  "modes": [
+    {
+      "id": "10min",
+      "label": "10 min",
+      "icon": "⚡",
+      "description": "Active recall sprint — 1 concept, audio-friendly, ideal for short breaks",
+      "maxItems": 1,
+      "resourceIds": ["mit-linear-algebra-playlist"],
+      "reviewPrompts": [
+        "In one sentence: what is linear algebra actually used for in ML?",
+        "What is the geometric meaning of a dot product?",
+        "Why do neural networks rely on matrix multiplication?"
+      ],
+      "notebooklmPackId": "week-04-linear-algebra"
+    },
+    {
+      "id": "20min",
+      "label": "20 min",
+      "icon": "📚",
+      "description": "Standard review — 2 topics, covers main concepts from current and prior week",
+      "maxItems": 2,
+      "resourceIds": ["mit-linear-algebra-playlist", "khan-stats-probability"],
+      "reviewPrompts": [
+        "What is the difference between variance and standard deviation?",
+        "Explain conditional probability with a real example.",
+        "How does a normal distribution arise from the Central Limit Theorem?"
+      ],
+      "notebooklmPackId": "mml-book"
+    },
+    {
+      "id": "30min",
+      "label": "30 min",
+      "icon": "🎓",
+      "description": "Deep review — 3 resources, exercises and active recall across two weeks",
+      "maxItems": 3,
+      "resourceIds": ["mit-linear-algebra-playlist", "khan-linear-algebra", "khan-stats-probability"],
+      "reviewPrompts": [
+        "Walk through Gaussian elimination step-by-step in your head.",
+        "What is Bayes' theorem and when would you apply it in ML?",
+        "How does PCA use eigenvectors to reduce dimensions?"
+      ],
+      "notebooklmPackId": "mml-book"
+    },
+    {
+      "id": "walking",
+      "label": "Walking",
+      "icon": "🚶",
+      "description": "Audio-only — no screen needed, verbal recall, one concept per block",
+      "maxItems": 2,
+      "resourceIds": ["mit-linear-algebra-playlist", "khan-stats-probability"],
+      "reviewPrompts": [
+        "Explain vectors out loud as if talking to a friend who's never studied math.",
+        "What does it mean for a matrix transformation to be 'linear'?",
+        "Give one example where probability helps a machine learn something."
+      ],
+      "notebooklmPackId": "week-04-linear-algebra"
+    },
+    {
+      "id": "gym",
+      "label": "Gym",
+      "icon": "💪",
+      "description": "High-energy mode — broad inspiring ideas, big-picture applications of ML math",
+      "maxItems": 2,
+      "resourceIds": ["mit-linear-algebra-playlist", "imperial-linear-algebra"],
+      "reviewPrompts": [
+        "What would you need to build a recommendation system from scratch?",
+        "Why do all AI models ultimately reduce to matrix math?",
+        "What ML application genuinely excites you — and what math does it require?"
+      ],
+      "notebooklmPackId": "week-04-linear-algebra"
+    },
+    {
+      "id": "passive",
+      "label": "Passive",
+      "icon": "🎧",
+      "description": "Background listening — cooking, cleaning, grooming. Let the audio play.",
+      "maxItems": 1,
+      "resourceIds": ["mit-linear-algebra-playlist"],
+      "reviewPrompts": [
+        "Let the audio play — when you hear an unfamiliar term, note it for later.",
+        "Catch any key concept and try to repeat it back in your head.",
+        "No pressure — passive exposure compounds over time."
+      ],
+      "notebooklmPackId": "mml-book"
+    }
+  ]
+}

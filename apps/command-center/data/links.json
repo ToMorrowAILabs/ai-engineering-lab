@@ -1,0 +1,16 @@
+{
+  "github": {
+    "courseRepo": "https://github.com/bryantcrowe/ai-engineering-lab",
+    "courseSubpath": "projects/local-chatbot",
+    "commandCenter": "apps/command-center"
+  },
+  "docs": {
+    "courseOs": "projects/local-chatbot/docs/course-os/",
+    "roadmap": "projects/local-chatbot/COURSE_ROADMAP.md",
+    "pipeline": "projects/local-chatbot/automation/README.md"
+  },
+  "external": {
+    "vercel": "https://vercel.com",
+    "notebooklm": "https://notebooklm.google.com"
+  }
+}

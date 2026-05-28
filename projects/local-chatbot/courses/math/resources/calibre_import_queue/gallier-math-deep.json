@@ -1,0 +1,25 @@
+{
+  "resource_id": "gallier-math-deep",
+  "title": "Algebra, Topology, Differential Calculus, and Optimization Theory",
+  "authors": [
+    "Jean Gallier",
+    "Jocelyn Quaintance"
+  ],
+  "tags": [
+    "calculus",
+    "optimization",
+    "linear_algebra",
+    "gradients",
+    "optimization",
+    "matrix_calculus",
+    "foundations"
+  ],
+  "pdf_path": "/Volumes/AI_MODELS/AI_LIBRARY/math/pdfs/gallier-math-deep.pdf",
+  "copyright_status": "open_access",
+  "calibre_import_instructions": [
+    "Open Calibre manually.",
+    "Add books -> select PDF from pdf_path or AI_LIBRARY/inbox staging.",
+    "Edit metadata from this sidecar.",
+    "Save to AI_LIBRARY/calibre-library/."
+  ]
+}

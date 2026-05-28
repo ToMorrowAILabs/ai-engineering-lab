@@ -1,0 +1,26 @@
+{
+  "resource_id": "mackay-itila",
+  "title": "Information Theory, Inference and Learning Algorithms",
+  "url": "https://www.inference.org.uk/itprnn/book.html",
+  "lesson": [
+    "probability",
+    "statistics",
+    "embeddings"
+  ],
+  "difficulty": "advanced",
+  "reinforcement_priority": "medium",
+  "commute_friendly": false,
+  "weakness_tags": [
+    "entropy",
+    "kl_divergence"
+  ],
+  "review_questions": [
+    "What is the main goal of studying Information Theory, Inference and Learning Algorithms?",
+    "Name one AI engineering application for topics in probability.",
+    "What notation or concept was hardest? How would you test whether you understand it?",
+    "How does this resource connect to weakness tags: entropy, kl_divergence?"
+  ],
+  "exercise_suggestion": "Compute cross-entropy between two discrete distributions in Python.",
+  "manual_only": true,
+  "instructions": "Review manually during commute. Do not automate YouTube or external logins."
+}

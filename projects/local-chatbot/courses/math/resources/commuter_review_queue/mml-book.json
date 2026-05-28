@@ -1,0 +1,29 @@
+{
+  "resource_id": "mml-book",
+  "title": "Mathematics for Machine Learning",
+  "url": "https://mml-book.github.io",
+  "lesson": [
+    "linear_algebra",
+    "calculus",
+    "probability",
+    "statistics",
+    "optimization"
+  ],
+  "difficulty": "intermediate",
+  "reinforcement_priority": "high",
+  "commute_friendly": false,
+  "weakness_tags": [
+    "notation",
+    "eigenvalues",
+    "pca_intuition"
+  ],
+  "review_questions": [
+    "What is the main goal of studying Mathematics for Machine Learning?",
+    "Name one AI engineering application for topics in linear_algebra.",
+    "What notation or concept was hardest? How would you test whether you understand it?",
+    "How does this resource connect to weakness tags: notation, eigenvalues, pca_intuition?"
+  ],
+  "exercise_suggestion": "Work MML Exercises 3.1\u20133.3 (dot products / cosine) alongside week-04 lesson.",
+  "manual_only": true,
+  "instructions": "Review manually during commute. Do not automate YouTube or external logins."
+}

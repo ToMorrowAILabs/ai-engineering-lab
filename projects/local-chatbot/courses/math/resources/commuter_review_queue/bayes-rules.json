@@ -1,0 +1,25 @@
+{
+  "resource_id": "bayes-rules",
+  "title": "Bayes Rules! An Introduction to Applied Bayesian Modeling",
+  "url": "https://www.bayesrulesbook.com/index.html",
+  "lesson": [
+    "probability",
+    "statistics"
+  ],
+  "difficulty": "beginner",
+  "reinforcement_priority": "medium",
+  "commute_friendly": false,
+  "weakness_tags": [
+    "bayes_theorem",
+    "conditional_probability"
+  ],
+  "review_questions": [
+    "What is the main goal of studying Bayes Rules! An Introduction to Applied Bayesian Modeling?",
+    "Name one AI engineering application for topics in probability.",
+    "What notation or concept was hardest? How would you test whether you understand it?",
+    "How does this resource connect to weakness tags: bayes_theorem, conditional_probability?"
+  ],
+  "exercise_suggestion": "Compute posterior for a Beta-Binomial toy example with Python.",
+  "manual_only": true,
+  "instructions": "Review manually during commute. Do not automate YouTube or external logins."
+}

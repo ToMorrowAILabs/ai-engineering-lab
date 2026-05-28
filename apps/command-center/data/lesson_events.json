@@ -1,0 +1,12 @@
+{
+  "events": [
+    { "id": "e1", "type": "lesson_completed", "lessonId": "week-02-python-git-foundations", "timestamp": "2026-05-20T14:00:00Z" },
+    { "id": "e2", "type": "lesson_completed", "lessonId": "week-03-apis-json-foundations", "timestamp": "2026-05-22T16:30:00Z" },
+    { "id": "e3", "type": "quiz_completed", "lessonId": "week-03-apis-json-foundations", "score": 85, "timestamp": "2026-05-22T17:00:00Z" },
+    { "id": "e4", "type": "exercise_completed", "lessonId": "week-04-linear-algebra-foundations", "timestamp": "2026-05-25T11:00:00Z" },
+    { "id": "e5", "type": "lesson_completed", "lessonId": "week-04-linear-algebra-foundations", "timestamp": "2026-05-25T12:00:00Z" },
+    { "id": "e6", "type": "weakness_detected", "tag": "conditional_probability", "timestamp": "2026-05-25T18:00:00Z" },
+    { "id": "e7", "type": "remediation_assigned", "resourceId": "bayes-rules", "timestamp": "2026-05-25T18:05:00Z" },
+    { "id": "e8", "type": "commuter_review_completed", "resourceId": "khan-linear-algebra", "timestamp": "2026-05-26T08:00:00Z" }
+  ]
+}

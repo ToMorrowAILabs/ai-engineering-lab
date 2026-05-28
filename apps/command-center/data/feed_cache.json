@@ -1,0 +1,14 @@
+{
+  "note": "Written by /api/ingest on each run. Do not edit manually.",
+  "lastRun": null,
+  "signals": [],
+  "summary": {
+    "total": 0,
+    "act_now": 0,
+    "monitor": 0,
+    "parked": 0,
+    "ignore": 0,
+    "sources": { "arxiv": 0, "github": 0, "huggingface": 0 }
+  },
+  "errors": []
+}

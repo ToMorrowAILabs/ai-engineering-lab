@@ -1,0 +1,14 @@
+{
+  "date": "2026-05-27",
+  "generatedBy": "manual",
+  "lastUpdated": "2026-05-27T08:00:00Z",
+  "note": "Stub — future agent/cron will auto-generate nightly from progress and trend data",
+  "focusLesson": "week-5",
+  "nextAction": "Complete Week 5 statistics exercises and quiz checkpoint",
+  "weakTopicToRemediate": "conditional_probability",
+  "resourceToReview": "mml-book",
+  "commuterMode": "20min",
+  "briefHeadline": "Month 1 foundations on track — curated AI engineering repo graph added",
+  "sessionGoal": "Finish statistics foundations before advancing to Week 6",
+  "estimatedSessionMinutes": 60
+}

@@ -1,0 +1,74 @@
+{
+  "weeks": [
+    { "week": 1, "title": "Python basics", "folder": "foundations/week-01-python", "status": "scaffold", "tier": "foundations" },
+    { "week": 2, "title": "Python + Git foundations", "folder": "foundations/week-02-python-git-foundations", "status": "ready", "tier": "foundations", "anchor": true, "completed": true },
+    { "week": 3, "title": "APIs + JSON foundations", "folder": "foundations/week-03-apis-json-foundations", "status": "ready", "tier": "foundations", "anchor": true, "completed": true },
+    { "week": 4, "title": "Linear algebra foundations", "folder": "math/week-04-linear-algebra-foundations", "status": "ready", "tier": "foundations", "anchor": true, "completed": true },
+    { "week": 5, "title": "Statistics foundations", "folder": "math/week-05-statistics", "status": "scaffold", "tier": "foundations", "completed": false },
+    { "week": 6, "title": "NumPy/Pandas + local LLM", "folder": "ml/week-06-numpy-pandas", "status": "scaffold", "tier": "foundations", "completed": false }
+  ],
+  "tracks": [
+    { "id": "foundations", "name": "Foundation Track", "description": "Python, Git, APIs, JSON, debugging" },
+    { "id": "math", "name": "ML Math Track", "description": "Linear algebra, probability, statistics" },
+    { "id": "ml", "name": "Python/ML Coding", "description": "NumPy, pandas, scikit-learn" },
+    { "id": "llms", "name": "LLM Engineering", "description": "Tokens, embeddings, RAG" },
+    { "id": "systems", "name": "AI Systems", "description": "FastAPI, Docker, deployment" },
+    { "id": "flywheel", "name": "Intelligence Flywheel", "description": "Frontier trend monitoring" }
+  ],
+  "supportMaterials": {
+    "Month 1": {
+      "focus": "Math, Python, APIs, Git, JSON, local LLM basics",
+      "resourceIds": [
+        "mml-book",
+        "khan-linear-algebra",
+        "khan-stats-probability",
+        "imperial-linear-algebra",
+        "mit-linear-algebra-playlist",
+        "maths-cs-ai-compendium",
+        "arxiv-matrix-calculus",
+        "ollama"
+      ],
+      "note": "Support only — core sequence is week-by-week anchors."
+    },
+    "Month 2": {
+      "focus": "ML foundations",
+      "resourceIds": ["isl-book", "ai-ml-roadmap-from-scratch", "learn-ai-engineering"],
+      "note": "Monitor repos now; act after Month 1 complete."
+    },
+    "Month 3": {
+      "focus": "Deep learning",
+      "resourceIds": ["awesome-llm-apps", "learn-ai-engineering"],
+      "note": "Applied project inspiration — 20% tier."
+    },
+    "Month 4+": {
+      "focus": "RAG, agents, MCP, vector DBs, evaluations",
+      "resourceIds": [
+        "langchain",
+        "langgraph",
+        "llama-index",
+        "crewai",
+        "qdrant",
+        "ragas",
+        "awesome-mcp-servers",
+        "ms-ai-agents-beginners"
+      ],
+      "note": "Reference catalog — do not derail Month 1–3 foundations."
+    }
+  },
+  "parkingLot": ["OpenClaw", "MCP production systems", "multi-agent swarms", "startup infrastructure", "production agents"],
+  "parkingLotDetails": {
+    "OpenClaw": { "reason": "Production agent system outside Month 1 scope — requires LLM engineering foundations first.", "revisitAfter": "Month 3" },
+    "MCP production systems": { "reason": "MCP as a concept is Month 1 monitor; production MCP deployment is Month 4+ scope.", "revisitAfter": "Month 4" },
+    "multi-agent swarms": { "reason": "Requires solid LLM engineering and agent primitives first — Month 3+ topic.", "revisitAfter": "Month 3" },
+    "startup infrastructure": { "reason": "DevOps and startup infra are outside this AI engineering curriculum scope.", "revisitAfter": "Month 4+" },
+    "production agents": { "reason": "Full production agent systems require Month 1–3 foundations to be solid.", "revisitAfter": "Month 3" }
+  },
+  "outcomes": [
+    "Write Python scripts for file I/O and CLI workflows",
+    "Use Git/GitHub for version control",
+    "Call HTTP APIs and parse JSON",
+    "Explain cosine similarity for RAG",
+    "Compute descriptive statistics",
+    "Use NumPy/pandas and local Ollama"
+  ]
+}

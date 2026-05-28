@@ -1,0 +1,26 @@
+{
+  "resource_id": "khan-stats-probability",
+  "title": "Statistics and Probability (Khan Academy)",
+  "url": "https://www.khanacademy.org/math/statistics-probability",
+  "lesson": [
+    "statistics",
+    "probability"
+  ],
+  "difficulty": "beginner",
+  "reinforcement_priority": "high",
+  "commute_friendly": true,
+  "weakness_tags": [
+    "mean_variance",
+    "distributions",
+    "hypothesis_testing"
+  ],
+  "review_questions": [
+    "What is the main goal of studying Statistics and Probability (Khan Academy)?",
+    "Name one AI engineering application for topics in statistics.",
+    "What notation or concept was hardest? How would you test whether you understand it?",
+    "How does this resource connect to weakness tags: mean_variance, distributions, hypothesis_testing?"
+  ],
+  "exercise_suggestion": "Compute mean and variance of a sample; compare sample vs population formulas.",
+  "manual_only": true,
+  "instructions": "Review manually during commute. Do not automate YouTube or external logins."
+}

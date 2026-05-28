@@ -1,0 +1,13 @@
+{
+  "packs": [
+    { "id": "mml-book", "title": "Mathematics for Machine Learning", "lessons": ["linear_algebra", "statistics"], "priority": "high", "repoPath": "courses/math/resources/notebooklm_pack_queue/mml-book.md", "manualOnly": true },
+    { "id": "imperial-linear-algebra", "title": "Imperial Linear Algebra Playlist", "lessons": ["linear_algebra"], "priority": "high", "repoPath": "courses/math/resources/notebooklm_pack_queue/imperial-linear-algebra.md", "manualOnly": true },
+    { "id": "arxiv-matrix-calculus", "title": "Matrix Calculus for Deep Learning", "lessons": ["calculus", "optimization"], "priority": "high", "repoPath": "courses/math/resources/notebooklm_pack_queue/arxiv-matrix-calculus.md", "manualOnly": true },
+    { "id": "week-04-linear-algebra", "title": "Linear Algebra Foundations (Anchor)", "lessons": ["linear_algebra"], "priority": "high", "repoPath": "courses/math/week-04-linear-algebra-foundations/commuter/notebooklm_source_pack.md", "manualOnly": true }
+  ],
+  "exportManifest": {
+    "enabled": false,
+    "note": "Manual NotebookLM exports tracked here when enabled",
+    "exports": []
+  }
+}

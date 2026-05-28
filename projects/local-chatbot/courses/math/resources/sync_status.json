@@ -1,0 +1,172 @@
+{
+  "schema_version": "1.0.0",
+  "updated_at": "2026-05-26T20:00:30.973525+00:00",
+  "mode": "apply",
+  "library_root": "/Volumes/AI_MODELS/AI_LIBRARY",
+  "repo_root": "/Users/bryantcrowe/projects/ai-engineering-lab/projects/local-chatbot",
+  "resource_count": 20,
+  "pdfs_on_disk": 4,
+  "validation": {
+    "valid": true,
+    "error_count": 0,
+    "warning_count": 0
+  },
+  "duplicates": {
+    "duplicate_group_count": 4,
+    "scanned_count": 8
+  },
+  "actions": [
+    {
+      "action": "skip",
+      "resource_id": "gallier-math-deep",
+      "path": "/Volumes/AI_MODELS/AI_LIBRARY/inbox/gallier-math-deep.pdf"
+    },
+    {
+      "action": "skip",
+      "resource_id": "jaynes-probability",
+      "path": "/Volumes/AI_MODELS/AI_LIBRARY/inbox/jaynes-probability.pdf"
+    },
+    {
+      "action": "skip",
+      "resource_id": "arxiv-matrix-calculus",
+      "path": "/Volumes/AI_MODELS/AI_LIBRARY/inbox/arxiv-matrix-calculus.pdf"
+    },
+    {
+      "action": "skip",
+      "resource_id": "arxiv-math-of-ai",
+      "path": "/Volumes/AI_MODELS/AI_LIBRARY/inbox/arxiv-math-of-ai.pdf"
+    },
+    {
+      "action": "skip",
+      "resource_id": "gallier-math-deep",
+      "path": "/Volumes/AI_MODELS/AI_LIBRARY/notebooklm_packs/gallier-math-deep.md"
+    },
+    {
+      "action": "skip",
+      "resource_id": "dlbook-part-basics",
+      "path": "/Volumes/AI_MODELS/AI_LIBRARY/notebooklm_packs/dlbook-part-basics.md"
+    },
+    {
+      "action": "skip",
+      "resource_id": "mml-book",
+      "path": "/Volumes/AI_MODELS/AI_LIBRARY/notebooklm_packs/mml-book.md"
+    },
+    {
+      "action": "skip",
+      "resource_id": "pml-book-1",
+      "path": "/Volumes/AI_MODELS/AI_LIBRARY/notebooklm_packs/pml-book-1.md"
+    },
+    {
+      "action": "skip",
+      "resource_id": "d2l-math-appendix",
+      "path": "/Volumes/AI_MODELS/AI_LIBRARY/notebooklm_packs/d2l-math-appendix.md"
+    },
+    {
+      "action": "skip",
+      "resource_id": "deeplearningmath",
+      "path": "/Volumes/AI_MODELS/AI_LIBRARY/notebooklm_packs/deeplearningmath.md"
+    },
+    {
+      "action": "skip",
+      "resource_id": "bayes-rules",
+      "path": "/Volumes/AI_MODELS/AI_LIBRARY/notebooklm_packs/bayes-rules.md"
+    },
+    {
+      "action": "skip",
+      "resource_id": "esl-book",
+      "path": "/Volumes/AI_MODELS/AI_LIBRARY/notebooklm_packs/esl-book.md"
+    },
+    {
+      "action": "skip",
+      "resource_id": "isl-book",
+      "path": "/Volumes/AI_MODELS/AI_LIBRARY/notebooklm_packs/isl-book.md"
+    },
+    {
+      "action": "skip",
+      "resource_id": "jaynes-probability",
+      "path": "/Volumes/AI_MODELS/AI_LIBRARY/notebooklm_packs/jaynes-probability.md"
+    },
+    {
+      "action": "skip",
+      "resource_id": "mackay-itila",
+      "path": "/Volumes/AI_MODELS/AI_LIBRARY/notebooklm_packs/mackay-itila.md"
+    },
+    {
+      "action": "skip",
+      "resource_id": "arxiv-matrix-calculus",
+      "path": "/Volumes/AI_MODELS/AI_LIBRARY/notebooklm_packs/arxiv-matrix-calculus.md"
+    },
+    {
+      "action": "skip",
+      "resource_id": "arxiv-math-of-ai",
+      "path": "/Volumes/AI_MODELS/AI_LIBRARY/notebooklm_packs/arxiv-math-of-ai.md"
+    },
+    {
+      "action": "skip",
+      "resource_id": "imperial-multivariate-calc",
+      "path": "/Volumes/AI_MODELS/AI_LIBRARY/notebooklm_packs/imperial-multivariate-calc.md"
+    },
+    {
+      "action": "skip",
+      "resource_id": "imperial-linear-algebra",
+      "path": "/Volumes/AI_MODELS/AI_LIBRARY/notebooklm_packs/imperial-linear-algebra.md"
+    },
+    {
+      "action": "skip",
+      "resource_id": "cs229-ml",
+      "path": "/Volumes/AI_MODELS/AI_LIBRARY/notebooklm_packs/cs229-ml.md"
+    },
+    {
+      "action": "skip",
+      "resource_id": "khan-stats-probability",
+      "path": "/Volumes/AI_MODELS/AI_LIBRARY/notebooklm_packs/khan-stats-probability.md"
+    },
+    {
+      "action": "skip",
+      "resource_id": "axler-ladr",
+      "path": "/Volumes/AI_MODELS/AI_LIBRARY/notebooklm_packs/axler-ladr.md"
+    },
+    {
+      "action": "skip",
+      "resource_id": "khan-linear-algebra",
+      "path": "/Volumes/AI_MODELS/AI_LIBRARY/notebooklm_packs/khan-linear-algebra.md"
+    },
+    {
+      "action": "skip",
+      "resource_id": "khan-calculus",
+      "path": "/Volumes/AI_MODELS/AI_LIBRARY/notebooklm_packs/khan-calculus.md"
+    }
+  ],
+  "queues": {
+    "calibre_import_queue": "/Users/bryantcrowe/projects/ai-engineering-lab/projects/local-chatbot/courses/math/resources/calibre_import_queue",
+    "notebooklm_pack_queue": "/Users/bryantcrowe/projects/ai-engineering-lab/projects/local-chatbot/courses/math/resources/notebooklm_pack_queue",
+    "commuter_review_queue": "/Users/bryantcrowe/projects/ai-engineering-lab/projects/local-chatbot/courses/math/resources/commuter_review_queue",
+    "library_notebooklm_packs": "/Volumes/AI_MODELS/AI_LIBRARY/notebooklm_packs"
+  },
+  "future_extensions": {
+    "youtube_transcript_index": {
+      "status": "stub",
+      "enabled": false,
+      "manifest": "/Volumes/AI_MODELS/AI_LIBRARY/sync/future/youtube_transcript_index.json",
+      "notes": "Manual transcript paste only \u2014 no YouTube login automation"
+    },
+    "huggingface_dataset_refs": {
+      "status": "stub",
+      "enabled": false,
+      "manifest": "/Volumes/AI_MODELS/AI_LIBRARY/sync/future/huggingface_dataset_refs.json",
+      "notes": "Reference metadata only \u2014 no automated HF hub downloads"
+    },
+    "arxiv_feed_monitor": {
+      "status": "stub",
+      "enabled": false,
+      "manifest": "/Volumes/AI_MODELS/AI_LIBRARY/sync/future/arxiv_feed_monitor.json",
+      "notes": "RSS/feed index for frontier scan \u2014 dry-run fetch only when enabled"
+    },
+    "notebooklm_export_manifests": {
+      "status": "stub",
+      "enabled": false,
+      "manifest": "/Volumes/AI_MODELS/AI_LIBRARY/sync/future/notebooklm_export_manifests.json",
+      "notes": "Manual export manifest \u2014 no Google login automation"
+    }
+  }
+}
