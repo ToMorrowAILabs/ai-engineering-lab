@@ -1,0 +1,84 @@
+{
+  "version": "2026-06-08",
+  "source": "AI Engineering from Scratch phase map aligned to TomorrowAI Course Core",
+  "alignment_policy": "Use AI Engineering from Scratch as a Tier 1 build-depth track, not as a replacement for the TomorrowAI course spine.",
+  "phases": [
+    {
+      "phase": 0,
+      "name": "Setup & Tooling",
+      "tomorrowai_module": "Course environment, Cursor/Codex, Git, Python/TypeScript setup",
+      "pulse_use": "Day 1 setup and repo hygiene",
+      "activate_when": "Tooling blocks daily execution"
+    },
+    {
+      "phase": 1,
+      "name": "Math Foundations",
+      "tomorrowai_module": "Math support layer",
+      "pulse_use": "Pull only the math needed for today's build",
+      "activate_when": "Vectors, gradients, probability, optimization, or matrix calculus block implementation"
+    },
+    {
+      "phase": 2,
+      "name": "ML Fundamentals",
+      "tomorrowai_module": "Classic ML support/remediation",
+      "pulse_use": "Use Microsoft ML-For-Beginners if fundamentals are weak",
+      "activate_when": "Regression, classification, clustering, or Scikit-learn concepts block progress"
+    },
+    {
+      "phase": 3,
+      "name": "Deep Learning Core",
+      "tomorrowai_module": "Neural network and backprop reinforcement",
+      "pulse_use": "Use for from-scratch neural net understanding",
+      "activate_when": "Transformer or LLM internals require deep learning review"
+    },
+    {
+      "phase": 7,
+      "name": "Transformers",
+      "tomorrowai_module": "LLM fundamentals",
+      "pulse_use": "Pair with LLMs-from-scratch and attention implementation",
+      "activate_when": "Attention, tokenization, context, or transformer architecture blocks work"
+    },
+    {
+      "phase": 10,
+      "name": "LLMs from Scratch",
+      "tomorrowai_module": "LLM internals and from-scratch implementation",
+      "pulse_use": "Deep reinforcement track for LLM architecture",
+      "activate_when": "Need to understand Q/K/V, pretraining loop, inference, or fine-tuning concepts"
+    },
+    {
+      "phase": 11,
+      "name": "LLM Engineering",
+      "tomorrowai_module": "Production LLM application development",
+      "pulse_use": "Main AI engineering build track",
+      "activate_when": "Building prompts, structured outputs, RAG, tool calling, or production LLM features"
+    },
+    {
+      "phase": 13,
+      "name": "Tools & Protocols",
+      "tomorrowai_module": "Tool calling, MCP, API integration",
+      "pulse_use": "Agent tool protocol implementation",
+      "activate_when": "Building MCP tools, function calling, or external tool integrations"
+    },
+    {
+      "phase": 14,
+      "name": "Agent Engineering",
+      "tomorrowai_module": "Agents, planning, tool use, recovery, evaluation",
+      "pulse_use": "Osiris/OpenClaw/Pulse agent track",
+      "activate_when": "Building agents with planning, tools, memory, or evals"
+    },
+    {
+      "phase": 17,
+      "name": "Infrastructure & Production",
+      "tomorrowai_module": "Deployment, observability, local inference, evaluation, safety",
+      "pulse_use": "Production hardening and portfolio deployment",
+      "activate_when": "Shipping to Vercel, adding evals, monitoring, or local inference"
+    },
+    {
+      "phase": 19,
+      "name": "Capstone Projects",
+      "tomorrowai_module": "Portfolio proof",
+      "pulse_use": "Final deployable artifact",
+      "activate_when": "Ready to build public portfolio/demo system"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "version": "2026-06-08",
+  "source_of_truth": "TomorrowAI Course Core",
+  "description": "Shared ML/AI Engineering course resource registry for TomorrowAI Command Center, Pulse, and Cursor/Codex workflows.",
+  "resources": [
+    {
+      "id": "ai-engineering-from-scratch",
+      "name": "AI Engineering from Scratch",
+      "url": "https://github.com/rohitg00/ai-engineering-from-scratch",
+      "website": "https://aiengineeringfromscratch.com",
+      "tier": "tier_1_active_build",
+      "role": "Build-from-scratch reinforcement, artifact generation, MCP/agent/LLM engineering depth track.",
+      "tags": [
+        "ai-engineering",
+        "from-scratch",
+        "llms",
+        "agents",
+        "mcp",
+        "transformers",
+        "infrastructure",
+        "capstone",
+        "portfolio"
+      ],
+      "use_for": [
+        "math-to-code reinforcement",
+        "LLM engineering",
+        "tools and protocols",
+        "agent engineering",
+        "autonomous systems",
+        "multi-agent and swarms",
+        "production infrastructure",
+        "capstone artifacts",
+        "portfolio projects"
+      ],
+      "do_not_use_for": [
+        "replacing the TomorrowAI course spine",
+        "forcing completion of all phases before shipping",
+        "blocking daily build progress with excessive reading"
+      ],
+      "activation_rule": "Use when today's Pulse or Command Center build needs from-scratch reinforcement, agent/MCP depth, or a portfolio-grade artifact.",
+      "surface_usage": {
+        "command_center": "Show as a Tier 1 build-depth resource in the strategic ML Course dashboard.",
+        "pulse": "Show only when it supports today's build task or checkpoint.",
+        "cursor": "Use to generate implementation tasks and artifacts."
+      },
+      "last_checked": "2026-06-08"
+    },
+    {
+      "id": "microsoft-ml-for-beginners",
+      "name": "Microsoft ML-For-Beginners",
+      "url": "https://github.com/microsoft/ML-For-Beginners",
+      "website": "https://microsoft.github.io/ML-For-Beginners/",
+      "tier": "tier_2_foundation_support",
+      "role": "Classic machine learning fundamentals and remediation resource.",
+      "tags": [
+        "machine-learning",
+        "classical-ml",
+        "scikit-learn",
+        "regression",
+        "classification",
+        "clustering",
+        "quizzes",
+        "fundamentals"
+      ],
+      "use_for": [
+        "regression review",
+        "classification review",
+        "clustering review",
+        "Scikit-learn fluency",
+        "classic ML vocabulary",
+        "quizzes and fundamentals checks",
+        "remediation when ML basics block AI engineering progress"
+      ],
+      "do_not_use_for": [
+        "main AI engineering roadmap",
+        "LLM engineering",
+        "RAG implementation",
+        "agent engineering",
+        "production AI systems",
+        "replacing build-first course flow"
+      ],
+      "activation_rule": "Use only when a classical ML concept is blocking the active AI engineering build or checkpoint.",
+      "surface_usage": {
+        "command_center": "Show as a Tier 2 support/remediation resource.",
+        "pulse": "Show only as support if today's task exposes a fundamentals gap.",
+        "cursor": "Use for small review tasks, not main build tasks."
+      },
+      "last_checked": "2026-06-08"
+    }
+  ]
+}
